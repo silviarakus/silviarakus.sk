@@ -3,37 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diagnostika manažéra a lídra</title>
+<title>Diagnostika manažéra a lídra — FENIX</title>
+<meta name="description" content="Interaktívna diagnostika manažéra a lídra. Zisti, kde dnes stojíš ako líder a ktoré oblasti ti oslabujú výkon. FENIX — Silvia Rakus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap');
-
 :root {
-  --navy: #0f1b2d;
-  --navy-light: #1a2d47;
-  --gold: #c9a84c;
-  --gold-light: #e8d5a0;
-  --gold-dim: rgba(201,168,76,0.15);
-  --cream: #faf8f2;
-  --white: #ffffff;
-  --gray-100: #f5f3ee;
-  --gray-200: #e8e5dd;
-  --gray-300: #d4d0c4;
-  --gray-400: #9a9588;
-  --gray-600: #5a564e;
-  --green: #2d6a4f;
-  --green-light: #e8f5ee;
-  --red: #9a3d3d;
-  --red-light: #fbe8e8;
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+  /* FENIX paleta — fenixbrandmanual.md §7 */
+  --obsidian: #0B0D10;
+  --graphite: #1C2128;
+  --deep-charcoal: #11151A;
+  --bone: #F5F1E8;
+  --ash-grey: #8E8E8E;
+  --soft-sand: #D8C7AA;
+  --ember-copper: #C66A2B;
+  --electric-ember: #FF7A1A;
+
+  --ember-dim: rgba(198,106,43,0.15);
+  --hairline: rgba(245,241,232,0.10);
+  --hairline-strong: rgba(245,241,232,0.20);
+  --muted: #B5AEA2;
+  --good: #7DC5A6;
+  --good-bg: rgba(125,197,166,0.12);
+  --alert: #F0836A;
+  --alert-bg: rgba(232,74,26,0.14);
+  --caution: #E8B45A;
+  --caution-bg: rgba(232,180,90,0.14);
+
+  --font-display: 'Sora', 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  color-scheme: dark;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: var(--font-body);
-  background: var(--cream);
-  color: var(--navy);
+  background: var(--obsidian);
+  color: var(--bone);
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.5;
@@ -58,7 +66,7 @@ body {
   font-weight: 600;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--ember-copper);
   margin-bottom: 30px;
 }
 
@@ -67,18 +75,18 @@ body {
   font-size: clamp(36px, 6vw, 56px);
   font-weight: 700;
   line-height: 1.15;
-  color: var(--navy);
+  color: var(--bone);
   margin-bottom: 20px;
 }
 
 .intro h1 em {
-  color: var(--gold);
-  font-style: italic;
+  color: var(--ember-copper);
+  font-style: normal;
 }
 
 .intro-desc {
   font-size: 17px;
-  color: var(--gray-600);
+  color: var(--muted);
   max-width: 580px;
   line-height: 1.7;
   margin-bottom: 16px;
@@ -86,13 +94,13 @@ body {
 
 .intro-meta {
   font-size: 13px;
-  color: var(--gray-400);
+  color: var(--ash-grey);
   margin-bottom: 36px;
 }
 
 .intro-contract {
-  background: var(--white);
-  border-left: 3px solid var(--gold);
+  background: var(--graphite);
+  border-left: 3px solid var(--ember-copper);
   padding: 22px 26px;
   max-width: 580px;
   text-align: left;
@@ -103,13 +111,13 @@ body {
 .intro-contract h4 {
   font-family: var(--font-display);
   font-size: 20px;
-  color: var(--navy);
+  color: var(--bone);
   margin-bottom: 10px;
 }
 
 .intro-contract p {
   font-size: 14px;
-  color: var(--gray-600);
+  color: var(--muted);
   line-height: 1.65;
 }
 
@@ -127,17 +135,17 @@ body {
   padding: 16px 20px;
   font-family: var(--font-body);
   font-size: 16px;
-  border: 2px solid var(--gray-200);
+  border: 2px solid var(--hairline);
   border-radius: 14px;
-  background: var(--white);
-  color: var(--navy);
+  background: var(--graphite);
+  color: var(--bone);
   transition: all 0.3s;
 }
 
 .intro-form input:focus {
   outline: none;
-  border-color: var(--gold);
-  box-shadow: 0 0 0 4px var(--gold-dim);
+  border-color: var(--ember-copper);
+  box-shadow: 0 0 0 4px var(--ember-dim);
 }
 
 .btn-primary {
@@ -147,20 +155,20 @@ body {
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  background: var(--navy);
-  color: var(--cream);
+  background: var(--ember-copper);
+  color: var(--obsidian);
   border: none;
   border-radius: 100px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 20px rgba(15,27,45,0.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.45);
 }
 
 .btn-primary:hover {
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--electric-ember);
+  color: var(--obsidian);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+  box-shadow: 0 8px 30px rgba(198,106,43,0.35);
 }
 
 .btn-primary:disabled {
@@ -176,16 +184,16 @@ body {
   font-size: 14px;
   font-weight: 500;
   background: transparent;
-  color: var(--navy);
-  border: 1.5px solid var(--gray-300);
+  color: var(--bone);
+  border: 1.5px solid var(--hairline-strong);
   border-radius: 100px;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .btn-secondary:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--ember-copper);
+  color: var(--ember-copper);
 }
 
 /* === PROGRESS === */
@@ -193,7 +201,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(250,248,242,0.95);
+  background: rgba(11,13,16,0.92);
   backdrop-filter: blur(10px);
   padding: 16px 0;
   margin-bottom: 20px;
@@ -211,26 +219,26 @@ body {
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--gray-400);
+  color: var(--ash-grey);
 }
 
 .progress-count {
   font-family: var(--font-display);
   font-size: 18px;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--bone);
 }
 
 .progress-bar {
   height: 4px;
-  background: var(--gray-200);
+  background: var(--hairline);
   border-radius: 4px;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  background: linear-gradient(90deg, var(--ember-copper), var(--electric-ember));
   border-radius: 4px;
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -238,7 +246,7 @@ body {
 .section-label {
   font-size: 11px;
   font-weight: 500;
-  color: var(--gold);
+  color: var(--ember-copper);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-top: 8px;
@@ -254,7 +262,7 @@ body {
   font-family: var(--font-display);
   font-size: 48px;
   font-weight: 700;
-  color: var(--gold-dim);
+  color: var(--ember-dim);
   line-height: 1;
 }
 
@@ -262,18 +270,18 @@ body {
   font-family: var(--font-display);
   font-size: clamp(26px, 4vw, 34px);
   font-weight: 700;
-  color: var(--navy);
+  color: var(--bone);
   margin-bottom: 12px;
   margin-top: -8px;
 }
 
 .section-intro {
   font-size: 15px;
-  color: var(--gray-600);
+  color: var(--muted);
   line-height: 1.65;
   padding: 14px 18px;
-  background: var(--white);
-  border-left: 3px solid var(--gold);
+  background: var(--graphite);
+  border-left: 3px solid var(--ember-copper);
   border-radius: 0 8px 8px 0;
 }
 
@@ -288,13 +296,13 @@ body {
   font-size: 20px;
   font-weight: 600;
   line-height: 1.35;
-  color: var(--navy);
+  color: var(--bone);
   margin-bottom: 10px;
 }
 
 .question-hint {
   font-size: 13px;
-  color: var(--gray-400);
+  color: var(--ash-grey);
   margin-bottom: 12px;
   font-style: italic;
 }
@@ -304,10 +312,10 @@ body {
   padding: 14px 18px;
   font-family: var(--font-body);
   font-size: 15px;
-  border: 2px solid var(--gray-200);
+  border: 2px solid var(--hairline);
   border-radius: 12px;
-  background: var(--white);
-  color: var(--navy);
+  background: var(--graphite);
+  color: var(--bone);
   transition: all 0.3s;
   line-height: 1.5;
   resize: vertical;
@@ -321,14 +329,14 @@ body {
 
 .question-input:focus {
   outline: none;
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px var(--gold-dim);
+  border-color: var(--ember-copper);
+  box-shadow: 0 0 0 3px var(--ember-dim);
 }
 
 /* === SCALE 1-10 === */
 .scale-block {
-  background: var(--white);
-  border: 2px solid var(--gray-200);
+  background: var(--graphite);
+  border: 2px solid var(--hairline);
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 28px;
@@ -338,14 +346,14 @@ body {
   font-family: var(--font-display);
   font-size: 19px;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--bone);
   margin-bottom: 6px;
   line-height: 1.4;
 }
 
 .scale-hint {
   font-size: 13px;
-  color: var(--gray-600);
+  color: var(--muted);
   margin-bottom: 16px;
 }
 
@@ -361,26 +369,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--white);
-  border: 2px solid var(--gray-200);
+  background: var(--graphite);
+  border: 2px solid var(--hairline);
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
-  color: var(--gray-600);
+  color: var(--muted);
   transition: all 0.25s;
   user-select: none;
 }
 
 .scale-option:hover {
-  border-color: var(--gold);
+  border-color: var(--ember-copper);
   transform: translateY(-2px);
 }
 
 .scale-option.selected {
-  background: var(--navy);
-  color: var(--cream);
-  border-color: var(--navy);
+  background: var(--ember-copper);
+  color: var(--obsidian);
+  border-color: var(--ember-copper);
 }
 
 .scale-ends {
@@ -388,7 +396,7 @@ body {
   justify-content: space-between;
   margin-top: 8px;
   font-size: 11px;
-  color: var(--gray-400);
+  color: var(--ash-grey);
   letter-spacing: 0.5px;
 }
 
@@ -400,7 +408,7 @@ body {
   gap: 14px;
   margin-top: 40px;
   padding-top: 24px;
-  border-top: 1px solid var(--gray-200);
+  border-top: 1px solid var(--hairline);
 }
 
 .nav-btn {
@@ -411,26 +419,26 @@ body {
   border-radius: 100px;
   cursor: pointer;
   transition: all 0.3s;
-  border: 1.5px solid var(--gray-300);
+  border: 1.5px solid var(--hairline-strong);
   background: transparent;
-  color: var(--navy);
+  color: var(--bone);
 }
 
 .nav-btn:hover:not(:disabled) {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--ember-copper);
+  color: var(--ember-copper);
 }
 
 .nav-btn.primary {
-  background: var(--navy);
-  color: var(--cream);
-  border-color: var(--navy);
+  background: var(--ember-copper);
+  color: var(--obsidian);
+  border-color: var(--ember-copper);
 }
 
 .nav-btn.primary:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--navy);
+  background: var(--electric-ember);
+  border-color: var(--electric-ember);
+  color: var(--obsidian);
 }
 
 .nav-btn:disabled {
@@ -448,7 +456,7 @@ body {
   text-align: center;
   margin-bottom: 40px;
   padding-bottom: 30px;
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--hairline);
 }
 
 .results-header .badge {
@@ -456,7 +464,7 @@ body {
   font-weight: 600;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--ember-copper);
   margin-bottom: 14px;
 }
 
@@ -464,35 +472,35 @@ body {
   font-family: var(--font-display);
   font-size: clamp(32px, 5vw, 44px);
   font-weight: 700;
-  color: var(--navy);
+  color: var(--bone);
   margin-bottom: 14px;
   line-height: 1.2;
 }
 
 .results-meta {
   font-size: 14px;
-  color: var(--gray-600);
+  color: var(--muted);
 }
 
 .results-meta strong {
-  color: var(--navy);
+  color: var(--bone);
   font-weight: 600;
 }
 
 .results-intro {
-  background: var(--white);
-  border-left: 3px solid var(--gold);
+  background: var(--graphite);
+  border-left: 3px solid var(--ember-copper);
   padding: 22px 26px;
   margin-bottom: 36px;
   border-radius: 0 8px 8px 0;
   font-size: 15px;
-  color: var(--gray-600);
+  color: var(--muted);
   line-height: 1.7;
 }
 
 .insight-card {
-  background: var(--white);
-  border: 2px solid var(--gray-200);
+  background: var(--graphite);
+  border: 2px solid var(--hairline);
   border-radius: 16px;
   padding: 24px 26px;
   margin-bottom: 18px;
@@ -500,9 +508,9 @@ body {
 }
 
 .insight-card:hover {
-  border-color: var(--gold);
+  border-color: var(--ember-copper);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(15,27,45,0.08);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
 }
 
 .insight-header {
@@ -522,18 +530,18 @@ body {
 }
 
 .insight-tag.alert {
-  background: var(--red-light);
-  color: var(--red);
+  background: var(--alert-bg);
+  color: var(--alert);
 }
 
 .insight-tag.caution {
-  background: #fff4e5;
-  color: #a05e00;
+  background: var(--caution-bg);
+  color: var(--caution);
 }
 
 .insight-tag.good {
-  background: var(--green-light);
-  color: var(--green);
+  background: var(--good-bg);
+  color: var(--good);
 }
 
 .insight-score {
@@ -541,12 +549,12 @@ body {
   font-family: var(--font-display);
   font-size: 28px;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--bone);
 }
 
 .insight-score small {
   font-size: 14px;
-  color: var(--gray-400);
+  color: var(--ash-grey);
   font-weight: 400;
 }
 
@@ -554,35 +562,35 @@ body {
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--bone);
   margin-bottom: 8px;
   line-height: 1.3;
 }
 
 .insight-text {
   font-size: 15px;
-  color: var(--gray-600);
+  color: var(--muted);
   line-height: 1.65;
 }
 
 .results-axes {
-  background: var(--white);
+  background: var(--graphite);
   border-radius: 20px;
   padding: 28px;
   margin: 36px 0;
-  box-shadow: 0 4px 30px rgba(15,27,45,0.06);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.4);
 }
 
 .results-axes h3 {
   font-family: var(--font-display);
   font-size: 24px;
-  color: var(--navy);
+  color: var(--bone);
   margin-bottom: 6px;
 }
 
 .results-axes-desc {
   font-size: 13px;
-  color: var(--gray-400);
+  color: var(--ash-grey);
   margin-bottom: 22px;
 }
 
@@ -604,33 +612,33 @@ body {
 .axis-name {
   font-size: 14px;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--bone);
 }
 
 .axis-value {
   font-family: var(--font-display);
   font-size: 18px;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--ember-copper);
 }
 
 .axis-bar {
   height: 10px;
-  background: var(--gray-200);
+  background: var(--hairline);
   border-radius: 10px;
   overflow: hidden;
 }
 
 .axis-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  background: linear-gradient(90deg, var(--ember-copper), var(--electric-ember));
   border-radius: 10px;
   transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.axis-fill.low { background: linear-gradient(90deg, #c77070, #e89a9a); }
-.axis-fill.mid { background: linear-gradient(90deg, #c9a84c, #e8d5a0); }
-.axis-fill.high { background: linear-gradient(90deg, #4c9a7a, #7dc5a6); }
+.axis-fill.low { background: linear-gradient(90deg, #B33A15, var(--alert)); }
+.axis-fill.mid { background: linear-gradient(90deg, var(--ember-copper), var(--electric-ember)); }
+.axis-fill.high { background: linear-gradient(90deg, #3E8C6B, var(--good)); }
 
 /* === ANSWERS RECAP === */
 .recap {
@@ -640,28 +648,28 @@ body {
 .recap h3 {
   font-family: var(--font-display);
   font-size: 26px;
-  color: var(--navy);
+  color: var(--bone);
   margin-bottom: 8px;
 }
 
 .recap-desc {
   font-size: 14px;
-  color: var(--gray-600);
+  color: var(--muted);
   margin-bottom: 24px;
 }
 
 .recap-section {
-  background: var(--white);
+  background: var(--graphite);
   border-radius: 14px;
   padding: 22px 24px;
   margin-bottom: 14px;
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--ember-copper);
 }
 
 .recap-section h4 {
   font-family: var(--font-display);
   font-size: 20px;
-  color: var(--navy);
+  color: var(--bone);
   margin-bottom: 14px;
   font-weight: 700;
 }
@@ -669,7 +677,7 @@ body {
 .recap-qa {
   margin-bottom: 14px;
   padding-bottom: 12px;
-  border-bottom: 1px dashed var(--gray-200);
+  border-bottom: 1px dashed var(--hairline);
 }
 
 .recap-qa:last-child {
@@ -681,19 +689,19 @@ body {
 .recap-q {
   font-size: 13px;
   font-weight: 600;
-  color: var(--gray-600);
+  color: var(--muted);
   margin-bottom: 4px;
 }
 
 .recap-a {
   font-size: 14px;
-  color: var(--navy);
+  color: var(--bone);
   line-height: 1.55;
   white-space: pre-wrap;
 }
 
 .recap-a.empty {
-  color: var(--gray-400);
+  color: var(--ash-grey);
   font-style: italic;
 }
 
@@ -722,39 +730,39 @@ body {
 }
 
 .action-btn.primary {
-  background: var(--navy);
-  color: var(--cream);
+  background: var(--ember-copper);
+  color: var(--obsidian);
 }
 
 .action-btn.primary:hover {
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--electric-ember);
+  color: var(--obsidian);
 }
 
 .action-btn.secondary {
   background: transparent;
-  color: var(--navy);
-  border: 1.5px solid var(--gray-300);
+  color: var(--bone);
+  border: 1.5px solid var(--hairline-strong);
 }
 
 .action-btn.secondary:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--ember-copper);
+  color: var(--ember-copper);
 }
 
 .closing-note {
   text-align: center;
   margin-top: 30px;
   padding: 24px;
-  background: var(--gold-dim);
+  background: var(--ember-dim);
   border-radius: 12px;
   font-size: 14px;
-  color: var(--gray-600);
+  color: var(--muted);
   line-height: 1.65;
 }
 
 .closing-note strong {
-  color: var(--navy);
+  color: var(--bone);
 }
 
 /* === ANIMATIONS === */
@@ -773,8 +781,8 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: var(--navy);
-  color: var(--cream);
+  background: var(--bone);
+  color: var(--obsidian);
   padding: 10px 18px;
   border-radius: 100px;
   font-size: 12px;
@@ -790,15 +798,81 @@ body {
   opacity: 1;
 }
 
+/* === BRAND CHROME === */
+.brand-bar {
+  border-bottom: 1px solid var(--hairline);
+  background: var(--deep-charcoal);
+}
+
+.brand-bar-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand-bar a { display: block; }
+.brand-bar img { display: block; height: 30px; width: auto; }
+
+.brand-bar span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ash-grey);
+}
+
+.site-footer {
+  border-top: 1px solid var(--hairline);
+  background: var(--deep-charcoal);
+  margin-top: 60px;
+}
+
+.site-footer-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 26px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--ash-grey);
+}
+
+.site-footer img { display: block; height: 24px; width: auto; }
+.site-footer a { color: var(--ember-copper); text-decoration: none; }
+.site-footer a:hover { color: var(--electric-ember); }
+
+::selection { background: var(--ember-copper); color: var(--bone); }
+:focus-visible { outline: 2px solid var(--ember-copper); outline-offset: 3px; }
+
 /* === PRINT === */
+/* Dlhé pracovné a tlačové strany idú na svetlom podklade — brand manual §13. */
 @media print {
-  body { background: white; }
+  :root {
+    --obsidian: #ffffff;
+    --graphite: #ffffff;
+    --deep-charcoal: #ffffff;
+    --bone: #11151A;
+    --muted: #4A4A4A;
+    --ash-grey: #6B6B6B;
+    --hairline: #D8D3C9;
+    --hairline-strong: #BDB7AA;
+  }
+  body { background: #fff; color: #11151A; }
   .app { max-width: 100%; padding: 0; }
-  .progress-wrap, .nav, .results-actions, .save-indicator, .closing-note { display: none !important; }
+  .progress-wrap, .nav, .results-actions, .save-indicator, .closing-note,
+  .brand-bar span, .site-footer { display: none !important; }
+  .brand-bar { border-bottom: 1px solid var(--hairline); margin-bottom: 20px; }
   .insight-card, .recap-section, .results-axes {
     break-inside: avoid;
     box-shadow: none !important;
-    border: 1px solid #ccc;
+    border: 1px solid var(--hairline);
   }
   .results-header h1 { font-size: 28px; }
   .insight-title { font-size: 18px; }
@@ -817,8 +891,25 @@ body {
 </style>
 </head>
 <body>
+
+<header class="brand-bar">
+  <div class="brand-bar-inner">
+    <a href="index.html" aria-label="FENIX — domov">
+      <img src="assets/fenix-logo-horizontal.png" alt="FENIX — Silvia Rakus">
+    </a>
+    <span>Diagnostika</span>
+  </div>
+</header>
+
 <div class="app" id="app"></div>
 <div class="save-indicator" id="saveIndicator">Uložené</div>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <img src="assets/fenix-logo-horizontal.png" alt="FENIX">
+    <span>Silvia Rakus · <a href="index.html">silviarakus.sk</a></span>
+  </div>
+</footer>
 
 <script>
 // ============================================================
@@ -1265,7 +1356,7 @@ function render() {
 function renderIntro() {
   const hasProgress = Object.keys(state.answers).length > 0;
   const progressText = hasProgress
-    ? `<p class="intro-desc" style="color: var(--gold); font-weight: 600;">Máš rozpracovanú diagnostiku — môžeš pokračovať tam, kde si skončil.</p>`
+    ? `<p class="intro-desc" style="color: var(--ember-copper); font-weight: 600;">Máš rozpracovanú diagnostiku — môžeš pokračovať tam, kde si skončil.</p>`
     : '';
 
   return `
