@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silvia Rakus — FENIX mení expertízu na nenahraditeľnú hodnotu</title>
+<meta name="description" content="Vyber si, kde začať: FENIX Stratégia hodnoty alebo Diagnostika manažéra a lídra. Silvia Rakus.">
+<meta property="og:title" content="Silvia Rakus — FENIX mení expertízu na nenahraditeľnú hodnotu">
+<meta property="og:description" content="Vyber si, kde začať: FENIX Stratégia hodnoty alebo Diagnostika manažéra a lídra.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sk_SK">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --obsidian: #0B0D10;
+  --graphite: #1C2128;
+  --deep-charcoal: #11151A;
+  --bone: #F5F1E8;
+  --ash-grey: #8E8E8E;
+  --soft-sand: #D8C7AA;
+  --ember-copper: #C66A2B;
+  --electric-ember: #FF7A1A;
+  --hairline: rgba(245,241,232,0.08);
+  --hairline-copper: rgba(198,106,43,0.35);
+  --font-sans: "Manrope", "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--obsidian);
+  color: var(--bone);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; font-weight: 600; }
+img { display: block; max-width: 100%; }
+
+::selection { background: var(--ember-copper); color: var(--bone); }
+:focus-visible { outline: 2px solid var(--ember-copper); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { width: 100%; max-width: 1060px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+
+/* === Ambient brand layers === */
+.grid-layer {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgba(245,241,232,0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245,241,232,0.045) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(ellipse 85% 65% at 50% 32%, #000 18%, transparent 76%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 32%, #000 18%, transparent 76%);
+}
+.flare {
+  pointer-events: none;
+  position: fixed;
+  top: -240px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  width: min(900px, 130vw);
+  height: 660px;
+  background: radial-gradient(circle at 50% 45%, rgba(198,106,43,0.26), transparent 62%);
+  filter: blur(32px);
+  animation: breathe 7s ease-in-out infinite;
+}
+@keyframes breathe { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
+
+/* === Layout === */
+.page { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
+
+.intro { padding: 78px 0 8px; text-align: center; }
+.portrait {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 34px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--hairline-copper);
+  box-shadow: 0 0 0 6px rgba(198,106,43,0.06), 0 18px 50px -20px rgba(0,0,0,0.8);
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--ember-copper);
+}
+.eyebrow::before, .eyebrow::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 28px;
+  background-color: var(--ember-copper);
+}
+.intro h1 {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 22px;
+}
+.intro .slogan {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--soft-sand);
+  margin-top: 18px;
+}
+.intro .lead {
+  max-width: 58ch;
+  margin: 26px auto 0;
+  color: var(--ash-grey);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.choose {
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ash-grey);
+}
+.choose::before, .choose::after {
+  content: "";
+  display: block;
+  height: 1px;
+  flex: 1;
+  max-width: 140px;
+  background: var(--hairline);
+}
+
+/* === The two choices === */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin-top: 34px;
+  padding-bottom: 88px;
+}
+@media (min-width: 860px) { .cards { grid-template-columns: 1fr 1fr; gap: 26px; } }
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 34px 32px;
+  background: var(--graphite);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: border-color 0.35s ease, transform 0.35s ease, background-color 0.35s ease;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--ember-copper), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.card:hover, .card:focus-visible { border-color: var(--hairline-copper); transform: translateY(-4px); background-color: #20262e; }
+.card:hover::before, .card:focus-visible::before { opacity: 1; }
+
+.card-icon { width: 42px; height: 42px; stroke: var(--ember-copper); fill: none; stroke-width: 1.2; }
+.card-kicker {
+  margin-top: 26px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ember-copper);
+}
+.card h2 { margin-top: 14px; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em; }
+.card p { margin-top: 16px; color: var(--ash-grey); line-height: 1.75; font-size: 0.98rem; }
+.card .for-whom {
+  margin-top: 18px;
+  color: var(--soft-sand);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.card-link {
+  margin-top: auto;
+  padding-top: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.card-link::before {
+  content: "";
+  position: absolute;
+  left: 34px; right: 34px;
+  height: 1px;
+  background: var(--hairline);
+  transform: translateY(-26px);
+}
+.card:hover .card-link { color: var(--electric-ember); }
+.arrow { display: inline-block; transition: transform 0.3s ease; }
+.card:hover .arrow { transform: translateX(5px); }
+
+/* === Footer === */
+.site-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--hairline);
+  padding: 30px 0;
+  background: var(--deep-charcoal);
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--ash-grey);
+}
+.site-footer img { height: 26px; width: auto; }
+</style>
+</head>
+<body>
+
+<div class="grid-layer" aria-hidden="true"></div>
+<div class="flare" aria-hidden="true"></div>
+
+<div class="page">
+  <main class="wrap">
+
+    <section class="intro">
+      <figure class="portrait">
+        <img src="assets/silvia-hero.jpg" alt="Silvia Rakus — portrét">
+      </figure>
+      <p class="eyebrow">Vitaj</p>
+      <h1>Silvia&nbsp;Rakus</h1>
+      <p class="slogan">Expertíza · Hodnota · Nenahraditeľnosť</p>
+      <p class="lead">
+        Pomáham expertom, obchodníkom a lídrom nájsť skutočnú hodnotu ich expertízy,
+        postaviť na nej stratégiu a premeniť ju na systém, ktorý trh pochopí, ocení
+        a zaplatí. Nižšie sú dve cesty — vyber si tú, ktorá sedí na to, čo riešiš dnes.
+      </p>
+    </section>
+
+    <p class="choose">Vyber si, kde začať</p>
+
+    <div class="cards">
+
+      <a class="card" href="fenix.html">
+        <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 4 L40 16 L34 40 L14 40 L8 16 Z"/>
+          <path d="M8 16 L40 16"/>
+          <path d="M24 4 L18 16 L24 40 L30 16 Z"/>
+        </svg>
+        <p class="card-kicker">Stratégia hodnoty</p>
+        <h2>FENIX</h2>
+        <p>
+          Hlavný program. Prejdeme tvoju expertízu, pomenujeme hodnotu, ktorú v nej máš,
+          a postavíme z nej ponuku a systém — od auditu expertízy cez pozíciu na trhu
+          až po implementáciu.
+        </p>
+        <p class="for-whom">Pre teba, ak vieš, že tvoja práca má väčšiu hodnotu, než akú za ňu dnes dostávaš.</p>
+        <span class="card-link">Otvoriť FENIX <span class="arrow" aria-hidden="true">→</span></span>
+      </a>
+
+      <a class="card" href="Diagnostika_Manazera.html">
+        <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="18"/>
+          <circle cx="24" cy="24" r="7"/>
+          <path d="M24 2 L24 10 M24 38 L24 46 M2 24 L10 24 M38 24 L46 24"/>
+          <path d="M29 19 L24 24"/>
+        </svg>
+        <p class="card-kicker">Interaktívna diagnostika</p>
+        <h2>Diagnostika manažéra a lídra</h2>
+        <p>
+          Online test, ktorý ti priamo v prehliadači zostaví tvoj leadership profil.
+          Ukáže, kde dnes stojíš ako líder a ktoré oblasti ti oslabujú výkon skôr,
+          než sa to prejaví na tíme.
+        </p>
+        <p class="for-whom">Pre teba, ak vedieš ľudí a chceš vidieť svoje silné aj slepé miesta čierne na bielom.</p>
+        <span class="card-link">Spustiť diagnostiku <span class="arrow" aria-hidden="true">→</span></span>
+      </a>
+
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <img src="assets/fenix-logo-horizontal.png" alt="FENIX">
+    <span>Silvia Rakus · silviarakus.sk</span>
+  </div>
+</footer>
+
+</body>
+</html>

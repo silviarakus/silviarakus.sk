@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FENIX — Zmeň svoju expertízu na nenahraditeľnú hodnotu | Silvia Rakus</title>
+<meta name="description" content="FENIX Diagnostika: za 90 minút zistíš, kde tvoja expertíza stráca hodnotu a ktoré 3 páky ju premenia na cenu, ktorú klient neodmietne. Silvia Rakus, 20+ rokov v biznise.">
+<meta property="og:title" content="FENIX — Zmeň svoju expertízu na nenahraditeľnú hodnotu | Silvia Rakus">
+<meta property="og:description" content="FENIX Diagnostika: za 90 minút zistíš, kde tvoja expertíza stráca hodnotu a ktoré 3 páky ju premenia na cenu, ktorú klient neodmietne. Silvia Rakus, 20+ rokov v biznise.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sk_SK">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --obsidian: #0B0D10;
+  --graphite: #1C2128;
+  --deep-charcoal: #11151A;
+  --bone: #F5F1E8;
+  --ash-grey: #8E8E8E;
+  --soft-sand: #D8C7AA;
+  --ember-copper: #C66A2B;
+  --electric-ember: #FF7A1A;
+  --signal-red: #E84A1A;
+  --hairline: rgba(245,241,232,0.08);
+  --hairline-copper: rgba(198,106,43,0.35);
+  --font-sans: "Manrope", "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--obsidian);
+  color: var(--bone);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.1; font-weight: 600; }
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+
+::selection { background: var(--ember-copper); color: var(--bone); }
+:focus-visible { outline: 2px solid var(--ember-copper); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.ember-text { color: var(--ember-copper); }
+.hairline-t { border-top: 1px solid var(--hairline); }
+.hairline-b { border-bottom: 1px solid var(--hairline); }
+
+/* === Grain overlay === */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  width: 100%;
+  height: 100%;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+}
+
+/* === Reveal on scroll === */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+.reveal.reveal-in { opacity: 1; transform: translateY(0); }
+
+@keyframes breathe { 0%, 100% { opacity: 0.85; } 50% { opacity: 1; } }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.flare-breathe { animation: breathe 7s ease-in-out infinite; }
+.marquee-track { animation: marquee 26s linear infinite; }
+
+/* === Ember button === */
+.btn-ember {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--obsidian);
+  background-color: var(--ember-copper);
+  text-decoration: none;
+  box-shadow: 0 10px 30px -10px rgba(255,122,26,0.55);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-ember:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 50px -12px rgba(255,122,26,0.75);
+}
+.btn-ember .arrow { display: inline-block; transition: transform 0.3s ease; }
+.btn-ember:hover .arrow { transform: translateX(4px); }
+
+/* === Eyebrow === */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+  color: var(--ember-copper);
+}
+.eyebrow::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 32px;
+  background-color: var(--ember-copper);
+}
+
+/* === Header === */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11,13,16,0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--hairline);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.header-logo img { height: 34px; width: auto; }
+.header-cta { display: none; }
+@media (min-width: 900px) { .header-cta { display: block; } }
+
+/* === Hero === */
+.hero { position: relative; overflow: hidden; }
+.hero-ghost {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-ghost span {
+  user-select: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(9rem, 30vw, 26rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  -webkit-text-stroke: 1px rgba(245,241,232,0.055);
+  color: transparent;
+}
+.hero-flare {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70%;
+  background: radial-gradient(ellipse 70% 100% at 50% 100%, rgba(255,122,26,0.34) 0%, rgba(255,122,26,0.12) 40%, transparent 72%);
+  filter: blur(6px);
+}
+.hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 56px;
+  min-height: 92vh;
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+@media (min-width: 1024px) {
+  .hero-grid { grid-template-columns: 1.15fr 1fr; padding-top: 128px; padding-bottom: 128px; }
+}
+.hero h1 {
+  margin-top: 24px;
+  font-weight: 600;
+  font-size: clamp(2.9rem, 6vw, 5.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+}
+.hero-lead {
+  margin-top: 28px;
+  max-width: 52ch;
+  font-size: 1.13rem;
+  line-height: 1.65;
+  color: var(--ash-grey);
+}
+.hero-cta { margin-top: 36px; }
+.hero-stats {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 640px) { .hero-stats { grid-template-columns: repeat(3, 1fr); } }
+.hero-stats li { border-left: 2px solid var(--ember-copper); padding-left: 16px; }
+.hero-stats .big { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--bone); }
+.hero-stats .small { font-size: 0.88rem; color: var(--ash-grey); }
+.hero-logo { display: flex; align-items: center; justify-content: center; }
+.hero-logo img { width: 100%; max-width: 380px; height: auto; user-select: none; }
+
+/* === Marquee === */
+.marquee {
+  overflow: hidden;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  background: var(--deep-charcoal);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+.marquee-viewport { display: flex; white-space: nowrap; width: max-content; }
+.marquee-set {
+  display: flex;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  color: var(--ash-grey);
+}
+.marquee-item { margin-left: 32px; margin-right: 32px; display: inline-flex; align-items: center; gap: 32px; }
+
+/* === Sections === */
+section { position: relative; }
+.section-pad { padding-top: 96px; padding-bottom: 96px; }
+@media (min-width: 768px) { .section-pad { padding-top: 128px; padding-bottom: 128px; } }
+
+.section-title {
+  margin-top: 24px;
+  font-weight: 600;
+  font-size: clamp(2rem, 3.6vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--bone);
+}
+
+/* === Problem === */
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+}
+@media (min-width: 1024px) { .problem-grid { grid-template-columns: 1.1fr 1fr; gap: 96px; } }
+.problem-body { margin-top: 32px; display: flex; flex-direction: column; gap: 24px; font-size: 1.02rem; line-height: 1.65; color: var(--ash-grey); }
+.problem-quote-wrap { padding-top: 32px; border-top: 1px solid var(--hairline-copper); }
+@media (min-width: 1024px) { .problem-quote-col { padding-top: 64px; } }
+.problem-quote {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--bone);
+}
+
+/* === Selekcia === */
+.select-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 768px) { .select-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
+.select-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 1px;
+  transition: transform 0.3s ease;
+}
+.select-card:hover { transform: translateY(-4px); }
+.select-card.yes { background: linear-gradient(140deg, rgba(198,106,43,0.55), rgba(198,106,43,0.08) 60%, rgba(245,241,232,0.05)); }
+.select-card.no { background: linear-gradient(140deg, rgba(245,241,232,0.16), rgba(245,241,232,0.03)); }
+.select-card-inner {
+  border-radius: 16px;
+  padding: 32px;
+  background: linear-gradient(160deg, var(--graphite), var(--deep-charcoal));
+  height: 100%;
+}
+@media (min-width: 768px) { .select-card-inner { padding: 40px; } }
+.select-card h3 { font-size: 1.4rem; font-weight: 600; }
+.select-card.yes h3 { color: var(--ember-copper); }
+.select-card.no h3 { color: var(--ash-grey); }
+.select-card ul { margin-top: 24px; display: flex; flex-direction: column; gap: 16px; font-size: 1rem; }
+.select-card.yes ul { color: var(--bone); }
+.select-card.no ul { color: var(--ash-grey); }
+.select-card li { display: flex; gap: 12px; }
+.diamond {
+  margin-top: 8px;
+  height: 6px;
+  width: 6px;
+  flex-shrink: 0;
+  transform: rotate(45deg);
+  background-color: var(--ember-copper);
+}
+.cross { margin-top: 2px; color: var(--ash-grey); flex-shrink: 0; }
+
+/* === Priebeh === */
+.steps-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 768px) { .steps-grid { grid-template-columns: repeat(3, 1fr); } }
+.step-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 32px;
+  background: linear-gradient(160deg, var(--graphite), var(--deep-charcoal));
+  border: 1px solid var(--hairline);
+  transition: border-color 0.3s ease;
+}
+.step-card:hover { border-color: rgba(198,106,43,0.55); }
+.step-num {
+  position: absolute;
+  right: -8px;
+  top: -24px;
+  user-select: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 6.5rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(198,106,43,0.55);
+}
+.step-card h3 { position: relative; margin-top: 64px; font-size: 1.35rem; font-weight: 600; color: var(--bone); }
+.step-card p { position: relative; margin-top: 16px; font-size: 0.98rem; line-height: 1.65; color: var(--ash-grey); }
+
+/* === Offer card === */
+.offer-outer {
+  position: relative;
+  margin-top: 64px;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(140deg, rgba(198,106,43,0.6), rgba(198,106,43,0.15) 55%, rgba(245,241,232,0.06));
+}
+.offer-inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 32px;
+  background: linear-gradient(160deg, var(--graphite) 0%, var(--deep-charcoal) 60%, var(--obsidian) 100%);
+  box-shadow: 0 50px 100px -40px rgba(0,0,0,0.9);
+}
+@media (min-width: 768px) { .offer-inner { padding: 56px; } }
+.offer-glow {
+  pointer-events: none;
+  position: absolute;
+  right: -96px;
+  top: 50%;
+  height: 520px;
+  width: 520px;
+  transform: translateY(-50%);
+  background: radial-gradient(closest-side, rgba(255,122,26,0.35), rgba(255,122,26,0.08) 55%, transparent 75%);
+  filter: blur(4px);
+}
+.offer-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+@media (min-width: 768px) { .offer-grid { grid-template-columns: 1.4fr 1fr; align-items: center; } }
+.offer-grid h3 {
+  font-weight: 600;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--bone);
+}
+.offer-list { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; font-size: 1rem; color: var(--bone); }
+.offer-list li { display: flex; align-items: flex-start; gap: 12px; }
+.dash { margin-top: 12px; height: 2px; width: 16px; flex-shrink: 0; background-color: var(--ember-copper); }
+.offer-side { }
+@media (min-width: 768px) { .offer-side { text-align: right; } }
+.offer-price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 4.2rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ember-copper);
+}
+.offer-note { margin-top: 12px; font-size: 0.85rem; color: var(--ash-grey); }
+.offer-btn-row { margin-top: 28px; display: flex; }
+@media (min-width: 768px) { .offer-btn-row { justify-content: flex-end; } }
+.offer-alt { margin-top: 24px; font-size: 0.9rem; color: var(--ash-grey); }
+.tag-pill {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ember-copper);
+  border: 1px solid rgba(198,106,43,0.55);
+}
+.offer-alt a { color: var(--bone); text-decoration: underline; text-decoration-color: rgba(198,106,43,0.55); text-underline-offset: 4px; }
+.offer-alt a:hover { text-decoration-color: var(--ember-copper); }
+
+/* === Silvia === */
+.silvia-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 56px;
+}
+@media (min-width: 1024px) { .silvia-grid { grid-template-columns: 1fr 1.15fr; gap: 80px; } }
+.portrait {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 430px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,0.8);
+}
+@media (min-width: 768px) { .portrait { max-width: none; } }
+.portrait-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 80% at 70% 20%, rgba(255,122,26,0.28), transparent 55%),
+    radial-gradient(90% 70% at 30% 90%, rgba(198,106,43,0.18), transparent 60%),
+    linear-gradient(160deg, var(--graphite) 0%, var(--obsidian) 100%);
+}
+.portrait img { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; }
+.portrait-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--obsidian) 0%, rgba(11,13,16,0) 30%),
+    linear-gradient(0deg, var(--obsidian) 0%, rgba(11,13,16,0) 40%);
+}
+.bracket-tl { position: absolute; left: 12px; top: 12px; height: 48px; width: 48px; border-left: 2px solid var(--ember-copper); border-top: 2px solid var(--ember-copper); }
+.bracket-br { position: absolute; right: 12px; bottom: 12px; height: 48px; width: 48px; border-right: 2px solid var(--ember-copper); border-bottom: 2px solid var(--ember-copper); }
+.portrait figcaption { position: absolute; bottom: 20px; left: 20px; z-index: 10; }
+.portrait .cap { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.24em; color: var(--bone); }
+.portrait .sub { margin-top: 4px; font-size: 0.66rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.22em; color: var(--ash-grey); }
+.silvia-text p { font-size: 1.02rem; line-height: 1.65; color: var(--ash-grey); }
+.silvia-text > p:first-of-type { margin-top: 24px; }
+.silvia-quote {
+  margin: 32px 0;
+  padding-left: 24px;
+  border-left: 2px solid var(--ember-copper);
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.45rem;
+  line-height: 1.35;
+  color: var(--bone);
+}
+.silvia-text strong { font-weight: 700; color: var(--bone); }
+
+/* === FAQ === */
+.faq-list { margin-top: 48px; }
+.faq-item { border-bottom: 1px solid var(--hairline); }
+.faq-q {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 0;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+@media (min-width: 768px) { .faq-q { font-size: 1.18rem; } }
+.faq-q span:first-child { color: var(--bone); }
+.faq-toggle {
+  display: grid;
+  place-items: center;
+  height: 32px;
+  width: 32px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(198,106,43,0.55);
+  color: var(--ember-copper);
+  font-family: var(--font-sans);
+  transition: transform 0.3s ease;
+}
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.faq-a-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  overflow: hidden;
+  transition: grid-template-rows 0.5s ease, opacity 0.5s ease;
+}
+.faq-item.open .faq-a-wrap { grid-template-rows: 1fr; opacity: 1; }
+.faq-a-inner { min-height: 0; }
+.faq-a-inner p {
+  max-width: 48rem;
+  padding-bottom: 28px;
+  padding-right: 40px;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--ash-grey);
+}
+
+/* === Final CTA === */
+.final { position: relative; overflow: hidden; }
+.final-flare {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 70%;
+  background: radial-gradient(ellipse 70% 100% at 50% 0%, rgba(255,122,26,0.32) 0%, rgba(255,122,26,0.1) 42%, transparent 72%);
+  filter: blur(6px);
+}
+.final-inner { position: relative; padding-top: 112px; padding-bottom: 112px; text-align: center; }
+@media (min-width: 768px) { .final-inner { padding-top: 160px; padding-bottom: 160px; } }
+.final-box { margin: 0 auto; max-width: 48rem; }
+.final .eyebrow { justify-content: center; }
+.final h2 {
+  margin-top: 24px;
+  font-weight: 600;
+  font-size: clamp(2.1rem, 4.4vw, 4rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--bone);
+}
+.final p { margin-top: 24px; font-size: 1.08rem; color: var(--ash-grey); }
+.final-btn { margin-top: 40px; display: flex; justify-content: center; }
+
+/* === Footer === */
+.site-footer { border-top: 1px solid var(--hairline); }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 24px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
+.footer-grid img { height: 26px; width: auto; }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 32px; font-size: 0.9rem; color: var(--ash-grey); }
+.footer-nav a { text-decoration: none; }
+.footer-nav a:hover { color: var(--bone); }
+.footer-copy { font-size: 0.82rem; color: var(--ash-grey); }
+@media (min-width: 768px) { .footer-copy { text-align: right; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .flare-breathe { animation: none !important; }
+  .marquee-track { animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<svg aria-hidden="true" class="grain">
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+    <feColorMatrix type="saturate" values="0" />
+  </filter>
+  <rect width="100%" height="100%" filter="url(#grain)" />
+</svg>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" aria-label="FENIX — domov" class="header-logo">
+      <img src="assets/fenix-logo-horizontal.png" alt="FENIX — Silvia Rakus">
+    </a>
+    <div class="header-cta">
+      <a href="#diagnostika" class="btn-ember"><span>Rezervovať diagnostiku</span><span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section id="top" class="hero">
+    <div class="hero-ghost" aria-hidden="true"><span>FENIX</span></div>
+    <div class="hero-flare flare-breathe" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <div class="eyebrow"><span>Silvia Rakus · Program Fenix</span></div>
+        <h1>Zmeň svoju expertízu na <span class="ember-text">nenahraditeľnú</span> hodnotu.</h1>
+        <p class="hero-lead">Vieš viac, než koľko si účtuješ. FENIX Diagnostika ti za 90 minút ukáže, kde presne tá hodnota uniká — a čo s tým urobiť ako prvé.</p>
+        <div class="hero-cta">
+          <a href="#diagnostika" class="btn-ember"><span>Rezervovať diagnostiku — 290 €</span><span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <ul class="hero-stats">
+          <li><div class="big">90 minút</div><div class="small">jeden rozhovor</div></li>
+          <li><div class="big">3 páky</div><div class="small">s určenou prioritou</div></li>
+          <li><div class="big">8 miest</div><div class="small">mesačne</div></li>
+        </ul>
+      </div>
+      <div class="reveal hero-logo">
+        <img src="assets/fenix-logo-stacked.png" alt="FENIX — logo značky Silvia Rakus" draggable="false">
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-viewport marquee-track">
+      <div class="marquee-set" id="marquee-set-a"></div>
+      <div class="marquee-set" id="marquee-set-b"></div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="hairline-b">
+    <div class="wrap section-pad problem-grid">
+      <div class="reveal">
+        <div class="eyebrow"><span>Prečo cena stagnuje</span></div>
+        <h2 class="section-title">Klient neplatí za to, čo vieš. Platí za to, čo z toho vidí.</h2>
+        <div class="problem-body">
+          <p>Niektorí experti pracujú dvadsať rokov a stále sa cenia podľa hodín. Nie preto, že by nevedeli dosť. Preto, že nikto im neukázal, ako sa hodnota počíta — a tak ju počítal klient. A klient počíta vždy nadol.</p>
+          <p>Možno to poznáš. Dodáš viac, než bolo dohodnuté. Klient je spokojný. A ďalšia ponuka sa aj tak rieši cez cenu.</p>
+        </div>
+      </div>
+      <div class="reveal problem-quote-col">
+        <div class="problem-quote-wrap">
+          <blockquote class="problem-quote">To nie je problém dopytu. To je <span class="ember-text">cenová diera</span> — a dá sa presne pomenovať.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELEKCIA -->
+  <section class="hairline-b">
+    <div class="wrap section-pad">
+      <div class="reveal" style="max-width: 48rem;">
+        <div class="eyebrow"><span>Selekcia</span></div>
+        <h2 class="section-title">Diagnostika nie je pre každého. <span class="ember-text">Zámerne.</span></h2>
+      </div>
+      <div class="select-grid">
+        <div class="reveal select-card yes">
+          <div class="select-card-inner">
+            <h3>Je pre teba, ak</h3>
+            <ul>
+              <li><span class="diamond" aria-hidden="true"></span><span>máš expertízu overenú rokmi a reálnymi klientmi</span></li>
+              <li><span class="diamond" aria-hidden="true"></span><span>predávaš, ale cítiš, že pod cenu</span></li>
+              <li><span class="diamond" aria-hidden="true"></span><span>si pripravený zmeniť ponuku, nie len pridávať obsah</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="reveal select-card no">
+          <div class="select-card-inner">
+            <h3>Nie je pre teba, ak</h3>
+            <ul>
+              <li><span class="cross" aria-hidden="true">✕</span><span>začínaš a nemáš klientov</span></li>
+              <li><span class="cross" aria-hidden="true">✕</span><span>hľadáš motiváciu namiesto rozhodnutí</span></li>
+              <li><span class="cross" aria-hidden="true">✕</span><span>chceš, aby to niekto urobil za teba bez tvojej práce</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIEBEH -->
+  <section id="diagnostika" class="hairline-b">
+    <div class="wrap section-pad">
+      <div class="reveal" style="max-width: 48rem;">
+        <div class="eyebrow"><span>Ako to prebieha</span></div>
+        <h2 class="section-title">90 minút. Tri kroky. Žiadna teória navyše.</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="reveal step-card">
+          <span class="step-num" aria-hidden="true">01</span>
+          <h3>Rezervuješ termín</h3>
+          <p>Vyplníš 5 otázok o svojom biznise, aby sme nestrácali čas úvodom a išli rovno na vec.</p>
+        </div>
+        <div class="reveal step-card">
+          <span class="step-num" aria-hidden="true">02</span>
+          <h3>90 minút so Silviou</h3>
+          <p>Mapa expertízy — čo vieš vs. čo si klient reálne kupuje. Pomenovanie cenovej diery. Tri páky s prioritou.</p>
+        </div>
+        <div class="reveal step-card">
+          <span class="step-num" aria-hidden="true">03</span>
+          <h3>Zhrnutie do 48 hodín</h3>
+          <p>Záznam a písomné zhrnutie. Prvý krok vieš urobiť ešte v ten istý týždeň.</p>
+        </div>
+      </div>
+
+      <div class="reveal offer-outer">
+        <div class="offer-inner">
+          <div class="offer-glow" aria-hidden="true"></div>
+          <div class="offer-grid">
+            <div>
+              <h3>FENIX <span class="ember-text">Diagnostika</span></h3>
+              <ul class="offer-list">
+                <li><span class="dash" aria-hidden="true"></span><span>90-minútový rozhovor 1:1 so Silviou Rakus</span></li>
+                <li><span class="dash" aria-hidden="true"></span><span>Mapa expertízy a pomenovaná cenová diera</span></li>
+                <li><span class="dash" aria-hidden="true"></span><span>3 konkrétne páky s určenou prioritou</span></li>
+                <li><span class="dash" aria-hidden="true"></span><span>Záznam + písomné zhrnutie do 48 hodín</span></li>
+                <li><span class="dash" aria-hidden="true"></span><span>Pri vstupe do programu FENIX sa 290 € odpočíta z ceny</span></li>
+              </ul>
+            </div>
+            <div class="offer-side">
+              <div class="offer-price">290 €</div>
+              <p class="offer-note">8 miest mesačne — limit kalendára, nie marketingu</p>
+              <div class="offer-btn-row">
+                <a href="mailto:silvia@fenixos.sk?subject=Rezerv%C3%A1cia%20diagnostiky" class="btn-ember"><span>Rezervovať termín</span><span class="arrow" aria-hidden="true">→</span></a>
+              </div>
+              <p class="offer-alt">Alebo napíš <span class="tag-pill">DIAGNOSTIKA</span> do správy na <a href="https://www.instagram.com/silviarakus/" target="_blank" rel="noopener noreferrer">@silviarakus</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SILVIA -->
+  <section class="hairline-b">
+    <div class="wrap section-pad silvia-grid">
+      <div class="reveal">
+        <figure class="portrait">
+          <div class="portrait-bg" aria-hidden="true"></div>
+          <img src="assets/silvia-hero.jpg" alt="Silvia Rakus — portrét">
+          <div class="portrait-veil" aria-hidden="true"></div>
+          <span class="bracket-tl" aria-hidden="true"></span>
+          <span class="bracket-br" aria-hidden="true"></span>
+          <figcaption>
+            <div class="cap">SILVIA RAKUS</div>
+            <div class="sub">CEO · MODERNÝ MAKLÉR TRENČÍN</div>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="reveal silvia-text">
+        <div class="eyebrow"><span>Kto vedie diagnostiku</span></div>
+        <h2 class="section-title">Silvia Rakus</h2>
+        <p>Viac ako 20 rokov v biznise. CEO realitnej kancelárie Moderný Maklér Trenčín — firmy, ktorá predáva nehnuteľnosti v priemere za tri týždne. Nie na šťastí. Na systéme.</p>
+        <blockquote class="silvia-quote">To, čo vieš, ešte nie je to, za čo sa platí. <span class="ember-text">Rozdiel medzi tým je moja práca.</span></blockquote>
+        <p>Rovnaký princíp, ktorým postavila firmu, dnes prenáša na expertízu jednotlivcov. Pre niektorých bude diagnostika začiatok niečoho väčšieho. <strong>O tom v októbri 2026.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="hairline-b">
+    <div class="wrap section-pad">
+      <div class="reveal" style="max-width: 48rem;">
+        <div class="eyebrow"><span>Otázky</span></div>
+        <h2 class="section-title">Na rovinu, <span class="ember-text">vopred.</span></h2>
+      </div>
+      <div class="faq-list reveal" id="faq"></div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final hairline-b">
+    <div class="final-flare flare-breathe" aria-hidden="true"></div>
+    <div class="wrap final-inner">
+      <div class="reveal final-box">
+        <div class="eyebrow"><span>Fenix</span></div>
+        <h2>Tvoja expertíza má cenu. Otázka je, <span class="ember-text">kto ju určuje.</span></h2>
+        <p>Ty, alebo klient. Diagnostika je miesto, kde sa to otočí.</p>
+        <div class="final-btn">
+          <a href="mailto:silvia@fenixos.sk?subject=Rezerv%C3%A1cia%20diagnostiky" class="btn-ember"><span>Rezervovať diagnostiku — 290 €</span><span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div><img src="assets/fenix-logo-horizontal.png" alt="FENIX"></div>
+    <nav class="footer-nav">
+      <a href="https://www.instagram.com/silviarakus/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="index.html">silviarakus.sk</a>
+      <a href="mailto:silvia@fenixos.sk">silvia@fenixos.sk</a>
+    </nav>
+    <div class="footer-copy">© 2026 Silvia Rakus — FENIX</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // ---- Marquee content ----
+  var marqueeItem =
+    '<span class="marquee-item">' +
+    '<span>EXPERTÍZA</span><span class="ember-text">→</span>' +
+    '<span>HODNOTA</span><span class="ember-text">→</span>' +
+    '<span>CENA</span><span class="ember-text">◆</span>' +
+    '</span>';
+  var marqueeHtml = new Array(8).fill(marqueeItem).join('');
+  document.getElementById('marquee-set-a').innerHTML = marqueeHtml;
+  document.getElementById('marquee-set-b').innerHTML = marqueeHtml;
+
+  // ---- FAQ ----
+  var faqs = [
+    {
+      q: "Čo je FENIX diagnostika a pre koho je určená?",
+      a: "90-minútový rozhovor so Silviou Rakus pre expertov, ktorí už predávajú svoje služby, ale cítia, že pod cenu. Výstupom je mapa expertízy, pomenovaná cenová diera a tri konkrétne páky s prioritou."
+    },
+    {
+      q: "Koľko stojí diagnostika a čo presne obsahuje?",
+      a: "290 €. Obsahuje 90-minútový rozhovor, mapu expertízy, identifikáciu cenovej diery, tri páky s prioritou a písomné zhrnutie so záznamom do 48 hodín. Pri vstupe do programu FENIX sa suma odpočíta z ceny programu."
+    },
+    {
+      q: "Prebieha diagnostika online alebo osobne?",
+      a: "Podľa tvojej voľby — cez videohovor alebo osobne v Trenčíne. Priebeh aj výstupy sú rovnaké."
+    },
+    {
+      q: "Čo je program FENIX?",
+      a: "Šesťmesačný program, v ktorom Silvia spoločne s tebou prestavia tvoju expertízu na ponuku s nenahraditeľnou hodnotou. Vstup je výhradne cez diagnostiku. Detaily programu budú predstavené v októbri 2026."
+    },
+    {
+      q: "Oplatí sa mi diagnostika za 290 €?",
+      a: "Zlá otázka na zlé číslo. Nepočítaj cenu diagnostiky — spočítaj, koľko ťa každý mesiac stojí ponuka predávaná pod cenou. Diagnostika ti to číslo ukáže presne."
+    }
+  ];
+
+  var faqRoot = document.getElementById('faq');
+  faqs.forEach(function (f, i) {
+    var item = document.createElement('div');
+    item.className = 'faq-item' + (i === 0 ? ' open' : '');
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'faq-q';
+    btn.setAttribute('aria-expanded', i === 0 ? 'true' : 'false');
+
+    var label = document.createElement('span');
+    label.textContent = f.q;
+    var toggle = document.createElement('span');
+    toggle.className = 'faq-toggle';
+    toggle.setAttribute('aria-hidden', 'true');
+    toggle.textContent = '+';
+    btn.appendChild(label);
+    btn.appendChild(toggle);
+
+    var wrap = document.createElement('div');
+    wrap.className = 'faq-a-wrap';
+    var inner = document.createElement('div');
+    inner.className = 'faq-a-inner';
+    var p = document.createElement('p');
+    p.textContent = f.a;
+    inner.appendChild(p);
+    wrap.appendChild(inner);
+
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('open');
+      faqRoot.querySelectorAll('.faq-item').forEach(function (el) {
+        el.classList.remove('open');
+        el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    item.appendChild(btn);
+    item.appendChild(wrap);
+    faqRoot.appendChild(item);
+  });
+
+  // ---- Reveal on scroll ----
+  var els = document.querySelectorAll('.reveal');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('reveal-in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('reveal-in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "Silvia Rakus",
+      "jobTitle": "Zakladateľka programu FENIX, CEO Moderný Maklér Trenčín",
+      "url": "https://www.silviarakus.sk/",
+      "sameAs": ["https://www.silviarakus.sk/", "https://www.instagram.com/silviarakus/"]
+    },
+    {
+      "@type": "Service",
+      "name": "FENIX Diagnostika expertízy",
+      "serviceType": "Diagnostika expertízy",
+      "areaServed": "SK",
+      "offers": {
+        "@type": "Offer",
+        "price": "290",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/LimitedAvailability"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
