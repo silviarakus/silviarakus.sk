@@ -199,7 +199,7 @@ body {
 /* === PROGRESS === */
 .progress-wrap {
   position: sticky;
-  top: 0;
+  top: 57px;
   z-index: 100;
   background: rgba(11,13,16,0.92);
   backdrop-filter: blur(10px);
@@ -800,8 +800,13 @@ body {
 
 /* === BRAND CHROME === */
 .brand-bar {
+  position: sticky;
+  top: 0;
+  z-index: 110;
   border-bottom: 1px solid var(--hairline);
-  background: var(--deep-charcoal);
+  background: rgba(17, 21, 26, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .brand-bar-inner {
@@ -814,16 +819,35 @@ body {
   gap: 16px;
 }
 
-.brand-bar a { display: block; }
+.brand-bar a.brand-bar-logo { display: block; }
 .brand-bar img { display: block; height: 30px; width: auto; }
 
-.brand-bar span {
+.brand-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.brand-bar-label {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--ash-grey);
 }
+
+.brand-bar-home {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.25s;
+}
+
+.brand-bar-home:hover { color: var(--bone); }
 
 .site-footer {
   border-top: 1px solid var(--hairline);
@@ -867,7 +891,7 @@ body {
   body { background: #fff; color: #11151A; }
   .app { max-width: 100%; padding: 0; }
   .progress-wrap, .nav, .results-actions, .save-indicator, .closing-note,
-  .brand-bar span, .site-footer { display: none !important; }
+  .brand-bar-label, .brand-bar-home, .site-footer { display: none !important; }
   .brand-bar { border-bottom: 1px solid var(--hairline); margin-bottom: 20px; }
   .insight-card, .recap-section, .results-axes {
     break-inside: avoid;
@@ -894,10 +918,13 @@ body {
 
 <header class="brand-bar">
   <div class="brand-bar-inner">
-    <a href="index.html" aria-label="FENIX — domov">
+    <a href="index.html" class="brand-bar-logo" aria-label="Späť na domov">
       <img src="assets/fenix-logo-horizontal.png" alt="FENIX — Silvia Rakus">
     </a>
-    <span>Diagnostika</span>
+    <div class="brand-bar-actions">
+      <span class="brand-bar-label">Diagnostika</span>
+      <a href="index.html" class="brand-bar-home">← Späť na domov</a>
+    </div>
   </div>
 </header>
 
@@ -907,7 +934,7 @@ body {
 <footer class="site-footer">
   <div class="site-footer-inner">
     <img src="assets/fenix-logo-horizontal.png" alt="FENIX">
-    <span>Silvia Rakus · <a href="index.html">silviarakus.sk</a></span>
+    <span>Silvia Rakus · <a href="index.html">Späť na domov</a></span>
   </div>
 </footer>
 
