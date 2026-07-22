@@ -625,6 +625,35 @@ function renderRdQuiz(){
   </div>`;
 }
 
+/* ============ ULOŽENIE DO NOTION ============ */
+const SAVE_ENDPOINT = '/api/save-diagnostika';
+let savedOnce = false;
+function saveToNotion(){
+  if(savedOnce) return; savedOnce = true;
+  try{
+    const mp = computeMp();
+    const {results, totalPct} = computeRd();
+    const readiness = {}; results.forEach(r=>{ readiness[r.id] = r.pct; });
+    const metaprograms = {}; mp.forEach(m=>{ metaprograms[m.mp.id] = m.domName; });
+    const summary = mp.map(m=>`${m.mp.name}: ${m.domName} (${Math.max(m.pctA,m.pctB)}%)`).join(' · ');
+    const payload = {
+      name: state.name,
+      dateISO: new Date().toISOString().slice(0,10),
+      readinessTotal: totalPct,
+      tier: tier(totalPct).tag,
+      readiness,
+      metaprograms,
+      summary,
+      raw: { mpAnswers: state.mpAnswers, rdAnswers: state.rdAnswers }
+    };
+    fetch(SAVE_ENDPOINT, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    }).catch(()=>{}); // tiché zlyhanie — výsledok sa klientovi zobrazí bez ohľadu na uloženie
+  }catch(e){ /* ignoruj */ }
+}
+
 /* ============ VÝPOČTY ============ */
 function computeMp(){
   const scores={}; META_PROGRAMS.forEach(mp=>scores[mp.id]={a:0,b:0});
@@ -815,7 +844,7 @@ function bindEvents(){
     });
     const n=document.getElementById('nextRdBtn'); if(n) n.addEventListener('click',goNextRd);
     const p=document.getElementById('prevRdBtn'); if(p) p.addEventListener('click',goPrevRd);
-    const f=document.getElementById('finishRdBtn'); if(f) f.addEventListener('click',()=>{ state.screen='results'; state.view='client'; render(); window.scrollTo({top:0,behavior:'smooth'}); });
+    const f=document.getElementById('finishRdBtn'); if(f) f.addEventListener('click',()=>{ saveToNotion(); state.screen='results'; state.view='client'; render(); window.scrollTo({top:0,behavior:'smooth'}); });
   }
 
   document.querySelectorAll('.view-btn').forEach(b=>{
@@ -825,6 +854,7 @@ function bindEvents(){
   const printBtn=document.getElementById('printBtn'); if(printBtn) printBtn.addEventListener('click',()=>window.print());
   const restartBtn=document.getElementById('restartBtn');
   if(restartBtn) restartBtn.addEventListener('click',()=>{
+    savedOnce=false;
     state.screen='intro'; state.name=''; state.mpCurrent=0; state.mpAnswers={}; state.rdCurrent=0; state.rdAnswers={}; state.view='client';
     state.mpQuestions=prepareMpQuestions();
     render(); window.scrollTo({top:0,behavior:'smooth'});
