@@ -851,7 +851,16 @@ function bindEvents(){
     b.addEventListener('click',()=>{ state.view=b.getAttribute('data-view'); render(); window.scrollTo({top:0,behavior:'smooth'}); });
   });
 
-  const printBtn=document.getElementById('printBtn'); if(printBtn) printBtn.addEventListener('click',()=>window.print());
+  const printBtn=document.getElementById('printBtn'); if(printBtn) printBtn.addEventListener('click',()=>{
+    const baseTitle=document.title;
+    const nm=(state.name||'').trim().replace(/\s+/g,'_');
+    const label=state.view==='advisor'?'Pohlad_poradcu':'Diagnostika_metaprogramov';
+    document.title=(nm?nm+'_':'')+label;
+    const restore=()=>{ document.title=baseTitle; window.removeEventListener('afterprint',restore); };
+    window.addEventListener('afterprint',restore);
+    window.print();
+    setTimeout(restore,1000);
+  });
   const restartBtn=document.getElementById('restartBtn');
   if(restartBtn) restartBtn.addEventListener('click',()=>{
     savedOnce=false;
