@@ -41,9 +41,10 @@ function loadEnv() {
   const file = path.join(ROOT, '.env');
   if (!fs.existsSync(file)) return;
   for (const line of fs.readFileSync(file, 'utf8').split('\n')) {
-    const m = line.match(/^\s*([\w.-]+)\s*=\s*(.*)\s*$/);
+    // voliteľné "export ", medzery okolo "=", orezané medzery na konci hodnoty
+    const m = line.match(/^\s*(?:export\s+)?([\w.-]+)\s*=\s*(.*?)\s*$/);
     if (!m || line.trim().startsWith('#')) continue;
-    const value = m[2].replace(/^(['"])(.*)\1$/, '$2');
+    const value = m[2].replace(/^(['"])([\s\S]*)\1$/, '$2');
     if (process.env[m[1]] === undefined) process.env[m[1]] = value;
   }
 }
