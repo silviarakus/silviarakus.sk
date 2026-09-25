@@ -1,0 +1,23 @@
+{
+  "produkt": "Kompletná realitná služba pri predaji zdedeného bytu — od nacenenia, cez dedičské papiere a fotky, až po odovzdanie kľúčov kupujúcemu.",
+  "segment": "Ľudia, ktorí zdedili byt po rodičoch, bývajú v inom meste a chcú ho predať, ale nevedia, kde začať a komu veriť.",
+  "cena": "provízia z transakcie",
+  "vek_situacia": "45–60 rokov, deti už väčšie alebo z domu, zdedili byt po mame alebo otcovi v rodnom meste, sami bývajú inde.",
+  "profesia": "Zamestnanci na strednej pozícii alebo menší podnikatelia. Peniaze z predaja chcú dať deťom alebo splatiť hypotéku, bojia sa, že predajú lacno.",
+  "aktualny_stav": "Byt stojí prázdny, platí zaň energie a fond opráv. Raz za mesiac tam cestuje dve hodiny, vetrá a zbiera poštu. Súrodenec do toho kecá a nechce predávať pod cenu.",
+  "problem_technicky": "Prázdny byt ho stojí peniaze každý mesiac a nevie, za koľko ho predať.",
+  "problem_emocny": "Štve ho, že musí riešiť papiere a cudzích ľudí, keď ešte nespracoval, že mama umrela. Každá návšteva bytu ho zloží.",
+  "strach": "Bojí sa, že ho realiťák oklame, predá byt kamarátovi lacno a on sa to dozvie až neskôr. A že ho súrodenec bude obviňovať.",
+  "cena_necinnosti": "Každý mesiac tristo eur za energie a fond, byt chátra, a spor so súrodencom sa zhoršuje.",
+  "co_skusal": "Dal inzerát sám na bazoš, ozvali sa len špekulanti a realitky, ktoré sľubovali nereálne ceny, aby dostali exkluzivitu.",
+  "preco_nefungovalo": "Nevedel posúdiť, kto hovorí pravdu. Každý povedal inú cenu a on sa bál podpísať čokoľvek, tak to nechal tak.",
+  "namietky": ["Tri percentá za pár prehliadok? To je veľa.", "Ešte to nechám, nech sa ceny pohnú.", "Realiťáci chcú len rýchlo predať a zobrať províziu."],
+  "falosne_presvedcenia": ["Sám to predám rovnako dobre.", "Všetci realiťáci sú rovnakí.", "Keď podpíšem exkluzivitu, už sa z toho nevyzmotám."],
+  "vysledok": "Byt je predaný za férovú cenu, peniaze sú na účte a súrodenci sa nepohádali, lebo všetko bolo transparentné.",
+  "skryta_tuzba": "Chce to mať uzavreté a prestať tam jazdiť. Chce mať pokoj od súrodenca a pocit, že to spravil pre mamu dôstojne.",
+  "pocit": "Úľava. Že je to za ním a spravil to dobre.",
+  "identita": "Zodpovedný syn, ktorý sa postaral o rodinný majetok a nenechal sa nachytať.",
+  "citaty": ["Nechcem kúpiť mačku vo vreci.", "Nechcem, aby to išlo niekomu za babku.", "Ja tam už nechcem chodiť."],
+  "kamaradovi": "Vieš čo, ja by som to najradšej mal z krku. Ale nechcem to dať nejakému špekulantovi za babku, mama by sa v hrobe obracala. A brat mi do toho stále kecá.",
+  "kde_zije": "Facebookové skupiny o nehnuteľnostiach v regióne, odporúčanie od kolegu, Google recenzie."
+}
