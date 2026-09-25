@@ -1,0 +1,96 @@
+{
+  "archetyp": "Opatrný Peter",
+  "esencia": "Peter má moderný dom a chce ho mať energeticky dotiahnutý raz a poriadne. Bojí sa, že zaplatí veľa a o dva roky zistí, že to bolo zle navrhnuté.",
+  "a_demografia": {
+    "meno": "Peter Kováč",
+    "vek": "46 rokov",
+    "profesia": "IT manažér vo väčšej firme v Bratislave. Vedie tím a celý deň rieši rozhodnutia s dopadom na rozpočet. Doma chce mať veci vyriešené rovnako systematicky.",
+    "prijem": "Stabilne vyšší príjem. Nehľadá najnižšiu cenu, ale nechce vyhodiť peniaze na riešenie, ktoré nebude fungovať.",
+    "rodina": "Ženatý, dve deti na základnej škole.",
+    "lokalita": "Rodinný dom na predmestí Bratislavy.",
+    "denny_rytmus": "Ráno odvezie deti do školy a ide do práce. Večer po večeri sedí s notebookom a číta diskusie o fotovoltike a batériách.",
+    "aktualny_stav": "Má moderný dom a elektromobil, ale stále platí vysoké účty. Nevie, čo príde na ďalšej faktúre. Oslovil tri firmy a každá mu odporučila niečo iné. Rozhodnutie odložil."
+  },
+  "b_psychografia": {
+    "hlavna_bolest": "Štve ho, že každý rok platí viac a nemá nad tým žiadnu kontrolu. V práci má všetko zmerané a naplánované, doma nevie ani to, prečo je účet taký vysoký. Cíti sa ako amatér vo vlastnom dome. A to ho hnevá viac než samotné peniaze.",
+    "najvacsia_frustracia": "Každá firma mu povie niečo iné a on nevie, komu veriť.",
+    "najvacsi_strach": "Že zaplatí veľa a o dva roky zistí, že to bolo zle navrhnuté a musí to prerábať.",
+    "co_uz_skusal": "Oslovil tri firmy, pozeral YouTube recenzie a čítal facebookové skupiny o bývaní.",
+    "preco_to_nefungovalo": "Stratil sa v protichodných odporúčaniach. Nechcel urobiť chybu, tak radšej neurobil nič.",
+    "falosne_presvedcenia": [
+      "Všetky firmy sú rovnaké, každá mi chce hlavne niečo predať.",
+      "U mňa to nebude fungovať tak, ako to kreslia v kalkulačke.",
+      "Keď ešte rok počkám, technológia bude lacnejšia a lepšia.",
+      "Kto nerobí v energetike, ten sa v tom aj tak nevyzná."
+    ],
+    "skryta_tuzba": "Chce mať energetiku domu vyriešenú raz a poriadne a prestať to riešiť. Nechce každý mesiac otvárať faktúru s obavou. Chce, aby dom, batéria a auto fungovali ako jeden celok, na ktorý sa nemusí pozerať. Chce mať pocit, že rozhodol správne. A chce to mať za sebou.",
+    "vysneny_vysledok": "Dom, batéria a auto fungujú ako jeden premyslený celok.",
+    "ako_sa_chce_citit": "Pokojne, s pocitom, že to má pod kontrolou.",
+    "kym_sa_chce_stat": "Človek, ktorý má moderný dom dotiahnutý do detailu a robí rozumné rozhodnutia.",
+    "socialny_rozmer": "Chce, aby ho susedia a kolegovia brali ako toho, kto to spravil poriadne a nenechal sa nachytať.",
+    "hodnoty": ["poriadok", "kontrola", "rozumné rozhodnutia", "rodina", "spoľahlivosť"],
+    "strachy": ["že sa nechá nachytať", "že bude pred rodinou vyzerať ako ten, čo vyhodil peniaze", "že stratí kontrolu nad vlastným domom"],
+    "statusove_symboly": ["elektromobil", "moderný dom", "aplikácia, kde vidí spotrebu v reálnom čase"]
+  },
+  "c_vnutorny_dialog": "Zase mi prišla faktúra a zase je vyššia. Ja mám v robote všetko spočítané a doma neviem, kam mi idú peniaze. Volal som trom firmám a každý mi hovoril niečo iné. Ja nehľadám najlacnejšie, ja chcem, aby to bolo spravené poriadne. Len sa bojím, že do toho vrazím kopu peňazí a o dva roky to budem prerábať. Tak to zas odložím, aj keď viem, že ma to stojí.",
+  "d_jazyk_zakaznika": {
+    "styl_komunikacie": "Vecný, chce čísla a logiku. Dôveruje, keď mu niekto vysvetlí prečo, nie len čo.",
+    "ako_opisuje_problem": ["Každý mi hovorí niečo iné.", "Neviem, čo mi príde na ďalšej faktúre."],
+    "ako_hovori_o_peniazoch": ["Nehľadám najlacnejšie.", "Nechcem vyhodiť peniaze."],
+    "ako_hovori_o_riziku": ["Nechcem kúpiť mačku vo vreci.", "Nechcem to o tri roky prerábať."],
+    "ako_opisuje_vysledok": ["Chcem to spraviť raz a poriadne.", "Aby to fungovalo a ja som to nemusel riešiť."],
+    "spustacie_slova": ["raz a poriadne", "celok", "pod kontrolou", "prepočítané", "bez prerábania", "jasný plán", "vysvetlené", "overené", "napojené na auto"],
+    "odpudzujuce_slova": ["akcia len dnes", "revolučné", "najlacnejšie na trhu", "garantovaná úspora 90 %", "zaručene"]
+  },
+  "e_kamaradovi": [
+    "Ja nehľadám najlacnejšie. Chcem, aby to bolo spravené poriadne a nemusel som to za tri roky prerábať.",
+    "Volal som trom firmám a každý mi navrhol niečo iné, tak som to zatiaľ odpískal.",
+    "Najviac ma serie, že doma nemám nad tým žiadnu kontrolu."
+  ],
+  "f_pred_po": {
+    "pred": {
+      "co_ma": "Moderný dom, elektromobil a vysoké účty.",
+      "co_robi": "Večer číta diskusie a porovnáva ponuky, ktoré si protirečia.",
+      "ako_sa_citi": "Nahnevaný a neistý. Nemá nad tým kontrolu.",
+      "ako_sa_vnima": "Ako amatér vo vlastnom dome."
+    },
+    "po": {
+      "co_ma": "Dom, batériu a auto, ktoré fungujú ako jeden premyslený celok.",
+      "co_robi": "Nerieši to. Raz za čas pozrie aplikáciu a vidí, že všetko sedí.",
+      "ako_sa_citi": "Pokojne, s pocitom, že to má pod kontrolou.",
+      "ako_sa_vnima": "Ako človek, ktorý robí rozumné rozhodnutia a má dom dotiahnutý do detailu."
+    }
+  },
+  "g_namietky": [
+    { "namietka": "Je to drahé.", "co_je_pod_tym": "Nebojí sa ceny, bojí sa, že zaplatí za zlé riešenie.", "odpoved": "Ukážeme ti prepočet na desať rokov a čo presne platíš. Nič navyše, čo nepotrebuješ." },
+    { "namietka": "Ešte počkám.", "co_je_pod_tym": "Nemá istotu, že rozhodnutie je správne, tak ho odkladá.", "odpoved": "Každý rok čakania ťa stojí pár tisíc na účtoch. Návrh si pokojne nechaj preveriť, kým sa rozhodneš." },
+    { "namietka": "Neviem, komu veriť.", "co_je_pod_tym": "Tri firmy mu povedali tri rôzne veci.", "odpoved": "Never nám naslepo. Pozri sa, prečo navrhujeme práve toto, a porovnaj to s ostatnými ponukami bod po bode." },
+    { "namietka": "U mňa to nebude fungovať.", "co_je_pod_tym": "Nevidí, ako riešenie sedí na jeho konkrétny dom.", "odpoved": "Návrh robíme podľa tvojej reálnej spotreby, nie podľa tabuľky. Ukážeme ti čísla z tvojho domu." },
+    { "namietka": "Všetky firmy sú rovnaké.", "co_je_pod_tym": "Nevidí rozdiel, lebo mu ho nikto nevysvetlil.", "odpoved": "Rozdiel je v tom, či dom, batéria a auto navrhneš ako celok, alebo po kúskoch. Ukážeme ti, čo to znamená v praxi." }
+  ],
+  "h_marketingove_materialy": {
+    "headliny": [
+      "Dom, batéria a auto ako jeden celok. Raz a poriadne.",
+      "Každý ti hovorí niečo iné? Ukážeme ti prečo.",
+      "Prestaň otvárať faktúru s obavou."
+    ],
+    "podnadpisy": [
+      "Návrh podľa tvojej reálnej spotreby, nie podľa tabuľky.",
+      "Vysvetlíme ti, prečo navrhujeme práve toto.",
+      "Aby si to o tri roky nemusel prerábať."
+    ],
+    "uvodne_vety_na_hovor": [
+      "Koľko ponúk si už dostal a v čom si protirečili?",
+      "Čo by sa muselo stať, aby si to mal vyriešené raz a poriadne?",
+      "Čoho sa pri tomto rozhodnutí najviac bojíš?"
+    ],
+    "napady_na_obsah": [
+      "Tri ponuky, tri odporúčania: ako ich porovnať bod po bode.",
+      "Prečo sa dom, batéria a auto oplatí navrhovať spolu.",
+      "Koľko stojí rok čakania — prepočet na reálnom dome.",
+      "Päť otázok, ktoré položiť firme skôr, než podpíšeš.",
+      "Ako vyzerá dom, na ktorý sa nemusíš pozerať."
+    ]
+  },
+  "chyba_v_zadani": []
+}

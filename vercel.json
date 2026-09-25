@@ -1,0 +1,25 @@
+{
+  "rewrites": [
+    { "source": "/kto-je-moj-zakaznik", "destination": "/kto-je-moj-zakaznik.html" },
+    { "source": "/kto-je-moj-zakaznik/report/:token", "destination": "/api/zakaznik/report?token=:token" },
+    { "source": "/api/zakaznik/status/:token", "destination": "/api/zakaznik/status?token=:token" },
+    { "source": "/ochrana-osobnych-udajov", "destination": "/ochrana-osobnych-udajov.html" }
+  ],
+  "functions": {
+    "api/zakaznik/submit.js": { "maxDuration": 300 },
+    "api/zakaznik/status.js": { "maxDuration": 300 },
+    "api/zakaznik/cron.js": { "maxDuration": 300 }
+  },
+  "crons": [
+    { "path": "/api/zakaznik/cron", "schedule": "0 4 * * *" }
+  ],
+  "headers": [
+    {
+      "source": "/kto-je-moj-zakaznik/report/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Referrer-Policy", "value": "no-referrer" }
+      ]
+    }
+  ]
+}
