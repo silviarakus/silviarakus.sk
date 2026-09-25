@@ -3,7 +3,7 @@
   "private": true,
   "description": "silviarakus.sk — statické stránky a Vercel funkcie",
   "engines": {
-    "node": ">=20"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "ZAKAZNIK_MOCK=1 node scripts/dev-server.js",
