@@ -2,7 +2,7 @@
    MOCK_AI_DELAY_MS — umelé oneskorenie (default 4000)
    MOCK_AI_FAIL=1   — simuluje zlyhanie API
    MOCK_AI_INVALID=1 — prvá odpoveď nesedí so schémou (overí opravný re-prompt) */
-const fixture = require('./fixture-profile.json');
+const fixture = require('../../api/_lib/zakaznik/ukazka-profil.json');
 
 let invalidServed = false;
 

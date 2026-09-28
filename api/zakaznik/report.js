@@ -4,6 +4,8 @@ const { renderReport, webCss } = require('../_lib/zakaznik/render');
 const { formatDate } = require('../_lib/zakaznik/mail');
 const { html, queryParam } = require('../_lib/zakaznik/http');
 
+const SAMPLE_PROFILE = require('../_lib/zakaznik/ukazka-profil.json');
+
 const esc = security.escapeHtml;
 
 const PAGE_CSS = `
@@ -32,6 +34,8 @@ main{max-width:760px;margin:0 auto;padding:24px 16px 48px}
 .erase input:focus{outline:none;border-color:rgba(198,106,43,.28)}
 .erase .msg{width:100%;margin-top:6px}
 .erase .msg.err{color:#E84A1A}
+.sample-note{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;padding:14px 16px;border:1px solid rgba(198,106,43,.28);border-radius:4px;font-size:15px;line-height:1.6}
+.sample-note a{display:inline-flex;align-items:center;text-decoration:none}
 .state{max-width:560px;margin:0 auto;padding:72px 16px;text-align:center}
 .state h1{font-family:Sora,system-ui,sans-serif;font-weight:700;font-size:28px;line-height:1.2;margin:14px 0 12px}
 .state p{color:#8E8E8E;line-height:1.7}
@@ -39,7 +43,7 @@ main{max-width:760px;margin:0 auto;padding:24px 16px 48px}
 .state a{color:#C66A2B}
 @media print{
   body{background:#F5F1E8 !important;color:#0B0D10 !important}
-  .bar,.erase{display:none !important}
+  .bar,.erase,.sample-note{display:none !important}
   main{padding:0;max-width:none}
 }`;
 
@@ -106,11 +110,27 @@ document.getElementById('erase-form').addEventListener('submit', async function 
   }
 });`;
 
+const SAMPLE_TOKEN = 'ukazka';
+
+function samplePage(res) {
+  const report = renderReport(SAMPLE_PROFILE, {
+    segment: 'Majitelia moderných domov, ktorí chcú mať energetiku vyriešenú raz a poriadne.'
+  }, 'web');
+  return html(res, 200, page({
+    title: 'Ukážka reportu — Kto je môj zákazník?',
+    body:
+      '<main><div class="sample-note"><p>Ukážka. Takto vyzerá report, ktorý ti príde na e-mail — tvoj bude postavený z tvojich odpovedí.</p>' +
+      '<a href="/kto-je-moj-zakaznik" class="btn-ghost">Vytvoriť vlastný profil</a></div>' +
+      `<div class="rk-page">${report}</div></main>`
+  }));
+}
+
 module.exports = async (req, res) => {
   const notFound = () =>
     html(res, 404, statePage('404', 'Report sa nenašiel', 'Odkaz je neplatný alebo bol report vymazaný. <a href="/kto-je-moj-zakaznik">Vytvor si nový profil zákazníka.</a>'));
 
   const token = queryParam(req, 'token');
+  if (token === SAMPLE_TOKEN) return samplePage(res);
   if (!security.isValidToken(token)) return notFound();
 
   let row;
