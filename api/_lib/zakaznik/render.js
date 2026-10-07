@@ -31,7 +31,7 @@ const S = {
   dd: `padding:12px 0;vertical-align:top;border-top:1px solid ${LINE};color:#F5F1E8;`,
   list: 'margin:0 0 12px;padding-left:22px;color:#F5F1E8;',
   li: 'margin:0 0 8px;',
-  missing: `margin:28px 0 0;padding:20px;border:1px solid #C66A2B;background-color:${COPPER_TINT};`,
+  missing: `margin:36px 0 0;padding:20px;border:1px solid #C66A2B;background-color:${COPPER_TINT};`,
   missingTitle: `margin:0 0 10px;font-family:${HEAD};font-size:18px;font-weight:700;color:#F5F1E8;`,
   ppHead: `width:50%;padding:0 14px 10px 0;font-family:${HEAD};font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C66A2B;text-align:left;`,
   ppHeadPo: `width:50%;padding:0 0 10px 14px;border-left:1px solid ${LINE_COPPER};font-family:${HEAD};font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C66A2B;text-align:left;`,
@@ -90,12 +90,13 @@ function renderReport(profile, meta, mode) {
     el('h1', 'h1', t(profile.archetyp)) +
     el('p', 'lead', t(profile.esencia)) +
     (metaLine ? el('p', 'meta', metaLine) : '') +
-    (missing.length
-      ? `<div${a('missing')}>${el('p', 'missingTitle', 'Čo ešte potrebuješ zistiť')}` +
-        el('p', 'p', 'Na tieto otázky tvoje odpovede nestačili, preto ich profil nedomýšľa. Zisti ich od zákazníkov a profil bude presnejší.') +
-        `${ol(missing)}</div>`
-      : '') +
     '</div>';
+
+  const verify = missing.length
+    ? `<div${a('missing')}>${el('p', 'missingTitle', 'Čo si over u skutočných zákazníkov')}` +
+      el('p', 'p', 'Profil je postavený z tvojho krátkeho opisu a zo znalosti trhu. Tieto otázky polož dvom-trom zákazníkom. Kde sa ich odpovede líšia od profilu, ver zákazníkom.') +
+      `${ol(missing)}</div>`
+    : '';
 
   const demoRows = [
     ['Meno', d.meno], ['Vek', d.vek], ['Profesia', d.profesia], ['Príjem', d.prijem],
@@ -175,7 +176,7 @@ function renderReport(profile, meta, mode) {
     el('p', 'small', 'Silvia Rakus · FENIX · silviarakus.sk') +
     '</div>';
 
-  return header + sA + sB + sC + sD + sE + sF + sG + sH + cta + footer;
+  return header + sA + sB + sC + sD + sE + sF + sG + sH + verify + cta + footer;
 }
 
 function webCss() {
@@ -214,11 +215,6 @@ function renderReportText(profile, meta) {
 
   add('KTO JE MÔJ ZÁKAZNÍK?', '', profile.archetyp.toUpperCase(), profile.esencia, '');
   if (meta.segment) add(`Segment: ${meta.segment}`, '');
-  if (list(profile.chyba_v_zadani).length) {
-    add('ČO EŠTE POTREBUJEŠ ZISTIŤ');
-    items(profile.chyba_v_zadani, '#');
-    add('');
-  }
   add('A — KTO TO JE',
     `Meno: ${d.meno}`, `Vek: ${d.vek}`, `Profesia: ${d.profesia}`, `Príjem: ${d.prijem}`,
     `Rodina: ${d.rodina}`, `Lokalita: ${d.lokalita}`, `Denný rytmus: ${d.denny_rytmus}`, `Aktuálny stav: ${d.aktualny_stav}`, '');
@@ -260,6 +256,10 @@ function renderReportText(profile, meta) {
   items(m.uvodne_vety_na_hovor, '#');
   add('Nápady na obsah:');
   items(m.napady_na_obsah, '#');
+  if (list(profile.chyba_v_zadani).length) {
+    add('', 'ČO SI OVER U SKUTOČNÝCH ZÁKAZNÍKOV');
+    items(profile.chyba_v_zadani, '#');
+  }
   add('', `${config.ctaLabel}: ${config.ctaUrl}`, '', 'Výsledok je dôsledok, nie náhoda.', 'Silvia Rakus · FENIX · silviarakus.sk');
   return L.join('\n');
 }

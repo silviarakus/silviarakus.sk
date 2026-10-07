@@ -44,30 +44,21 @@ test('každé povinné pole má konkrétnu výzvu, nie generické „pole je pov
   }
 });
 
-test('minimá dĺžok a počtu položiek zodpovedajú zadaniu', () => {
-  const mins = { produkt: 80, segment: 60, vek_situacia: 60, profesia: 60, aktualny_stav: 100, problem_technicky: 40,
-    problem_emocny: 80, strach: 80, cena_necinnosti: 60, co_skusal: 80, preco_nefungovalo: 60, vysledok: 80,
-    skryta_tuzba: 80, pocit: 40, identita: 60, kamaradovi: 100 };
+test('krátky formulár: firma, ponuka, zákazník, cena a voliteľný doplnok', () => {
+  assert.equal(FORM.STEPS.length, 1);
+  assert.deepEqual(FORM.allFields().map((f) => f.id), ['firma', 'o_firme', 'produkt', 'segment', 'cena', 'doplnok']);
+  const mins = { o_firme: 30, produkt: 30, segment: 30 };
   for (const f of FORM.allFields()) {
     if (mins[f.id] !== undefined) {
       assert.equal(f.min, mins[f.id], f.id);
       assert.ok(FORM.fieldError(f, 'x'.repeat(f.min - 1)));
       assert.equal(FORM.fieldError(f, 'x'.repeat(f.min)), null);
     }
-    if (f.type === 'chips') {
-      assert.equal(f.minItems, 3);
-      assert.ok(FORM.fieldError(f, ['jedna', 'dve']));
-      assert.ok(FORM.fieldError(f, ['jedna', 'dve', 'x']), 'príliš krátka položka sa nepočíta');
-      assert.equal(FORM.fieldError(f, ['jedna', 'dve', 'tri']), null);
-    }
   }
-  assert.equal(FORM.fieldError(FORM.allFields().find((f) => f.id === 'kde_zije'), ''), null);
-});
-
-test('výzva pri problem_emocny a namietky je presne podľa briefu', () => {
   const byId = Object.fromEntries(FORM.allFields().map((f) => [f.id, f]));
-  assert.equal(byId.problem_emocny.hint, 'Skús ísť o úroveň hlbšie. Čo pre neho ten problém znamená? Čo kvôli tomu nemôže robiť alebo čoho sa bojí?');
-  assert.match(byId.namietky.hint, /Skús si vybaviť posledné tri hovory, ktoré nedopadli\.$/);
+  assert.equal(FORM.fieldError(byId.firma, ''), null);
+  assert.equal(FORM.fieldError(byId.doplnok, ''), null);
+  assert.ok(FORM.fieldError(byId.cena, ''));
 });
 
 test('mäkký hint pri prázdnych frázach — aj bez diakritiky, len pri krátkych odpovediach', () => {
@@ -93,22 +84,19 @@ test('ukážkový výstup prechádza zod schémou a tool schéma má všetky blo
   assert.equal(profileSchema.safeParse(broken).success, false);
 });
 
-test('system prompt je doslovný, dosadí kontext a pri malom objeme pridá zákaz domýšľania', () => {
+test('system prompt dosadí kontext a nechá AI dopracovať zvyšok profilu', () => {
   const sys = prompt.buildSystemPrompt(deep);
   assert.match(sys, /^Si expert na tvorbu marketingových avatarov podľa metodiky Silvie Rakus\./);
+  assert.ok(sys.includes(`Firma: ${deep.o_firme}`));
   assert.ok(sys.includes(`Predmet predaja: ${deep.produkt}`));
+  assert.ok(sys.includes(`Cieľový zákazník: ${deep.segment}`));
   assert.ok(sys.includes('Cenová hladina: provízia z transakcie'));
+  assert.ok(sys.includes('dopracuj sám'));
+  assert.ok(sys.includes('chyba_v_zadani'));
   assert.ok(!sys.includes('{{'));
-  assert.equal(prompt.isLowInput(deep), false);
-  assert.ok(!sys.includes('OBMEDZENÉ VSTUPY'));
-
-  const shallow = { produkt: 'byty', segment: 'dedičia', cena: 'do 500 €', namietky: ['drahé', 'počkám', 'neverím'] };
-  assert.equal(prompt.isLowInput(shallow), true);
-  assert.ok(prompt.buildSystemPrompt(shallow).includes('chyba_v_zadani'));
-  assert.ok(prompt.buildSystemPrompt(shallow).includes('Nič nedomýšľaj'));
 });
 
-test('user message obsahuje všetky polia v poradí krokov, doslovne', () => {
+test('user message obsahuje všetky polia v poradí formulára, doslovne', () => {
   const msg = prompt.buildUserMessage(deep);
   let last = -1;
   for (const f of FORM.allFields()) {
@@ -116,9 +104,9 @@ test('user message obsahuje všetky polia v poradí krokov, doslovne', () => {
     assert.ok(idx > last, `${f.id} je mimo poradia`);
     last = idx;
   }
-  assert.ok(msg.includes('- Nechcem kúpiť mačku vo vreci.'));
-  assert.ok(msg.includes(deep.kamaradovi));
-  assert.ok(msg.trim().endsWith('Použi priamo formulácie zákazníka tam, kde ich mám v odpovediach.'));
+  assert.ok(msg.includes(deep.doplnok));
+  assert.ok(msg.includes('Nechcem kúpiť mačku vo vreci.'));
+  assert.ok(msg.trim().endsWith('Tam, kde mám v odpovediach formulácie zákazníka, použi ich priamo.'));
 });
 
 test('report escapuje HTML a web/e-mail používajú rovnaký obsah', () => {
@@ -136,11 +124,12 @@ test('report escapuje HTML a web/e-mail používajú rovnaký obsah', () => {
   }
   assert.ok(!web.includes('style="'));
   assert.ok(!email.includes('class="rk-'));
-  assert.ok(!web.includes('Čo ešte potrebuješ zistiť'));
+  assert.ok(web.includes('Čo si over u skutočných zákazníkov'));
+  assert.ok(renderReportText(fixture, {}).includes('ČO SI OVER U SKUTOČNÝCH ZÁKAZNÍKOV'));
 
-  const withGaps = { ...fixture, chyba_v_zadani: ['Aké vety od neho počuješ?'] };
-  assert.ok(renderReport(withGaps, {}, 'web').includes('Čo ešte potrebuješ zistiť'));
-  assert.ok(renderReportText(withGaps, {}).includes('ČO EŠTE POTREBUJEŠ ZISTIŤ'));
+  const noGaps = { ...fixture, chyba_v_zadani: [] };
+  assert.ok(!renderReport(noGaps, {}, 'web').includes('Čo si over u skutočných zákazníkov'));
+  assert.ok(!renderReportText(noGaps, {}).includes('ČO SI OVER U SKUTOČNÝCH ZÁKAZNÍKOV'));
 });
 
 test('brand: nové súbory používajú len farby z palety 9.1 a len Sora + Manrope', () => {
@@ -232,9 +221,9 @@ test('rate limit: 1 / e-mail / 10 min a 3 / IP / hodinu', async () => {
 test('server odmietne krátke odpovede, chýbajúci súhlas a vyplnený honeypot', async () => {
   const submit = require('../api/zakaznik/submit');
   const post = (body) => call(submit, mockReq({ method: 'POST', headers: { ip: '192.0.2.50' }, body }));
-  const short = await post({ odpovede: { ...deep, problem_emocny: 'štve ho to' }, meno: 'X', email: 'short@example.sk', gdpr_suhlas: true });
+  const short = await post({ odpovede: { ...deep, produkt: 'byty' }, meno: 'X', email: 'short@example.sk', gdpr_suhlas: true });
   assert.equal(short.statusCode, 400);
-  assert.equal(short.json().field, 'problem_emocny');
+  assert.equal(short.json().field, 'produkt');
   const noGdpr = await post({ odpovede: deep, meno: 'X', email: 'nogdpr@example.sk', gdpr_suhlas: false });
   assert.equal(noGdpr.json().field, 'gdpr_suhlas');
   const bot = await post({ odpovede: deep, meno: 'X', email: 'bot@example.sk', gdpr_suhlas: true, web: 'http://spam' });

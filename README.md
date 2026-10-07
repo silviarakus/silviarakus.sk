@@ -4,11 +4,11 @@ Pridanie diagnostiky manažéra v1.0
 
 ## Kto je môj zákazník? (`/kto-je-moj-zakaznik`)
 
-Dotazník o ideálnom zákazníkovi. Odpovede spracuje AI (Anthropic) a hotový profil príde na e-mail (Resend). Všetko sa ukladá do databázy (Supabase).
+Krátky formulár: používateľ opíše firmu, čo predáva, komu a cenovú hladinu. Zvyšok profilu (bolesti, obavy, námietky, vnútorný dialóg, vety do reklamy) dopracuje AI (Anthropic) a hotový profil príde na e-mail (Resend). Všetko sa ukladá do databázy (Supabase).
 
 | Čo | Kde |
 |---|---|
-| Stránka a dotazník | `kto-je-moj-zakaznik.html`, `assets/zakaznik/` (texty otázok sú v `form.js`) |
+| Stránka a formulár | `kto-je-moj-zakaznik.html`, `assets/zakaznik/` (texty polí sú v `form.js`) |
 | Serverové funkcie | `api/zakaznik/` (submit, status, report, delete, config, cron) |
 | AI prompt, schéma, e-mail, report | `api/_lib/zakaznik/` |
 | Databáza | `supabase/migrations/001_zakaznik_submissions.sql` |

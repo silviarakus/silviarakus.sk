@@ -2,7 +2,7 @@
   'use strict';
 
   var FORM = window.ZAKAZNIK_FORM;
-  var STORAGE_KEY = 'srk-kto-je-moj-zakaznik-v1';
+  var STORAGE_KEY = 'srk-kto-je-moj-zakaznik-v2';
   var STEPS = FORM.STEPS.concat([FORM.DELIVERY_STEP]);
   var TOTAL = STEPS.length;
   var POLL_MS = 3000;
@@ -21,7 +21,7 @@
     step: 0,
     maxStep: 0,
     values: {},
-    delivery: { meno: '', email: '', firma: '', marketing_suhlas: false, gdpr_suhlas: false },
+    delivery: { meno: '', email: '', marketing_suhlas: false, gdpr_suhlas: false },
     utm: {},
     touched: {},
     showAll: false
@@ -49,7 +49,7 @@
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify({
           v: 1, step: state.step, maxStep: state.maxStep, values: state.values, utm: state.utm,
-          delivery: { meno: state.delivery.meno, email: state.delivery.email, firma: state.delivery.firma, marketing_suhlas: state.delivery.marketing_suhlas },
+          delivery: { meno: state.delivery.meno, email: state.delivery.email, marketing_suhlas: state.delivery.marketing_suhlas },
           savedAt: Date.now()
         }));
         el.saved.textContent = 'Uložené v tomto prehliadači';
@@ -117,6 +117,9 @@
       control = '<textarea id="' + id + '" name="' + f.id + '" rows="5" placeholder="' + esc(f.placeholder) +
         '" aria-describedby="' + described + '"' + (f.optional ? '' : ' aria-required="true"') + '>' +
         esc(state.values[f.id] || '') + '</textarea>';
+    } else if (f.type === 'text') {
+      control = '<input type="text" id="' + id + '" name="' + f.id + '" maxlength="200" placeholder="' + esc(f.placeholder) +
+        '" value="' + esc(state.values[f.id] || '') + '" aria-describedby="' + described + '">';
     } else if (f.type === 'select') {
       control = '<select id="' + id + '" name="' + f.id + '" aria-describedby="' + described + '" aria-required="true">' +
         '<option value="">' + esc(f.placeholder) + '</option>' +
@@ -145,7 +148,6 @@
     };
     return input('meno', 'Ako ťa mám osloviť?', 'text', 'autocomplete="given-name" maxlength="120" aria-required="true"') +
       input('email', 'Tvoj e-mail', 'email', 'autocomplete="email" inputmode="email" maxlength="254" aria-required="true"') +
-      input('firma', 'Firma', 'text', 'autocomplete="organization" maxlength="200"', true) +
       '<div class="field" id="w-gdpr_suhlas"><label class="check"><input type="checkbox" id="f-gdpr_suhlas" name="gdpr_suhlas"' +
       (d.gdpr_suhlas ? ' checked' : '') + ' aria-describedby="e-gdpr_suhlas" aria-required="true"><span>' + esc(FORM.GDPR_TEXT) + '</span></label>' +
       '<div class="meta-row"><p class="error" id="e-gdpr_suhlas"></p></div>' +
@@ -197,7 +199,7 @@
     var ids = isLast ? ['meno', 'email', 'gdpr_suhlas', 'turnstile'] : STEPS[state.step].fields.map(function (f) { return f.id; });
 
     ids.forEach(function (id) {
-      var show = !!errors[id] && (state.showAll || state.touched[id]);
+      var show = !!errors[id] && !!(state.showAll || state.touched[id]);
       var err = $('e-' + id);
       if (err) err.textContent = show ? errors[id] : '';
       var wrap = $('w-' + id);
@@ -338,7 +340,6 @@
       odpovede: state.values,
       meno: state.delivery.meno.trim(),
       email: state.delivery.email.trim(),
-      firma: state.delivery.firma.trim(),
       gdpr_suhlas: state.delivery.gdpr_suhlas,
       marketing_suhlas: state.delivery.marketing_suhlas,
       turnstile_token: turnstile.token,
@@ -551,7 +552,7 @@
       state.values = {};
       state.step = 0;
       state.maxStep = 0;
-      state.delivery = { meno: '', email: '', firma: '', marketing_suhlas: false, gdpr_suhlas: false };
+      state.delivery = { meno: '', email: '', marketing_suhlas: false, gdpr_suhlas: false };
       showWizard(0);
     });
   }

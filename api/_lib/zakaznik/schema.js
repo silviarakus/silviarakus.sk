@@ -72,7 +72,7 @@ const profileSchema = z.object({
   }),
   chyba_v_zadani: z
     .array(z.string().trim().min(1))
-    .describe('konkrétne otázky, ak vstupy nestačili; inak prázdne pole')
+    .describe('3–5 konkrétnych otázok, ktorými si používateľ overí profil u skutočných zákazníkov')
 });
 
 function toolInputSchema() {
