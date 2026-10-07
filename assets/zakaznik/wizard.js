@@ -540,7 +540,8 @@
     state.maxStep = Math.min(draft.maxStep || 0, TOTAL - 1);
     Object.assign(state.delivery, draft.delivery || {});
     state.utm = Object.assign({}, draft.utm || {}, state.utm);
-    el.btnStart.textContent = 'Pokračovať';
+    el.btnStart.textContent = 'Pokračovať vo vypĺňaní';
+    $('first-step').hidden = true;
     el.start.insertAdjacentHTML('beforeend',
       '<button type="button" class="btn-link" id="btn-reset">Začať odznova</button>' +
       '<p class="resume-note">Máš rozpracovaný formulár — krok ' + (state.step + 1) + ' zo ' + TOTAL + '. Odpovede sú uložené v tomto prehliadači.</p>');

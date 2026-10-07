@@ -14,7 +14,7 @@ const FORM = require('../assets/zakaznik/form.js');
 const { profileSchema, toolInputSchema } = require('../api/_lib/zakaznik/schema');
 const prompt = require('../api/_lib/zakaznik/prompt');
 const { renderReport, renderReportText } = require('../api/_lib/zakaznik/render');
-const fixture = require('../api/_lib/zakaznik/ukazka-profil.json');
+const fixture = require('../scripts/dev/fixture-profile.json');
 const deep = require('./fixtures/answers-deep.json');
 
 function mockReq({ method = 'GET', body, query = {}, headers = {} } = {}) {
@@ -210,10 +210,6 @@ test('end-to-end (mock): submit → generovanie → e-mail → report → výmaz
   assert.equal(missing.statusCode, 404);
   assert.ok(!missing.body.includes('Opatrný'));
   assert.equal((await call(report, mockReq({ query: { token: '../etc' } }))).statusCode, 404);
-  const sample = await call(report, mockReq({ query: { token: 'ukazka' } }));
-  assert.equal(sample.statusCode, 200);
-  assert.ok(sample.body.includes('Ukážka.') && sample.body.includes('Opatrný Peter'));
-  assert.ok(!sample.body.includes('erase-form'));
 
   assert.equal((await call(del, mockReq({ method: 'POST', body: { token, email: 'iny@example.sk' } }))).statusCode, 400);
   assert.equal((await call(del, mockReq({ method: 'POST', body: { token, email: 'JANA@example.sk' } }))).statusCode, 200);
