@@ -16,7 +16,7 @@ Dotazník o ideálnom zákazníkovi. Odpovede spracuje AI (Anthropic) a hotový 
 
 ### Nastavenie pred spustením
 
-1. **Supabase** — založ projekt (región EU, napr. Frankfurt). V *SQL Editor* spusti celý súbor `supabase/migrations/001_zakaznik_submissions.sql`. V *Project Settings → API* skopíruj *Project URL* a kľúč *service_role*.
+1. **Supabase** — založ projekt (región EU, napr. Frankfurt). V *SQL Editor* spusti celý súbor `supabase/migrations/001_zakaznik_submissions.sql`. V *Project Settings → API Keys* skopíruj *secret* kľúč (`sb_secret_…`) alebo v záložke *Legacy* kľúč *service_role*; *Project URL* nájdeš v *Project Settings → Data API*.
 2. **Anthropic** — na console.anthropic.com vytvor API kľúč a nastav si mesačný limit.
 3. **Resend** — pridaj doménu `silviarakus.sk`, vlož DNS záznamy, ktoré Resend ukáže (SPF, DKIM), počkaj na „Verified“ a vytvor API kľúč.
 4. **Cloudflare Turnstile** — pridaj widget pre `silviarakus.sk` a skopíruj *Site Key* a *Secret Key*.

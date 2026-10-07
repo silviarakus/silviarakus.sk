@@ -15,11 +15,9 @@ async function rest(method, query, { body, prefer } = {}) {
   if (!config.supabaseUrl || !config.supabaseKey) {
     throw new Error('Chýba SUPABASE_URL alebo SUPABASE_SERVICE_ROLE_KEY');
   }
-  const headers = {
-    apikey: config.supabaseKey,
-    Authorization: `Bearer ${config.supabaseKey}`,
-    'Content-Type': 'application/json'
-  };
+  const headers = { apikey: config.supabaseKey, 'Content-Type': 'application/json' };
+  // Nové kľúče (sb_secret_…) nie sú JWT a do Authorization hlavičky nepatria; legacy service_role áno.
+  if (!config.supabaseKey.startsWith('sb_')) headers.Authorization = `Bearer ${config.supabaseKey}`;
   if (prefer) headers.Prefer = prefer;
   const res = await fetch(`${config.supabaseUrl}/rest/v1/${TABLE}?${query}`, {
     method,
