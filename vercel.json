@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/portal", "destination": "https://second-brain-beta-sand.vercel.app/portal/" },
+    { "source": "/portal/:path*", "destination": "https://second-brain-beta-sand.vercel.app/portal/:path*" }
+  ]
+}
