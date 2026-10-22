@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Silvia Rakus — FENIX mení expertízu na nenahraditeľnú hodnotu</title>
-<meta name="description" content="Vyber si, kde začať: FENIX Stratégia hodnoty, Diagnostika manažéra a lídra alebo Diagnostika metaprogramov. Silvia Rakus.">
-<meta property="og:title" content="Silvia Rakus — FENIX mení expertízu na nenahraditeľnú hodnotu">
-<meta property="og:description" content="Vyber si, kde začať: FENIX Stratégia hodnoty, Diagnostika manažéra a lídra alebo Diagnostika metaprogramov.">
+<title>Silvia Rakus — reality, financie a stratégia hodnoty</title>
+<meta name="description" content="Silvia Rakus — CEO Moderný maklér Trenčín a autorka programu FENIX. Staň sa klientom, spolupracovníkom alebo si dohodni diagnostiku úzkeho hrdla.">
+<meta property="og:title" content="Silvia Rakus — dohodni si stretnutie">
+<meta property="og:description" content="Klient, spolupracovník alebo diagnostika úzkeho hrdla. Vyber si cestu a dohodni si stretnutie so Silviou Rakus.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="sk_SK">
+<meta property="og:image" content="https://www.silviarakus.sk/assets/silvia-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -23,328 +24,524 @@
   --ember-copper: #C66A2B;
   --electric-ember: #FF7A1A;
   --hairline: rgba(245,241,232,0.08);
+  --hairline-strong: rgba(245,241,232,0.16);
   --hairline-copper: rgba(198,106,43,0.35);
   --font-sans: "Manrope", "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Sora", "Montserrat", ui-sans-serif, system-ui, sans-serif;
   color-scheme: dark;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
+html { scroll-behavior: smooth; }
 body {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   background-color: var(--obsidian);
   color: var(--bone);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
   line-height: 1.5;
   overflow-x: hidden;
 }
-
-h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; font-weight: 600; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; font-weight: 600; }
 img { display: block; max-width: 100%; }
-
+a { color: inherit; }
 ::selection { background: var(--ember-copper); color: var(--bone); }
 :focus-visible { outline: 2px solid var(--ember-copper); outline-offset: 3px; border-radius: 2px; }
+[hidden] { display: none !important; }
 
-.wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+@media (max-width: 480px) { .wrap { padding: 0 16px; } }
 
-/* === Ambient brand layers === */
+/* ambient */
 .grid-layer {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 0;
+  pointer-events: none; position: fixed; inset: 0; z-index: 0;
   background-image:
-    linear-gradient(to right, rgba(245,241,232,0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(245,241,232,0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(245,241,232,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245,241,232,0.04) 1px, transparent 1px);
   background-size: 88px 88px;
-  mask-image: radial-gradient(ellipse 85% 65% at 50% 32%, #000 18%, transparent 76%);
-  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 32%, #000 18%, transparent 76%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, #000 15%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, #000 15%, transparent 75%);
 }
 .flare {
-  pointer-events: none;
-  position: fixed;
-  top: -240px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 0;
-  width: min(900px, 130vw);
-  height: 660px;
-  background: radial-gradient(circle at 50% 45%, rgba(198,106,43,0.26), transparent 62%);
-  filter: blur(32px);
-  animation: breathe 7s ease-in-out infinite;
+  pointer-events: none; position: absolute; top: -260px; left: 50%; transform: translateX(-50%);
+  z-index: 0; width: min(1000px, 140vw); height: 700px;
+  background: radial-gradient(circle at 50% 45%, rgba(198,106,43,0.24), transparent 62%);
+  filter: blur(34px);
 }
-@keyframes breathe { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
+.page { position: relative; z-index: 1; overflow-x: clip; }
 
-/* === Layout === */
-.page { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
-
-.intro { padding: 78px 0 8px; text-align: center; }
-.portrait {
-  position: relative;
-  width: 132px;
-  height: 132px;
-  margin: 0 auto 34px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid var(--hairline-copper);
-  box-shadow: 0 0 0 6px rgba(198,106,43,0.06), 0 18px 50px -20px rgba(0,0,0,0.8);
+/* top bar */
+.topbar { position: relative; z-index: 2; padding: 22px 0; }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { font-family: var(--font-display); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; font-size: 0.82rem; text-decoration: none; }
+.top-cta {
+  font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; padding: 10px 16px; border: 1px solid var(--hairline-copper); border-radius: 3px;
+  transition: background-color .25s, border-color .25s;
 }
-.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
+.top-cta:hover { background: rgba(198,106,43,0.12); border-color: var(--ember-copper); }
+
+/* hero */
+.hero { padding: 40px 0 72px; }
+.hero-grid { display: grid; gap: 44px; align-items: center; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .hero-grid { grid-template-columns: 1.25fr 0.75fr; gap: 64px; } }
+.welcome {
+  display: inline-block; margin-bottom: 22px; padding: 8px 14px; border-radius: 999px;
+  background: rgba(198,106,43,0.12); border: 1px solid var(--hairline-copper);
+  color: var(--soft-sand); font-size: 0.85rem; font-weight: 600;
+}
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.32em;
-  color: var(--ember-copper);
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; color: var(--ember-copper);
 }
-.eyebrow::before, .eyebrow::after {
-  content: "";
-  display: block;
-  height: 1px;
-  width: 28px;
-  background-color: var(--ember-copper);
+.eyebrow::before { content: ""; height: 1px; width: 28px; background: var(--ember-copper); }
+.hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 700; letter-spacing: -0.01em; margin-top: 18px; }
+.hero .roles { margin-top: 16px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--soft-sand); }
+.hero .lead { margin-top: 26px; max-width: 58ch; color: #b9b6ae; font-size: 1.08rem; line-height: 1.75; }
+.facts { margin-top: 34px; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); border-radius: 4px; overflow: hidden; }
+.fact { background: var(--deep-charcoal); padding: 18px 18px 16px; }
+.fact b { display: block; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; }
+.fact span { display: block; margin-top: 4px; font-size: 0.86rem; color: var(--ash-grey); line-height: 1.5; }
+.hero-actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 12px; padding: 15px 22px; border-radius: 3px;
+  font-family: var(--font-sans); font-size: 0.95rem; font-weight: 800; letter-spacing: 0.02em;
+  text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: background-color .25s, border-color .25s, transform .25s;
 }
-.intro h1 {
-  font-size: clamp(2.2rem, 6vw, 3.6rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-top: 22px;
+.btn-ember { background: var(--ember-copper); color: var(--bone); }
+.btn-ember:hover { background: var(--electric-ember); }
+.btn-ghost { border-color: var(--hairline-strong); color: var(--bone); background: transparent; }
+.btn-ghost:hover { border-color: var(--ember-copper); }
+.arrow { transition: transform .25s; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+.portrait-wrap { position: relative; max-width: 380px; width: 100%; margin: 0 auto; }
+.portrait-wrap::before {
+  content: ""; position: absolute; inset: 16px -16px -16px 16px; border: 1px solid var(--hairline-copper); border-radius: 4px;
 }
-.intro .slogan {
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: var(--soft-sand);
-  margin-top: 18px;
-}
-.intro .lead {
-  max-width: 58ch;
-  margin: 26px auto 0;
-  color: var(--ash-grey);
-  font-size: 1.02rem;
-  line-height: 1.75;
+.portrait { position: relative; aspect-ratio: 4 / 5; border-radius: 4px; overflow: hidden; background: var(--graphite); }
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+.portrait figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 20px 18px;
+  background: linear-gradient(to top, rgba(11,13,16,0.92), transparent);
+  font-size: 0.7rem; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--soft-sand);
 }
 
-.choose {
-  margin-top: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--ash-grey);
-}
-.choose::before, .choose::after {
-  content: "";
-  display: block;
-  height: 1px;
-  flex: 1;
-  max-width: 140px;
-  background: var(--hairline);
-}
+/* section heads */
+.section { padding: 80px 0; border-top: 1px solid var(--hairline); }
+.section-head { max-width: 680px; }
+.section-head h2 { margin-top: 16px; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.01em; }
+.section-head p { margin-top: 16px; color: var(--ash-grey); font-size: 1.02rem; line-height: 1.75; }
 
-/* === The two choices === */
-.cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 22px;
-  margin-top: 34px;
-  padding-bottom: 88px;
+/* path cards */
+.paths { margin-top: 44px; display: grid; gap: 22px; grid-template-columns: 1fr; }
+@media (min-width: 960px) { .paths { grid-template-columns: repeat(3, 1fr); } }
+.path {
+  position: relative; display: flex; flex-direction: column; padding: 36px 30px 30px;
+  background: var(--graphite); border: 1px solid var(--hairline); border-radius: 4px;
+  transition: border-color .3s, transform .3s, background-color .3s;
 }
-@media (min-width: 720px) { .cards { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
-@media (min-width: 1000px) { .cards { grid-template-columns: repeat(3, 1fr); gap: 26px; } }
+.path:hover { border-color: var(--hairline-copper); transform: translateY(-3px); background: #20262e; }
+.path-num { font-family: var(--font-display); font-size: 0.8rem; font-weight: 600; color: var(--ember-copper); letter-spacing: 0.1em; }
+.path h3 { margin-top: 14px; font-size: 1.45rem; }
+.path .who { margin-top: 12px; color: var(--soft-sand); font-size: 0.95rem; line-height: 1.6; }
+.path ul { margin-top: 20px; list-style: none; display: grid; gap: 10px; }
+.path li { position: relative; padding-left: 20px; color: #b3b0a8; font-size: 0.95rem; line-height: 1.6; }
+.path li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 8px; height: 1px; background: var(--ember-copper); }
+.path .note { margin-top: 18px; font-size: 0.85rem; color: var(--ash-grey); line-height: 1.6; }
+.path .btn { margin-top: auto; justify-content: space-between; }
+.path .btn-wrap { margin-top: auto; padding-top: 28px; }
+.path .btn-wrap .btn { width: 100%; justify-content: space-between; }
 
-.card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 40px 34px 32px;
-  background: var(--graphite);
-  border: 1px solid var(--hairline);
-  border-radius: 4px;
-  text-decoration: none;
-  color: inherit;
-  overflow: hidden;
-  transition: border-color 0.35s ease, transform 0.35s ease, background-color 0.35s ease;
-}
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--ember-copper), transparent);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-.card:hover, .card:focus-visible { border-color: var(--hairline-copper); transform: translateY(-4px); background-color: #20262e; }
-.card:hover::before, .card:focus-visible::before { opacity: 1; }
+/* contact */
+.contact-box { margin-top: 40px; display: grid; gap: 22px; grid-template-columns: 1fr; }
+@media (min-width: 960px) { .contact-box { grid-template-columns: 0.85fr 1.15fr; } }
+.panel { background: var(--graphite); border: 1px solid var(--hairline); border-radius: 4px; padding: 30px; }
+@media (max-width: 480px) { .panel { padding: 22px 18px; } }
+.panel h3 { font-size: 1.2rem; }
+.panel > p { margin-top: 10px; color: var(--ash-grey); font-size: 0.95rem; line-height: 1.7; }
 
-.card-icon { width: 42px; height: 42px; stroke: var(--ember-copper); fill: none; stroke-width: 1.2; }
-.card-kicker {
-  margin-top: 26px;
-  font-size: 0.66rem;
-  font-weight: 800;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--ember-copper);
+.seg { display: grid; gap: 8px; margin-top: 4px; }
+.seg-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ash-grey); margin-bottom: 4px; }
+.seg button {
+  text-align: left; font: inherit; color: var(--bone); background: var(--deep-charcoal);
+  border: 1px solid var(--hairline-strong); border-radius: 3px; padding: 14px 16px; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; font-weight: 600;
+  transition: border-color .2s, background-color .2s;
 }
-.card h2 { margin-top: 14px; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em; }
-.card p { margin-top: 16px; color: var(--ash-grey); line-height: 1.75; font-size: 0.98rem; }
-.card .for-whom {
-  margin-top: 18px;
-  color: var(--soft-sand);
-  font-size: 0.9rem;
-  line-height: 1.7;
-}
-.card-link {
-  margin-top: auto;
-  padding-top: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  font-size: 0.9rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-}
-.card-link::before {
-  content: "";
-  position: absolute;
-  left: 34px; right: 34px;
-  height: 1px;
-  background: var(--hairline);
-  transform: translateY(-26px);
-}
-.card:hover .card-link { color: var(--electric-ember); }
-.arrow { display: inline-block; transition: transform 0.3s ease; }
-.card:hover .arrow { transform: translateX(5px); }
+.seg button small { color: var(--ash-grey); font-weight: 500; font-size: 0.82rem; }
+.seg button[aria-pressed="true"] { border-color: var(--ember-copper); background: rgba(198,106,43,0.1); }
+.seg button[aria-pressed="true"]::after { content: "●"; color: var(--ember-copper); font-size: 0.7rem; }
 
-/* === Footer === */
-.site-footer {
-  position: relative;
-  z-index: 1;
-  border-top: 1px solid var(--hairline);
-  padding: 30px 0;
-  background: var(--deep-charcoal);
+.cal-block { margin-top: 26px; padding-top: 24px; border-top: 1px solid var(--hairline); }
+.cal-block .btn { width: 100%; justify-content: space-between; }
+.cal-block p { margin-top: 12px; font-size: 0.86rem; color: var(--ash-grey); line-height: 1.6; }
+.direct { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--hairline); font-size: 0.92rem; color: var(--ash-grey); line-height: 1.8; }
+.direct a { color: var(--soft-sand); text-decoration: none; border-bottom: 1px solid var(--hairline-copper); }
+
+form { display: grid; gap: 16px; margin-top: 22px; }
+.row2 { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 560px) { .row2 { grid-template-columns: 1fr 1fr; } }
+label.f { display: grid; gap: 7px; font-size: 0.82rem; font-weight: 700; color: var(--soft-sand); }
+label.f span.opt { color: var(--ash-grey); font-weight: 500; }
+input[type=text], input[type=email], input[type=tel], select, textarea {
+  width: 100%; font: inherit; font-size: 16px; color: var(--bone); background: var(--deep-charcoal);
+  border: 1px solid var(--hairline-strong); border-radius: 3px; padding: 12px 14px; transition: border-color .2s;
 }
-.footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.82rem;
-  color: var(--ash-grey);
+textarea { min-height: 110px; resize: vertical; line-height: 1.6; }
+select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ash-grey) 50%), linear-gradient(135deg, var(--ash-grey) 50%, transparent 50%); background-position: calc(100% - 18px) 52%, calc(100% - 13px) 52%; background-size: 5px 5px; background-repeat: no-repeat; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--ember-copper); }
+.consent { display: flex; gap: 12px; align-items: flex-start; font-size: 0.85rem; color: var(--ash-grey); line-height: 1.6; }
+.consent input { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--ember-copper); flex: none; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-msg { font-size: 0.92rem; line-height: 1.6; }
+.form-msg.err { color: #ff9a6b; }
+.done { text-align: left; padding: 10px 0; }
+.done h3 { font-size: 1.4rem; }
+.done p { margin-top: 12px; color: #b3b0a8; line-height: 1.7; }
+button[type=submit] { justify-content: space-between; }
+button[disabled] { opacity: 0.6; cursor: wait; }
+
+/* other tools */
+.tools { margin-top: 36px; display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 820px) { .tools { grid-template-columns: repeat(3, 1fr); } }
+.tool {
+  display: flex; flex-direction: column; gap: 8px; padding: 22px 22px 20px; text-decoration: none;
+  border: 1px solid var(--hairline); border-radius: 4px; background: var(--deep-charcoal); transition: border-color .25s;
 }
-.site-footer img { height: 26px; width: auto; }
-.footer-login { color: inherit; text-decoration: none; border-bottom: 1px solid var(--hairline); }
-.footer-login:hover { color: #fff; }
+.tool:hover { border-color: var(--hairline-copper); }
+.tool small { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ember-copper); }
+.tool b { font-family: var(--font-display); font-weight: 600; font-size: 1.08rem; }
+.tool span { color: var(--ash-grey); font-size: 0.9rem; line-height: 1.6; }
+.tool em { margin-top: auto; padding-top: 8px; font-style: normal; font-weight: 800; font-size: 0.85rem; }
+.tool:hover em { color: var(--electric-ember); }
+
+/* footer */
+.site-footer { position: relative; z-index: 1; border-top: 1px solid var(--hairline); padding: 30px 0; background: var(--deep-charcoal); }
+.footer-inner { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; font-size: 0.82rem; color: var(--ash-grey); }
+.footer-inner a { text-decoration: none; border-bottom: 1px solid var(--hairline); }
+.footer-inner a:hover { color: #fff; }
+.site-footer img { height: 24px; width: auto; }
 </style>
 </head>
 <body>
-
 <div class="grid-layer" aria-hidden="true"></div>
-<div class="flare" aria-hidden="true"></div>
 
 <div class="page">
-  <main class="wrap">
+  <div class="flare" aria-hidden="true"></div>
 
-    <section class="intro">
-      <figure class="portrait">
-        <img src="assets/silvia-hero.jpg" alt="Silvia Rakus — portrét">
-      </figure>
-      <p class="eyebrow">Vitaj</p>
-      <h1>Silvia&nbsp;Rakus</h1>
-      <p class="slogan">Expertíza · Hodnota · Nenahraditeľnosť</p>
-      <p class="lead">
-        Pomáham expertom, obchodníkom a lídrom nájsť skutočnú hodnotu ich expertízy,
-        postaviť na nej stratégiu a premeniť ju na systém, ktorý trh pochopí, ocení
-        a zaplatí. Nižšie sú tri cesty — vyber si tú, ktorá sedí na to, čo riešiš dnes.
-      </p>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="/">Silvia Rakus</a>
+      <a class="top-cta" href="#stretnutie">Dohodnúť stretnutie</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== O mne ===== -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="welcome" id="welcome" hidden>Ďakujem, že si prišiel/prišla z Mysli, konaj, zbohatni. Vyber si nižšie, ako pokračujeme.</p>
+          <p class="eyebrow">Reality · Financie · Stratégia hodnoty</p>
+          <h1>Silvia Rakus</h1>
+          <p class="roles">CEO Moderný maklér Trenčín · autorka programu FENIX</p>
+          <p class="lead">
+            Viac ako 20 rokov v biznise a vo financiách. Vediem realitnú kanceláriu, ktorá predáva
+            nehnuteľnosti v priemere za tri týždne — nie na šťastí, ale na systéme. Ten istý prístup
+            dnes prenášam na klientov, na maklérov, ktorí chcú rásť, a na expertov, ktorým niečo brzdí výsledky.
+          </p>
+
+          <div class="facts">
+            <div class="fact"><b>20+ rokov</b><span>v biznise a finančných službách</span></div>
+            <div class="fact"><b>Moderný maklér</b><span>CEO pobočky Trenčín — reality a financovanie</span></div>
+            <div class="fact"><b>FENIX</b><span>stratégia, ktorá mení expertízu na hodnotu</span></div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-ember" href="#cesty"><span>Vyber si, ako začneme</span><span class="arrow" aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+
+        <div class="portrait-wrap">
+          <figure class="portrait">
+            <img src="assets/silvia-hero.jpg" alt="Silvia Rakus">
+            <figcaption>Silvia Rakus</figcaption>
+          </figure>
+        </div>
+      </div>
     </section>
 
-    <p class="choose">Vyber si, kde začať</p>
+    <!-- ===== Tri cesty ===== -->
+    <section class="section" id="cesty">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Tri cesty</p>
+          <h2>S čím za mnou prichádzaš?</h2>
+          <p>Každá cesta končí rovnako — osobným stretnutím so mnou. Vyber tú, ktorá na teba sedí, a dohodneme termín.</p>
+        </div>
 
-    <div class="cards">
+        <div class="paths">
+          <article class="path">
+            <p class="path-num">01</p>
+            <h3>Chcem sa stať klientom</h3>
+            <p class="who">Riešiš nehnuteľnosť, financovanie alebo hodnotu svojej expertízy.</p>
+            <ul>
+              <li>Predaj, kúpa alebo prenájom nehnuteľnosti</li>
+              <li>Hypotéka a financovanie bývania</li>
+              <li>FENIX — stratégia hodnoty pre expertov a lídrov</li>
+            </ul>
+            <div class="btn-wrap">
+              <a class="btn btn-ember" href="#stretnutie" data-path="klient"><span>Dohodnúť stretnutie</span><span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
 
-      <a class="card" href="fenix.html">
-        <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true">
-          <path d="M24 4 L40 16 L34 40 L14 40 L8 16 Z"/>
-          <path d="M8 16 L40 16"/>
-          <path d="M24 4 L18 16 L24 40 L30 16 Z"/>
-        </svg>
-        <p class="card-kicker">Stratégia hodnoty</p>
-        <h2>FENIX</h2>
-        <p>
-          Hlavný program. Prejdeme tvoju expertízu, pomenujeme hodnotu, ktorú v nej máš,
-          a postavíme z nej ponuku a systém — od auditu expertízy cez pozíciu na trhu
-          až po implementáciu.
-        </p>
-        <p class="for-whom">Pre teba, ak vieš, že tvoja práca má väčšiu hodnotu, než akú za ňu dnes dostávaš.</p>
-        <span class="card-link">Otvoriť FENIX <span class="arrow" aria-hidden="true">→</span></span>
-      </a>
+          <article class="path">
+            <p class="path-num">02</p>
+            <h3>Chcem sa stať spolupracovníkom</h3>
+            <p class="who">Si maklér, finančný sprostredkovateľ alebo máš vlastnú malú realitku a chceš rásť.</p>
+            <ul>
+              <li>Back office, marketing a právne zázemie</li>
+              <li>Vzdelávanie, playbooky a overené procesy</li>
+              <li>AI a automatizácie, ktoré šetria tvoj čas</li>
+            </ul>
+            <div class="btn-wrap">
+              <a class="btn btn-ember" href="#stretnutie" data-path="spolupracovnik"><span>Dohodnúť stretnutie</span><span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
 
-      <a class="card" href="Diagnostika_Manazera.html">
-        <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true">
-          <circle cx="24" cy="24" r="18"/>
-          <circle cx="24" cy="24" r="7"/>
-          <path d="M24 2 L24 10 M24 38 L24 46 M2 24 L10 24 M38 24 L46 24"/>
-          <path d="M29 19 L24 24"/>
-        </svg>
-        <p class="card-kicker">Interaktívna diagnostika</p>
-        <h2>Diagnostika manažéra a lídra</h2>
-        <p>
-          Online test, ktorý ti priamo v prehliadači zostaví tvoj leadership profil.
-          Ukáže, kde dnes stojíš ako líder a ktoré oblasti ti oslabujú výkon skôr,
-          než sa to prejaví na tíme.
-        </p>
-        <p class="for-whom">Pre teba, ak vedieš ľudí a chceš vidieť svoje silné aj slepé miesta čierne na bielom.</p>
-        <span class="card-link">Spustiť diagnostiku <span class="arrow" aria-hidden="true">→</span></span>
-      </a>
+          <article class="path">
+            <p class="path-num">03</p>
+            <h3>Chcem diagnostiku úzkeho hrdla</h3>
+            <p class="who">Máš biznis, ktorý funguje, ale niečo ho brzdí — a nevieš presne čo.</p>
+            <ul>
+              <li>Bezplatný úvodný rozhovor 1:1</li>
+              <li>Pomenujeme, kde ti dnes utekajú výsledky</li>
+              <li>Odídeš s jasným prvým krokom</li>
+            </ul>
+            <p class="note">Ak bude dávať zmysel ísť do hĺbky, nadviaže platená FENIX diagnostika.</p>
+            <div class="btn-wrap">
+              <a class="btn btn-ember" href="#stretnutie" data-path="diagnostika"><span>Dohodnúť diagnostiku</span><span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <a class="card" href="Diagnostika_Metaprogramov.html">
-        <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true">
-          <circle cx="24" cy="9" r="4"/>
-          <circle cx="11" cy="39" r="4"/>
-          <circle cx="37" cy="39" r="4"/>
-          <path d="M24 13 L24 25"/>
-          <path d="M24 25 C24 31 18 31 14 35"/>
-          <path d="M24 25 C24 31 30 31 34 35"/>
-        </svg>
-        <p class="card-kicker">Metaprogramy</p>
-        <h2>Diagnostika metaprogramov</h2>
-        <p>
-          Test, ktorý odhalí tvoj komunikačný kód — 12 nevedomých filtrov, cez ktoré
-          spracúvaš svet. Ukáže, čo ťa poháňa, ako sa rozhoduješ a kde ťa vlastné
-          nastavenie brzdí skôr, než si to všimneš.
-        </p>
-        <p class="for-whom">Pre teba, ak chceš rozumieť tomu, prečo konáš tak, ako konáš — a vedome na tom stavať.</p>
-        <span class="card-link">Spoznať svoj kód <span class="arrow" aria-hidden="true">→</span></span>
-      </a>
+    <!-- ===== Dohodnutie stretnutia ===== -->
+    <section class="section" id="stretnutie">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Stretnutie</p>
+          <h2>Dohodnime sa</h2>
+          <p>Vyber si termín priamo v mojom kalendári, alebo mi pošli krátku žiadosť a ozvem sa ti do 48 hodín.</p>
+        </div>
 
-    </div>
+        <div class="contact-box">
+          <div class="panel">
+            <div class="seg" role="group" aria-label="Cesta">
+              <p class="seg-label">Moja cesta</p>
+              <button type="button" data-path="klient" aria-pressed="true">Chcem sa stať klientom <small>reality · financie · FENIX</small></button>
+              <button type="button" data-path="spolupracovnik" aria-pressed="false">Chcem sa stať spolupracovníkom <small>makléri a sprostredkovatelia</small></button>
+              <button type="button" data-path="diagnostika" aria-pressed="false">Chcem diagnostiku úzkeho hrdla <small>bezplatný úvodný rozhovor</small></button>
+            </div>
+
+            <div class="cal-block" id="cal-block" hidden>
+              <a class="btn btn-ember" id="cal-link" href="#" target="_blank" rel="noopener"><span>Vybrať termín v kalendári</span><span class="arrow" aria-hidden="true">→</span></a>
+              <p>Otvorí sa môj kalendár s voľnými termínmi. Po rezervácii ti príde potvrdenie e-mailom.</p>
+            </div>
+
+            <div class="direct">
+              Radšej priamo? Napíš na <a href="mailto:silvia@fenixos.sk">silvia@fenixos.sk</a>
+              alebo na Instagram <a href="https://www.instagram.com/silviarakus/" target="_blank" rel="noopener">@silviarakus</a>.
+            </div>
+          </div>
+
+          <div class="panel" id="form-panel">
+            <h3 id="form-title">Poslať žiadosť o stretnutie</h3>
+            <p id="form-sub">Stačí pár údajov. Ozvem sa ti a dohodneme termín.</p>
+
+            <form id="ziadost" novalidate>
+              <input type="hidden" name="cesta" value="klient">
+              <div class="hp" aria-hidden="true"><label>Web <input type="text" name="web" tabindex="-1" autocomplete="off"></label></div>
+
+              <label class="f">Meno a priezvisko
+                <input type="text" name="meno" autocomplete="name" required>
+              </label>
+              <div class="row2">
+                <label class="f">E-mail
+                  <input type="email" name="email" autocomplete="email">
+                </label>
+                <label class="f">Telefón
+                  <input type="tel" name="telefon" autocomplete="tel">
+                </label>
+              </div>
+
+              <div class="row2">
+                <label class="f" id="oblast-field">S čím ti môžem pomôcť
+                  <select name="oblast">
+                    <option value="Reality">Reality — predaj, kúpa, prenájom</option>
+                    <option value="Financie">Hypotéka a financovanie</option>
+                    <option value="FENIX">FENIX — stratégia hodnoty</option>
+                    <option value="Neviem / viac oblastí">Neviem / viac oblastí</option>
+                  </select>
+                </label>
+                <label class="f">Ako ťa mám kontaktovať
+                  <select name="kontakt">
+                    <option value="Telefón">Telefonicky</option>
+                    <option value="E-mail">E-mailom</option>
+                    <option value="Osobne">Osobné stretnutie</option>
+                    <option value="Online">Online hovor</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="f"><span id="sprava-label">Pár slov o tom, čo riešiš <span class="opt">(nepovinné)</span></span>
+                <textarea name="sprava"></textarea>
+              </label>
+
+              <label class="consent">
+                <input type="checkbox" name="suhlas" required>
+                <span>Súhlasím so spracovaním mojich údajov za účelom kontaktovania a dohodnutia stretnutia.</span>
+              </label>
+
+              <p class="form-msg" id="form-msg" role="alert" hidden></p>
+              <button type="submit" class="btn btn-ember"><span>Odoslať žiadosť</span><span class="arrow" aria-hidden="true">→</span></button>
+            </form>
+
+            <div class="done" id="done" hidden>
+              <p class="eyebrow">Hotovo</p>
+              <h3 style="margin-top:14px">Ďakujem, žiadosť mám.</h3>
+              <p>Ozvem sa ti do 48 hodín a dohodneme termín stretnutia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Ďalšie nástroje ===== -->
+    <section class="section" id="nastroje">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Ďalšie nástroje</p>
+          <h2>Chceš sa najprv pozrieť na seba?</h2>
+        </div>
+        <div class="tools">
+          <a class="tool" href="fenix.html">
+            <small>Stratégia hodnoty</small>
+            <b>FENIX</b>
+            <span>Program, ktorý mení expertízu na hodnotu, ktorú trh pochopí, ocení a zaplatí.</span>
+            <em>Otvoriť FENIX →</em>
+          </a>
+          <a class="tool" href="Diagnostika_Manazera.html">
+            <small>Online test</small>
+            <b>Diagnostika manažéra a lídra</b>
+            <span>Tvoj leadership profil — silné aj slepé miesta čierne na bielom.</span>
+            <em>Spustiť diagnostiku →</em>
+          </a>
+          <a class="tool" href="Diagnostika_Metaprogramov.html">
+            <small>Online test</small>
+            <b>Diagnostika metaprogramov</b>
+            <span>12 nevedomých filtrov — čo ťa poháňa a kde ťa vlastné nastavenie brzdí.</span>
+            <em>Spoznať svoj kód →</em>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 </div>
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <img src="assets/fenix-logo-horizontal.png" alt="FENIX">
-    <span>Silvia Rakus · silviarakus.sk · <a class="footer-login" href="/portal/" rel="nofollow">Prihlásenie</a></span>
+    <span>© 2026 Silvia Rakus · silviarakus.sk</span>
+    <span><a href="https://www.instagram.com/silviarakus/" target="_blank" rel="noopener">Instagram</a> · <a href="/portal/" rel="nofollow">Prihlásenie</a></span>
   </div>
 </footer>
 
+<script>
+(function () {
+  // ===== Nastavenia =====
+  // Odkazy na rezervačné stránky v Google Kalendári (Schôdzky / Appointment schedule).
+  // Kým je odkaz prázdny, tlačidlo kalendára sa nezobrazí a funguje len formulár.
+  var KALENDAR = {
+    klient: '',
+    spolupracovnik: '',
+    diagnostika: ''
+  };
+
+  var TEXTY = {
+    klient: { title: 'Chcem sa stať klientom', sub: 'Napíš mi, čo riešiš. Ozvem sa ti a dohodneme termín.', sprava: 'Pár slov o tom, čo riešiš' },
+    spolupracovnik: { title: 'Chcem sa stať spolupracovníkom', sub: 'Povedz mi pár slov o sebe. Ozvem sa ti a dohodneme stretnutie.', sprava: 'Čomu sa dnes venuješ (reality, financie, ako dlho)' },
+    diagnostika: { title: 'Chcem diagnostiku úzkeho hrdla', sub: 'Bezplatný úvodný rozhovor. Ozvem sa ti a dohodneme termín.', sprava: 'Čo ťa dnes v biznise najviac brzdí' }
+  };
+
+  var params = new URLSearchParams(location.search);
+  var zdroj = params.get('zdroj') || params.get('utm_source') || '';
+  if (/mkz/i.test(zdroj)) document.getElementById('welcome').hidden = false;
+
+  var form = document.getElementById('ziadost');
+  var segButtons = document.querySelectorAll('.seg button');
+  var current = 'klient';
+
+  function setPath(p) {
+    if (!TEXTY[p]) return;
+    current = p;
+    form.cesta.value = p;
+    segButtons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.path === p ? 'true' : 'false'); });
+    document.getElementById('form-title').textContent = TEXTY[p].title;
+    document.getElementById('form-sub').textContent = TEXTY[p].sub;
+    document.getElementById('sprava-label').firstChild.textContent = TEXTY[p].sprava + ' ';
+    document.getElementById('oblast-field').hidden = (p !== 'klient');
+    var url = KALENDAR[p];
+    document.getElementById('cal-block').hidden = !url;
+    if (url) document.getElementById('cal-link').href = url;
+  }
+
+  segButtons.forEach(function (b) { b.addEventListener('click', function () { setPath(b.dataset.path); }); });
+  document.querySelectorAll('a[data-path]').forEach(function (a) {
+    a.addEventListener('click', function () { setPath(a.dataset.path); });
+  });
+  var pre = params.get('cesta');
+  setPath(TEXTY[pre] ? pre : 'klient');
+
+  var msg = document.getElementById('form-msg');
+  function showErr(t) { msg.textContent = t; msg.className = 'form-msg err'; msg.hidden = false; }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.hidden = true;
+    var data = {
+      cesta: current,
+      meno: form.meno.value.trim(),
+      email: form.email.value.trim(),
+      telefon: form.telefon.value.trim(),
+      oblast: current === 'klient' ? form.oblast.value : '',
+      kontakt: form.kontakt.value,
+      sprava: form.sprava.value.trim(),
+      suhlas: form.suhlas.checked,
+      zdroj: zdroj || 'web',
+      web: form.web.value
+    };
+    if (!data.meno) return showErr('Doplň prosím meno.');
+    if (!data.email && !data.telefon) return showErr('Doplň prosím e-mail alebo telefón, aby som sa ti vedela ozvať.');
+    if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) return showErr('Skontroluj prosím e-mailovú adresu.');
+    if (!data.suhlas) return showErr('Potvrď prosím súhlas so spracovaním údajov.');
+
+    var btn = form.querySelector('button[type=submit]');
+    btn.disabled = true;
+    fetch('/api/ziadost', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function () {
+        form.hidden = true;
+        document.getElementById('form-title').hidden = true;
+        document.getElementById('form-sub').hidden = true;
+        document.getElementById('done').hidden = false;
+      })
+      .catch(function () {
+        btn.disabled = false;
+        showErr('Žiadosť sa nepodarilo odoslať. Skús to prosím znova alebo napíš na silvia@fenixos.sk.');
+      });
+  });
+})();
+</script>
 </body>
 </html>
