@@ -3,6 +3,7 @@
     { "source": "/portal", "destination": "/portal/", "permanent": false }
   ],
   "rewrites": [
-    { "source": "/portal/:path*", "destination": "https://second-brain-beta-sand.vercel.app/portal/:path*" }
+    { "source": "/portal/", "destination": "https://second-brain-beta-sand.vercel.app/portal/" },
+    { "source": "/portal/:path+", "destination": "https://second-brain-beta-sand.vercel.app/portal/:path+" }
   ]
 }
