@@ -1,5 +1,10 @@
 {
+  "redirects": [
+    { "source": "/portal", "destination": "/portal/", "permanent": false }
+  ],
   "rewrites": [
+    { "source": "/portal/", "destination": "https://second-brain-beta-sand.vercel.app/portal/" },
+    { "source": "/portal/:path+", "destination": "https://second-brain-beta-sand.vercel.app/portal/:path+" },
     { "source": "/kto-je-moj-zakaznik", "destination": "/kto-je-moj-zakaznik.html" },
     { "source": "/kto-je-moj-zakaznik/report/:token", "destination": "/api/zakaznik/report?token=:token" },
     { "source": "/api/zakaznik/status/:token", "destination": "/api/zakaznik/status?token=:token" },
