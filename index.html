@@ -444,7 +444,8 @@ button[disabled] { opacity: 0.6; cursor: wait; }
   .rv { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
-@media (max-width: 979px) { .badge.badge-quote { font-size: 1.12rem; max-width: 230px; padding: 12px 16px; right: 46px; } }
+.badge.badge-quote { left: 50%; right: auto; bottom: 4%; transform: translateX(-50%); max-width: none; white-space: nowrap; padding: 0; background: none; border: 0; border-radius: 0; backdrop-filter: none; -webkit-backdrop-filter: none; text-shadow: 0 2px 18px rgba(11,13,16,0.9), 0 0 4px rgba(11,13,16,0.6); }
+@media (max-width: 979px) { .badge.badge-quote { font-size: 1.05rem; bottom: 13%; } }
 </style>
 </head>
 <body>
@@ -934,7 +935,7 @@ button[disabled] { opacity: 0.6; cursor: wait; }
     hero.addEventListener('pointermove', function (ev) {
       var nx = ev.clientX / innerWidth - 0.5, ny = ev.clientY / innerHeight - 0.5;
       ph.style.transform = 'translate(' + nx * -10 + 'px,' + ny * -10 + 'px)';
-      bd.style.transform = 'translate(' + nx * -22 + 'px,' + ny * -16 + 'px)';
+      bd.style.transform = 'translate(calc(-50% + ' + nx * -16 + 'px),' + ny * -10 + 'px)';
     });
   }
 })();
