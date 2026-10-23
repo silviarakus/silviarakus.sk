@@ -73,6 +73,52 @@ a { color: inherit; }
 .nav .btn { padding: 12px 20px; font-size: 0.9rem; }
 @media (max-width: 720px) { .nav a.link { display: none; } }
 
+
+section[id], .mm[id] { scroll-margin-top: 84px; }
+/* ---------- header logins & menu ---------- */
+.login { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line-strong); text-decoration: none; font-size: 0.86rem; font-weight: 700; color: #d9d4ca; transition: border-color .25s, color .25s, background-color .25s; }
+.login svg { width: 17px; height: 17px; flex: none; }
+.login:hover { border-color: var(--copper); color: var(--bone); background: rgba(198,106,43,0.1); }
+.login .l-short { display: none; }
+.nav { gap: 10px; }
+.menu-btn { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 14px 0 12px; border-radius: 999px; border: 1px solid var(--line-strong); background: transparent; color: var(--bone); font: 700 0.88rem/1 var(--sans); cursor: pointer; transition: border-color .25s; }
+.menu-btn:hover { border-color: var(--copper); }
+.burger { display: grid; gap: 5px; width: 18px; }
+.burger i { display: block; height: 2px; border-radius: 2px; background: currentColor; }
+.burger i:last-child { width: 12px; }
+@media (max-width: 1080px) { .top-cta { display: none; } }
+@media (max-width: 760px) {
+  .mark { font-size: 0; gap: 0; }
+  .login .l-long, .mb-label { display: none; }
+  .login .l-short { display: inline; }
+  .login { padding: 8px 11px; font-size: 0.8rem; gap: 6px; }
+  .menu-btn { width: 44px; padding: 0; justify-content: center; }
+  .nav { gap: 6px; }
+}
+.menu-panel { position: fixed; inset: 0; z-index: 80; }
+.menu-backdrop { position: absolute; inset: 0; background: rgba(5,6,8,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; transition: opacity .3s; }
+.menu-sheet { position: absolute; top: 0; right: 0; bottom: 0; width: min(380px, 88vw); padding: 74px 30px 30px; background: var(--charcoal); border-left: 1px solid var(--line-strong); overflow-y: auto; transform: translateX(100%); transition: transform .4s var(--ease); }
+.menu-panel.open .menu-backdrop { opacity: 1; }
+.menu-panel.open .menu-sheet { transform: none; }
+.menu-close { position: absolute; top: 16px; right: 18px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-strong); background: transparent; color: var(--bone); font-size: 1.5rem; cursor: pointer; }
+.menu-label { color: var(--ash); font-size: 0.85rem; font-weight: 600; }
+.menu-links { list-style: none; margin-top: 12px; }
+.menu-links a { display: block; padding: 13px 0; border-bottom: 1px solid var(--line); text-decoration: none; font-family: var(--display); font-size: 1.15rem; font-weight: 600; color: #d9d4ca; transition: color .2s, padding-left .3s var(--ease); }
+.menu-links a:hover, .menu-links a.active { color: var(--ember); padding-left: 6px; }
+.menu-logins { margin-top: 26px; display: grid; gap: 10px; }
+.menu-logins a { display: flex; align-items: center; gap: 10px; padding: 13px 16px; border-radius: 14px; border: 1px solid var(--line-strong); text-decoration: none; font-weight: 700; color: var(--bone); }
+.menu-logins a:hover { border-color: var(--copper); }
+.menu-logins svg { width: 18px; height: 18px; color: var(--copper); }
+.menu-social { margin-top: 24px; display: flex; gap: 10px; }
+.social-links a { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-strong); color: #d9d4ca; transition: border-color .25s, color .25s, background-color .25s; }
+.social-links a:hover { border-color: var(--copper); color: var(--bone); background: rgba(198,106,43,0.14); }
+.social-links svg { width: 19px; height: 19px; }
+.social-rail { position: fixed; left: 22px; top: 50%; z-index: 40; transform: translateY(-50%); display: none; flex-direction: column; align-items: center; gap: 10px; }
+.social-rail::before, .social-rail::after { content: ""; width: 1px; height: 46px; background: var(--line-strong); }
+@media (min-width: 1360px) { .social-rail { display: flex; } }
+.hero-social { display: none; margin-top: 22px; gap: 10px; }
+@media (max-width: 1359px) { .hero-social { display: flex; } }
+
 /* ---------- hero ---------- */
 .hero { position: relative; min-height: 100svh; display: flex; align-items: center; padding: 120px 0 80px; overflow: hidden; }
 #net { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
@@ -386,6 +432,11 @@ button[disabled] { opacity: 0.6; cursor: wait; }
   <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></symbol>
+  <symbol id="i-li" viewBox="0 0 24 24" fill="currentColor"><path d="M6.9 8.6H3.7V20h3.2zM5.3 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8zM20.3 13.4c0-3-1.6-4.9-4.3-4.9-1.4 0-2.4.7-2.9 1.5V8.6H10V20h3.2v-6c0-1.5.6-2.6 2-2.6s1.9 1 1.9 2.6v6h3.2z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.3 7.5-5.3s6.3 1.7 7.5 5.3"/></symbol>
   <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
 </svg>
 
@@ -398,16 +449,40 @@ button[disabled] { opacity: 0.6; cursor: wait; }
 <header class="topbar" id="topbar">
   <div class="wrap">
     <a class="mark" href="/"><i>SR</i>Silvia Rakus</a>
-    <nav class="nav">
-      <a class="link" href="#cesty">Spolupráca</a>
-      <a class="link" href="#prednasky">Prednášky</a>
-      <a class="link" href="#pribeh">Príbeh</a>
-      <a class="link" href="fenix.html">FENIX</a>
-      <a class="link" href="/klient/">Zóna pre klientov</a>
-      <a class="btn btn-solid" href="#stretnutie">Dohodnúť stretnutie</a>
+    <nav class="nav" aria-label="Hlavná navigácia">
+      <a class="login" href="/klient/" title="Zóna pre klientov"><svg><use href="#i-lock"/></svg><span class="l-long">Zóna pre klientov</span><span class="l-short">Klienti</span></a>
+      <a class="login" href="/portal/" rel="nofollow" title="Osobný portál"><svg><use href="#i-user"/></svg><span class="l-long">Osobný portál</span><span class="l-short">Portál</span></a>
+      <a class="btn btn-solid top-cta" href="#stretnutie">Dohodnúť stretnutie</a>
+      <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuPanel"><span class="burger" aria-hidden="true"><i></i><i></i></span><span class="mb-label">Menu</span></button>
     </nav>
   </div>
 </header>
+
+
+<div class="menu-panel" id="menuPanel" hidden>
+  <div class="menu-backdrop" data-close></div>
+  <div class="menu-sheet" role="dialog" aria-modal="true" aria-label="Menu stránky">
+    <button type="button" class="menu-close" data-close aria-label="Zavrieť menu">×</button>
+    <p class="menu-label">Na stránke</p>
+    <ul class="menu-links">
+      <li><a href="#top">Úvod</a></li>
+      <li><a href="#cesty">S čím za mnou prichádzaš</a></li>
+      <li><a href="#moderny-makler">Moderný maklér v číslach</a></li>
+      <li><a href="#prednasky">Prednášky a témy</a></li>
+      <li><a href="#podcasty">Z podcastov a rozhovorov</a></li>
+      <li><a href="#stretnutie">Dohodnúť stretnutie</a></li>
+      <li><a href="#pribeh">Môj príbeh</a></li>
+      <li><a href="#fenix">FENIX a zóna pre klientov</a></li>
+    </ul>
+    <div class="menu-logins">
+      <a href="/klient/"><svg><use href="#i-lock"/></svg>Zóna pre klientov</a>
+      <a href="/portal/" rel="nofollow"><svg><use href="#i-user"/></svg>Osobný portál</a>
+    </div>
+    <div class="menu-social social-links"></div>
+  </div>
+</div>
+
+<aside class="social-rail social-links" aria-label="Sociálne siete"></aside>
 
 <main>
   <!-- ===== Hero ===== -->
@@ -428,6 +503,7 @@ button[disabled] { opacity: 0.6; cursor: wait; }
           <a class="btn btn-solid" href="#cesty">Vybrať si cestu <svg><use href="#i-arrow"/></svg></a>
           <a class="btn" href="https://calendar.app.google/LQUC8xNW7Z2twEzr5" target="_blank" rel="noopener">Rezervovať termín <svg><use href="#i-cal"/></svg></a>
         </div>
+        <div class="hero-social social-links" aria-label="Sociálne siete"></div>
       </div>
 
       <div class="portrait" id="portrait">
@@ -446,7 +522,7 @@ button[disabled] { opacity: 0.6; cursor: wait; }
     </div>
 
     <div class="wrap">
-      <div class="mm rv">
+      <div class="mm rv" id="moderny-makler">
         <div class="mm-head">
           <h2>Moderný maklér v číslach</h2>
           <p>Realitná sieť, ktorú spoluvlastním a rozvíjam ako technologickú platformu pre realitných profesionálov. Údaje za rok 2026 k októbru.</p>
@@ -726,7 +802,7 @@ button[disabled] { opacity: 0.6; cursor: wait; }
   </section>
 
   <!-- ===== Ďalej ===== -->
-  <section class="more">
+  <section class="more" id="fenix">
     <div class="wrap grid">
       <a class="tile rv" href="fenix.html">
         <div>
@@ -827,6 +903,39 @@ button[disabled] { opacity: 0.6; cursor: wait; }
       bd.style.transform = 'translate(' + nx * -22 + 'px,' + ny * -16 + 'px)';
     });
   }
+})();
+
+
+/* ===== Sociálne siete a menu ===== */
+(function () {
+  // Odkazy na profily. Prázdny odkaz = ikona sa nezobrazí.
+  var SOCIAL = [
+    { name: 'Instagram', icon: 'i-ig', url: 'https://www.instagram.com/silviarakus/' },
+    { name: 'Facebook', icon: 'i-fb', url: '' },
+    { name: 'LinkedIn', icon: 'i-li', url: '' }
+  ];
+  var html = SOCIAL.filter(function (x) { return x.url; }).map(function (x) {
+    return '<a href="' + x.url + '" target="_blank" rel="noopener" aria-label="' + x.name + '" title="' + x.name + '"><svg><use href="#' + x.icon + '"/></svg></a>';
+  }).join('');
+  document.querySelectorAll('.social-links').forEach(function (el) { el.innerHTML = html; });
+
+  var panel = document.getElementById('menuPanel'), btn = document.getElementById('menuBtn');
+  function open() { panel.hidden = false; requestAnimationFrame(function () { panel.classList.add('open'); }); btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
+  function close() { panel.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; setTimeout(function () { panel.hidden = true; }, 350); }
+  btn.addEventListener('click', open);
+  panel.querySelectorAll('[data-close]').forEach(function (el) { el.addEventListener('click', close); });
+  panel.querySelectorAll('.menu-links a').forEach(function (a) { a.addEventListener('click', close); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) close(); });
+
+  // Zvýraznenie sekcie, kde sa návštevník práve nachádza
+  var links = Array.prototype.slice.call(panel.querySelectorAll('.menu-links a'));
+  var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function spy() {
+    var y = window.scrollY + window.innerHeight * 0.35, idx = 0;
+    targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top + window.scrollY <= y) idx = i; });
+    links.forEach(function (a, i) { a.classList.toggle('active', i === idx); });
+  }
+  addEventListener('scroll', spy, { passive: true }); spy();
 })();
 
 /* ===== Hlavička, odhalenia, počítadlá, dlaždice ===== */
