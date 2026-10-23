@@ -55,20 +55,48 @@ module.exports = async (req, res) => {
     if (sprava) props['Správa'] = rich(sprava);
     props['Zdroj'] = rich(txt(b.zdroj, 200) || 'web');
 
-    const r = await fetch('https://api.notion.com/v1/pages', {
+    const notion = (body) => fetch('https://api.notion.com/v1/pages', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
         'Notion-Version': NOTION_VERSION,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ parent: { database_id: dbId }, properties: props }),
+      body: JSON.stringify(body),
     });
-    if (!r.ok) {
-      const detail = await r.text();
-      return res.status(502).json({ error: 'Notion API zlyhalo', detail });
+
+    const r = await notion({ parent: { database_id: dbId }, properties: props });
+    if (r.ok) return res.status(200).json({ ok: true });
+    const detail = await r.text();
+    console.error('Žiadosť: zápis do databázy žiadostí zlyhal', r.status, detail.slice(0, 500));
+
+    // Záchranná poistka: ak databáza žiadostí nie je dostupná, uložíme žiadosť
+    // do databázy diagnostík (NOTION_DB_ID), aby sa žiadna žiadosť nestratila.
+    const backupDb = process.env.NOTION_DB_ID;
+    if (backupDb) {
+      const zhrnutie = [
+        'ŽIADOSŤ O STRETNUTIE z webu',
+        'Cesta: ' + (CESTY[b.cesta] || b.cesta || '-'),
+        b.oblast ? 'Oblasť: ' + b.oblast : '',
+        'E-mail: ' + (email || '-'),
+        'Telefón: ' + (telefon || '-'),
+        'Kontakt: ' + (b.kontakt || '-'),
+        'Zdroj: ' + (txt(b.zdroj, 200) || 'web'),
+        sprava ? 'Správa: ' + sprava : '',
+      ].filter(Boolean).join('\n');
+      const r2 = await notion({
+        parent: { database_id: backupDb },
+        properties: {
+          'Meno': { title: [{ text: { content: ('ŽIADOSŤ: ' + meno).slice(0, 200) } }] },
+          'Dátum': { date: { start: new Date().toISOString().slice(0, 10) } },
+          'Metaprogramy — súhrn': rich(zhrnutie.slice(0, 2000)),
+          'Raw dáta': rich(JSON.stringify({ typ: 'ziadost', ...b, web: undefined }).slice(0, 2000)),
+        },
+      });
+      if (r2.ok) return res.status(200).json({ ok: true, zaloha: true });
+      console.error('Žiadosť: zápis do záložnej databázy zlyhal', r2.status, (await r2.text()).slice(0, 500));
     }
-    return res.status(200).json({ ok: true });
+    return res.status(502).json({ error: 'Notion API zlyhalo', detail });
   } catch (err) {
     return res.status(500).json({ error: String((err && err.message) || err) });
   }
