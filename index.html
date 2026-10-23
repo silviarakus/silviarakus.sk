@@ -330,7 +330,7 @@ img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; -we
 .ref figcaption { margin-top: 14px; display: grid; gap: 4px; }
 .ref figcaption b { font-family: var(--display); font-size: 1.08rem; font-weight: 600; }
 .ref figcaption span { color: var(--ash); font-size: 0.9rem; line-height: 1.45; }
-@media (min-width: 1200px) { .ref-row { grid-auto-flow: row; grid-template-columns: repeat(5, 1fr); overflow: visible; } }
+@media (min-width: 1200px) { .ref-row { grid-auto-flow: row; grid-template-columns: repeat(6, 1fr); gap: 14px; overflow: visible; } }
 
 /* ---------- talks ---------- */
 .talks { position: relative; padding: 120px 0; border-top: 1px solid var(--line); overflow: hidden; }
@@ -730,6 +730,13 @@ button[disabled] { opacity: 0.6; cursor: wait; }
             <span class="ref-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
           </button>
           <figcaption><b>Jakub Dahamshy</b><span>founder, Čierna ovca agency</span></figcaption>
+        </figure>
+        <figure class="ref">
+          <button type="button" class="ref-video" data-yt="CBEE8eaWUy0" aria-label="Prehrať video: Tomáš Pieružek">
+            <img src="https://i.ytimg.com/vi/CBEE8eaWUy0/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/CBEE8eaWUy0/hqdefault.jpg'" alt="" loading="lazy" decoding="async" draggable="false">
+            <span class="ref-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          </button>
+          <figcaption><b>Tomáš Pieružek</b><span>founder, Smart Finance</span></figcaption>
         </figure>
       </div>
     </div>
