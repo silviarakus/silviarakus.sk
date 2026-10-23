@@ -4,6 +4,7 @@
 //   NOTION_DB_ID     – 6ddf856752374d7b8f013fff6f00ebef
 //   ALLOWED_ORIGIN   – (voliteľné) napr. https://silviarakus.sk  (default "*")
 
+const { povolenyPovod, prilisVela, nastavCors } = require('./_ochrana');
 const NOTION_VERSION = '2022-06-28';
 
 // id metaprogramu -> názov stĺpca (select) v Notion databáze
@@ -33,13 +34,12 @@ const RD_COLS = {
 };
 
 module.exports = async (req, res) => {
-  const origin = process.env.ALLOWED_ORIGIN || '*';
-  res.setHeader('Access-Control-Allow-Origin', origin);
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  nastavCors(req, res);
 
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+  if (!povolenyPovod(req)) return res.status(403).json({ error: 'Nepovolený pôvod požiadavky' });
+  if (prilisVela(req, 'diag', 10, 10 * 60 * 1000)) return res.status(429).json({ error: 'Príliš veľa požiadaviek' });
 
   const token = process.env.NOTION_TOKEN;
   const dbId = process.env.NOTION_DB_ID;
