@@ -315,6 +315,23 @@ img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; -we
 .reels-more { margin-top: 22px; }
 .reels-more a { color: var(--sand); text-decoration: none; border-bottom: 1px solid var(--line-copper); font-weight: 600; }
 
+/* ---------- video referencie ---------- */
+.refs-v { padding: 110px 0; border-top: 1px solid var(--line); }
+.ref-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr); gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: thin; scrollbar-color: var(--copper) transparent; }
+.ref { margin: 0; scroll-snap-align: start; }
+.ref-video { position: relative; display: block; width: 100%; aspect-ratio: 9 / 16; padding: 0; border: 0; border-radius: 22px; overflow: hidden; background: var(--graphite); cursor: pointer; }
+.ref-video img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .6s var(--ease), filter .3s; filter: brightness(.82); }
+.ref-video:hover img { transform: scale(1.04); filter: brightness(.95); }
+.ref-video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,13,16,0.55), transparent 45%); pointer-events: none; }
+.ref-play { position: absolute; left: 50%; top: 50%; z-index: 2; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; display: grid; place-items: center; background: var(--copper); color: var(--bone); box-shadow: 0 10px 30px rgba(0,0,0,.4); transition: transform .3s var(--ease), background-color .3s; }
+.ref-play svg { width: 24px; height: 24px; margin-left: 3px; }
+.ref-video:hover .ref-play { transform: scale(1.08); background: var(--ember); }
+.ref-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ref figcaption { margin-top: 14px; display: grid; gap: 4px; }
+.ref figcaption b { font-family: var(--display); font-size: 1.08rem; font-weight: 600; }
+.ref figcaption span { color: var(--ash); font-size: 0.9rem; line-height: 1.45; }
+@media (min-width: 1200px) { .ref-row { grid-auto-flow: row; grid-template-columns: repeat(5, 1fr); overflow: visible; } }
+
 /* ---------- talks ---------- */
 .talks { position: relative; padding: 120px 0; border-top: 1px solid var(--line); overflow: hidden; }
 .talks::before { content: ""; position: absolute; left: -260px; bottom: -320px; width: 820px; height: 820px; border-radius: 50%; background: radial-gradient(circle, rgba(198,106,43,0.16), transparent 62%); pointer-events: none; }
@@ -491,6 +508,7 @@ button[disabled] { opacity: 0.6; cursor: wait; }
       <li><a href="#kto-som">Kto som v číslach</a></li>
       <li><a href="#cesty">S čím za mnou prichádzaš</a></li>
       <li><a href="#pribeh">Môj príbeh</a></li>
+      <li><a href="#referencie">Referencie</a></li>
       <li><a href="#prednasky">Prednášky a témy</a></li>
       <li><a href="#podcasty">Z podcastov a rozhovorov</a></li>
       <li><a href="#stretnutie">Dohodnúť stretnutie</a></li>
@@ -666,6 +684,53 @@ button[disabled] { opacity: 0.6; cursor: wait; }
           <p>Rada vystupujem zo svojej komfortnej zóny a prekonávam limity. Letela som na stíhačke, jazdila na motorke, zdolávala vysoké kopce a rada spoznávam nové miesta.</p>
         </div>
         <div class="adv"><figure class="thumb"><button type="button" class="zoom" data-src="assets/foto/stihacka.jpg" data-cap="Let na stíhačke" aria-label="Zväčšiť: Let na stíhačke"><img src="assets/foto/stihacka.jpg" alt="Let na stíhačke" loading="lazy" decoding="async" draggable="false" style="object-position:50% 40%"></button><figcaption>Let na stíhačke</figcaption></figure><figure class="thumb"><button type="button" class="zoom" data-src="assets/foto/motorka-yamaha.jpg" data-cap="Na motorke" aria-label="Zväčšiť: Na motorke"><img src="assets/foto/motorka-yamaha.jpg" alt="Na motorke" loading="lazy" decoding="async" draggable="false" style="object-position:45% 55%"></button><figcaption>Na motorke</figcaption></figure><figure class="thumb"><button type="button" class="zoom" data-src="assets/foto/vrchol.jpg" data-cap="Na vrchole" aria-label="Zväčšiť: Na vrchole"><img src="assets/foto/vrchol.jpg" alt="Na vrchole" loading="lazy" decoding="async" draggable="false" style="object-position:50% 50%"></button><figcaption>Na vrchole</figcaption></figure><figure class="thumb"><button type="button" class="zoom" data-src="assets/foto/tatry-bicykel.jpg" data-cap="Tatry na bicykli" aria-label="Zväčšiť: Tatry na bicykli"><img src="assets/foto/tatry-bicykel.jpg" alt="Tatry na bicykli" loading="lazy" decoding="async" draggable="false" style="object-position:40% 50%"></button><figcaption>Tatry na bicykli</figcaption></figure></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Referencie ===== -->
+  <section class="refs-v" id="referencie">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <h2>Slovami ľudí, s ktorými pracujem</h2>
+        <p>Kolegovia, partneri a klienti vlastnými slovami. Video sa prehrá priamo tu.</p>
+      </div>
+      <div class="ref-row rv">
+        <figure class="ref">
+          <button type="button" class="ref-video" data-yt="YFq0XE3cpoU" aria-label="Prehrať video: Soňa Sulo Dranačková">
+            <img src="https://i.ytimg.com/vi/YFq0XE3cpoU/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/YFq0XE3cpoU/hqdefault.jpg'" alt="" loading="lazy" decoding="async" draggable="false">
+            <span class="ref-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          </button>
+          <figcaption><b>Soňa Sulo Dranačková</b><span>Moderný maklér Trenčín · 18 rokov spolupráce</span></figcaption>
+        </figure>
+        <figure class="ref">
+          <button type="button" class="ref-video" data-yt="s8nokELRMtk" aria-label="Prehrať video: Ladislav Husár">
+            <img src="https://i.ytimg.com/vi/s8nokELRMtk/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/s8nokELRMtk/hqdefault.jpg'" alt="" loading="lazy" decoding="async" draggable="false">
+            <span class="ref-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          </button>
+          <figcaption><b>Ladislav Husár</b><span>Director of External Distribution, NN</span></figcaption>
+        </figure>
+        <figure class="ref">
+          <button type="button" class="ref-video" data-yt="QF-MzMuk4tk" aria-label="Prehrať video: Adrián Luterán">
+            <img src="https://i.ytimg.com/vi/QF-MzMuk4tk/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/QF-MzMuk4tk/hqdefault.jpg'" alt="" loading="lazy" decoding="async" draggable="false">
+            <span class="ref-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          </button>
+          <figcaption><b>Adrián Luterán</b><span>riaditeľ divízie hypotekárnych úverov, Finportal a.s.</span></figcaption>
+        </figure>
+        <figure class="ref">
+          <button type="button" class="ref-video" data-yt="i0L1N5B_piU" aria-label="Prehrať video: Lucie Podolová">
+            <img src="https://i.ytimg.com/vi/i0L1N5B_piU/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/i0L1N5B_piU/hqdefault.jpg'" alt="" loading="lazy" decoding="async" draggable="false">
+            <span class="ref-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          </button>
+          <figcaption><b>Lucie Podolová</b><span>expert na autoimunitný protokol, founder LuckyAIP</span></figcaption>
+        </figure>
+        <figure class="ref">
+          <button type="button" class="ref-video" data-yt="Awlh7aP-XSw" aria-label="Prehrať video: Jakub Dahamshy">
+            <img src="https://i.ytimg.com/vi/Awlh7aP-XSw/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Awlh7aP-XSw/hqdefault.jpg'" alt="" loading="lazy" decoding="async" draggable="false">
+            <span class="ref-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          </button>
+          <figcaption><b>Jakub Dahamshy</b><span>founder, Čierna ovca agency</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -1020,6 +1085,21 @@ button[disabled] { opacity: 0.6; cursor: wait; }
   function isImg(t) { return t && (t.tagName === 'IMG' || (t.closest && t.closest('.soft, .thumb, .portrait, .lb-img'))); }
   document.addEventListener('contextmenu', function (e) { if (isImg(e.target)) e.preventDefault(); });
   document.addEventListener('dragstart', function (e) { if (isImg(e.target)) e.preventDefault(); });
+})();
+
+/* ===== Video referencie: YouTube sa načíta až po kliknutí ===== */
+(function () {
+  document.querySelectorAll('.ref-video').forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (b.querySelector('iframe')) return;
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.title = b.getAttribute('aria-label');
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      b.innerHTML = ''; b.appendChild(f); b.style.cursor = 'default';
+    });
+  });
 })();
 
 /* ===== Lightbox ===== */
