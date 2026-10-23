@@ -164,6 +164,7 @@ a { color: inherit; }
 @media (min-width: 900px) { .story-end { grid-template-columns: 1.2fr 0.8fr; gap: 70px; } }
 .story-end blockquote { font-family: var(--display); font-weight: 600; letter-spacing: -0.035em; line-height: 1.08; font-size: clamp(2.2rem, 5vw, 4rem); color: var(--sand); }
 .story-end p { color: #bdb8ad; font-size: 1.06rem; line-height: 1.75; }
+.story-life { display: grid; gap: 16px; }
 .chips { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
 .chips li { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line-strong); font-size: 0.92rem; font-weight: 600; color: #d6d1c6; transition: border-color .25s, background-color .25s; }
 .chips li:hover { border-color: var(--copper); background: rgba(198,106,43,0.12); }
@@ -220,6 +221,7 @@ a { color: inherit; }
 .heard span { color: var(--ash); }
 .heard strong { font-family: var(--display); font-weight: 600; font-size: 1.15rem; }
 .heard .sep { width: 6px; height: 6px; border-radius: 50%; background: var(--copper); }
+@media (max-width: 600px) { .heard { flex-direction: column; align-items: flex-start; gap: 8px; } .heard .sep { display: none; } .heard span:first-child { margin-bottom: 4px; } }
 
 /* ---------- contact ---------- */
 .contact { position: relative; padding: 110px 0; background: var(--charcoal); border-top: 1px solid var(--line); overflow: hidden; }
@@ -322,9 +324,9 @@ button[disabled] { opacity: 0.6; cursor: wait; }
   <div class="wrap">
     <a class="mark" href="/"><i>SR</i>Silvia Rakus</a>
     <nav class="nav">
-      <a class="link" href="#pribeh">Príbeh</a>
       <a class="link" href="#cesty">Spolupráca</a>
       <a class="link" href="#prednasky">Prednášky</a>
+      <a class="link" href="#pribeh">Príbeh</a>
       <a class="link" href="fenix.html">FENIX</a>
       <a class="link" href="/klient/">Zóna pre klientov</a>
       <a class="btn btn-solid" href="#stretnutie">Dohodnúť stretnutie</a>
@@ -370,37 +372,6 @@ button[disabled] { opacity: 0.6; cursor: wait; }
     </div>
   </section>
 
-
-  <!-- ===== Príbeh ===== -->
-  <section class="story" id="pribeh">
-    <div class="wrap">
-      <div class="story-intro rv">
-        <h2>Čísla, zmena a odvaha vystúpiť z komfortnej zóny.</h2>
-        <p>Obaja moji rodičia podnikali, takže podnikanie je so mnou od detstva. Vyhrávala som matematické olympiády, celé hodiny som vedela počítať mince a každých pár mesiacov som v izbe presúvala nábytok, aby som zistila, ako by veci mohli fungovať inak.</p>
-        <p>Na hotelovej akadémii som absolvovala stáže vo Francúzsku, Rakúsku a Taliansku. Tam som sa naučila prijímať zodpovednosť za vlastné rozhodnutia. Po prvom ročníku na Vysokej škole ekonomickej som sa naplno pustila do podnikania.</p>
-      </div>
-
-      <ol class="timeline" id="timeline">
-        <span class="tl-fill" aria-hidden="true"></span>
-        <li class="rv"><span class="yr">2005</span><div><h3>Vstup do sveta financií</h3><p>Vyprofilovala som sa ako hypotekárna špecialistka. Opakovane som sa umiestňovala na popredných priečkach celoslovenských hodnotení a získala viaceré ocenenia.</p></div></li>
-        <li class="rv"><span class="yr">2008</span><div><h3>Reality</h3><p>Na financovanie bývania prirodzene nadviazala realitná činnosť.</p></div></li>
-        <li class="rv"><span class="yr">2020</span><div><h3>Narodil sa syn Leo</h3><p>S manželom sa snažíme deti vychovávať v hodnotách, podľa ktorých sami žijeme, a odovzdávať im ich vlastným každodenným príkladom.</p></div></li>
-        <li class="rv"><span class="yr">2022</span><div><h3>Umelá inteligencia</h3><p>Začala som zavádzať AI do svojej práce. V Slovakia AI Technology Solutions prepájam obchodné skúsenosti s vývojom technológií.</p></div></li>
-        <li class="rv"><span class="yr">2023</span><div><h3>Hlasový tréner a dcéra Eliška</h3><p>Náš tím priniesol hlasového trénera obchodných a komunikačných zručností. Tvorila som jeho tréningovú logiku a náročnosť. Riešenie sa predalo do zahraničia na tréning zamestnancov veľkých poisťovní a spoločností. V tom istom roku sa nám narodila dcéra Eliška.</p></div></li>
-        <li class="rv now"><span class="yr">Dnes</span><div><h3>Moderný maklér ako technologická platforma</h3><p>Som spolumajiteľkou Moderného makléra, priamo vediem Trenčín a rozvíjam sieť spolupracovníkov naprieč Slovenskom aj finančnú divíziu. Prednášam po celom Slovensku a odovzdávam skúsenosti z praxe.</p></div></li>
-      </ol>
-
-      <div class="story-end">
-        <blockquote class="rv">Akú cenu za úspech platíme a aký život popri ňom žijeme?</blockquote>
-        <div class="rv">
-          <p>To je otázka, na ktorú sa dnes pozerám popri výsledkoch. V súkromí rada cestujem a hľadám výzvy, pri ktorých vystúpim z komfortnej zóny.</p>
-          <ul class="chips">
-            <li>Let na stíhačke</li><li>Motorka</li><li>Vysoké kopce</li><li>Cestovanie</li><li>Osobný rast</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ===== Tri cesty ===== -->
   <section class="sec" id="cesty">
@@ -497,6 +468,8 @@ button[disabled] { opacity: 0.6; cursor: wait; }
         <span>Počuť ste ma mohli aj v</span>
         <strong>podcaste Mysli, konaj, zbohatni</strong>
         <span class="sep" aria-hidden="true"></span>
+        <strong>sérii podcastov Level Up</strong>
+        <span class="sep" aria-hidden="true"></span>
         <strong>na MKZ Naživo</strong>
       </div>
     </div>
@@ -569,6 +542,35 @@ button[disabled] { opacity: 0.6; cursor: wait; }
           <div class="tick"><svg><use href="#i-check" stroke="#F5F1E8"/></svg></div>
           <h3>Žiadosť odoslaná.</h3>
           <p>Ozvem sa ti do 48 hodín a dohodneme termín stretnutia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Príbeh ===== -->
+  <section class="story" id="pribeh">
+    <div class="wrap">
+      <div class="story-intro rv">
+        <h2>Čísla, zmena a odvaha vystúpiť z komfortnej zóny.</h2>
+        <p>Obaja moji rodičia podnikali, takže podnikanie je so mnou od detstva. Vyhrávala som matematické olympiády, celé hodiny som vedela počítať mince a každých pár mesiacov som v izbe presúvala nábytok, aby som zistila, ako by veci mohli fungovať inak.</p>
+        <p>Na hotelovej akadémii som absolvovala stáže vo Francúzsku, Rakúsku a Taliansku. Tam som sa naučila prijímať zodpovednosť za vlastné rozhodnutia. Po prvom ročníku na Vysokej škole ekonomickej som sa naplno pustila do podnikania.</p>
+      </div>
+
+      <ol class="timeline" id="timeline">
+        <span class="tl-fill" aria-hidden="true"></span>
+        <li class="rv"><span class="yr">2005</span><div><h3>Vstup do sveta financií</h3><p>Vyprofilovala som sa ako hypotekárna špecialistka. Opakovane som sa umiestňovala na popredných priečkach celoslovenských hodnotení a získala viaceré ocenenia.</p></div></li>
+        <li class="rv"><span class="yr">2008</span><div><h3>Reality</h3><p>Na financovanie bývania prirodzene nadviazala realitná činnosť.</p></div></li>
+        <li class="rv"><span class="yr">2022</span><div><h3>Umelá inteligencia</h3><p>Začala som zavádzať AI do svojej práce. V Slovakia AI Technology Solutions prepájam obchodné skúsenosti s vývojom technológií.</p></div></li>
+        <li class="rv"><span class="yr">2023</span><div><h3>Hlasový tréner obchodníkov</h3><p>Náš tím priniesol hlasového trénera obchodných a komunikačných zručností. Tvorila som jeho tréningovú logiku a náročnosť. Riešenie sa predalo do zahraničia na tréning zamestnancov veľkých poisťovní a spoločností.</p></div></li>
+        <li class="rv now"><span class="yr">Dnes</span><div><h3>Moderný maklér ako technologická platforma</h3><p>Som spolumajiteľkou Moderného makléra, priamo vediem Trenčín a rozvíjam sieť spolupracovníkov naprieč Slovenskom aj finančnú divíziu. Prednášam po celom Slovensku a odovzdávam skúsenosti z praxe.</p></div></li>
+      </ol>
+
+      <div class="story-end">
+        <blockquote class="rv">Akú cenu za úspech platíme a aký život popri ňom žijeme?</blockquote>
+        <div class="rv story-life">
+          <p>To je otázka, na ktorú sa dnes pozerám popri výsledkoch. S manželom vychovávame dve deti v hodnotách, podľa ktorých sami žijeme, a snažíme sa ich odovzdávať vlastným každodenným príkladom.</p>
+          <p>Záhrada je mojou vášňou, relaxom a učiteľom zároveň. V prírode hľadám inšpiráciu a motiváciu.</p>
+          <p>Rada vystupujem zo svojej komfortnej zóny a prekonávam limity. Letela som na stíhačke, jazdila na motorke, zdolávala vysoké kopce a rada spoznávam nové miesta.</p>
         </div>
       </div>
     </div>
