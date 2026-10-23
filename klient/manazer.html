@@ -1699,7 +1699,7 @@ function bindEvents() {
   });
 
   const printBtn = document.getElementById('printBtn');
-  if (printBtn) printBtn.addEventListener('click', () => window.print());
+  if (printBtn) printBtn.addEventListener('click', () => { if (window.saveResultsPdf) window.saveResultsPdf(printBtn, 'Diagnostika_manazera_a_lidra'); else window.print(); });
 
   const emailBtn = document.getElementById('emailBtn');
   if (emailBtn) emailBtn.addEventListener('click', () => {
@@ -1757,5 +1757,6 @@ function buildEmailText() {
 
 render();
 </script>
+<script src="/klient/pdf.js"></script>
 </body>
 </html>

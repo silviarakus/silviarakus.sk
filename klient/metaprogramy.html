@@ -860,7 +860,7 @@ function bindEvents(){
     document.title=(nm?nm+'_':'')+label;
     const restore=()=>{ document.title=baseTitle; window.removeEventListener('afterprint',restore); };
     window.addEventListener('afterprint',restore);
-    window.print();
+    if(window.saveResultsPdf) window.saveResultsPdf(printBtn, document.title); else window.print();
     setTimeout(restore,1000);
   });
   const restartBtn=document.getElementById('restartBtn');
@@ -874,5 +874,6 @@ function bindEvents(){
 
 render();
 </script>
+<script src="/klient/pdf.js"></script>
 </body>
 </html>
