@@ -147,12 +147,14 @@ section[id], .mm[id] { scroll-margin-top: 84px; }
 .roles li::before { content: ""; flex: none; width: 9px; height: 9px; border-radius: 50%; border: 2px solid var(--copper); transform: translateY(-1px); }
 .hero-cta { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 14px; opacity: 0; animation: fade .9s .95s var(--ease) forwards; }
 
-.portrait { position: relative; width: min(100%, 600px); margin: 0 -60px 0 auto; aspect-ratio: 4 / 5; opacity: 0; animation: fade 1.4s .3s var(--ease) forwards; }
+.portrait { position: relative; width: min(100%, 560px); margin: 0 auto; aspect-ratio: 4 / 5; opacity: 0; animation: fade 1.4s .3s var(--ease) forwards; }
 .portrait .photo { position: absolute; inset: 0; transition: transform .4s var(--ease);
   -webkit-mask-image: radial-gradient(closest-side at 50% 46%, #000 60%, rgba(0,0,0,0.6) 80%, transparent 100%);
   mask-image: radial-gradient(closest-side at 50% 46%, #000 60%, rgba(0,0,0,0.6) 80%, transparent 100%); }
-.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 36% 20%; }
 .badge { position: absolute; left: 40px; bottom: 90px; z-index: 3; padding: 14px 18px; border-radius: 16px; background: rgba(28,33,40,0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--line-strong); font-size: 0.86rem; line-height: 1.35; transition: transform .4s var(--ease); }
+.badge-quote { max-width: 230px; font-family: var(--display); font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; color: var(--sand); }
+@media (max-width: 979px) { .badge-quote { font-size: 0.95rem; max-width: 180px; } }
 .badge b { display: block; font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--ember); }
 @media (max-width: 600px) { .badge { left: 8px; } }
 @media (max-width: 979px) {
@@ -263,7 +265,7 @@ section[id], .mm[id] { scroll-margin-top: 84px; }
 
 /* ---------- photos ---------- */
 img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
-.soft, .thumb, .portrait { position: relative; margin: 0; }
+.soft, .thumb { position: relative; margin: 0; }
 .soft::after, .thumb .zoom::after, .portrait .photo::after { content: ""; position: absolute; inset: 0; }
 .soft img { display: block; width: 100%; height: 100%; object-fit: cover;
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 16%, #000 84%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 14%, #000 80%, transparent 100%);
@@ -524,7 +526,7 @@ button[disabled] { opacity: 0.6; cursor: wait; }
 
       <div class="portrait" id="portrait">
         <div class="photo"><img src="assets/silvia-hero.jpg" alt="Silvia Rakus" fetchpriority="high" draggable="false"></div>
-        <div class="badge"><b>1 300+</b>klientov za 21 rokov</div>
+        <div class="badge badge-quote">Výsledok je dôsledok, nie náhoda.</div>
       </div>
     </div>
     <span class="scroll-hint" aria-hidden="true"></span>
