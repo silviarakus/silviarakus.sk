@@ -113,11 +113,13 @@ section[id], .mm[id] { scroll-margin-top: 84px; }
 .social-links a { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-strong); color: #d9d4ca; transition: border-color .25s, color .25s, background-color .25s; }
 .social-links a:hover { border-color: var(--copper); color: var(--bone); background: rgba(198,106,43,0.14); }
 .social-links svg { width: 19px; height: 19px; }
-.social-rail { position: fixed; left: 22px; top: 50%; z-index: 40; transform: translateY(-50%); display: none; flex-direction: column; align-items: center; gap: 10px; }
-.social-rail::before, .social-rail::after { content: ""; width: 1px; height: 46px; background: var(--line-strong); }
-@media (min-width: 1360px) { .social-rail { display: flex; } }
+.social-rail { position: fixed; right: 0; top: 50%; z-index: 40; transform: translateY(-50%); display: flex; flex-direction: column; gap: 6px; }
+.social-rail a { width: 44px; height: 44px; border-radius: 14px 0 0 14px; border: 1px solid var(--line-strong); border-right: 0; background: rgba(17,21,26,0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transform: translateX(6px); transition: transform .3s var(--ease), background-color .25s, border-color .25s, color .25s; }
+.social-rail a:hover, .social-rail a:focus-visible { transform: translateX(0); background: var(--copper); border-color: var(--copper); color: var(--bone); }
+.social-rail svg { width: 18px; height: 18px; }
+@media (max-width: 600px) { .social-rail a { width: 38px; height: 38px; border-radius: 12px 0 0 12px; } .social-rail svg { width: 16px; height: 16px; } }
 .hero-social { display: none; margin-top: 22px; gap: 10px; }
-@media (max-width: 1359px) { .hero-social { display: flex; } }
+
 
 /* ---------- hero ---------- */
 .hero { position: relative; min-height: 100svh; display: flex; align-items: center; padding: 120px 0 80px; overflow: hidden; }
@@ -942,8 +944,8 @@ button[disabled] { opacity: 0.6; cursor: wait; }
   // Odkazy na profily. Prázdny odkaz = ikona sa nezobrazí.
   var SOCIAL = [
     { name: 'Instagram', icon: 'i-ig', url: 'https://www.instagram.com/silviarakus/' },
-    { name: 'Facebook', icon: 'i-fb', url: '' },
-    { name: 'LinkedIn', icon: 'i-li', url: '' }
+    { name: 'Facebook', icon: 'i-fb', url: 'https://www.facebook.com/share/1djWJYUBu7/' },
+    { name: 'LinkedIn', icon: 'i-li', url: 'https://www.linkedin.com/in/silvia-rakus-237b3a154' }
   ];
   var html = SOCIAL.filter(function (x) { return x.url; }).map(function (x) {
     return '<a href="' + x.url + '" target="_blank" rel="noopener" aria-label="' + x.name + '" title="' + x.name + '"><svg><use href="#' + x.icon + '"/></svg></a>';
