@@ -248,9 +248,17 @@ img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; -we
 
 /* ---------- reels ---------- */
 .refs { padding: 110px 0; border-top: 1px solid var(--line); }
-.reels { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(280px, 1fr); gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: thin; scrollbar-color: var(--copper) transparent; }
-.reel { scroll-snap-align: start; border-radius: 20px; overflow: hidden; background: #fff; border: 1px solid var(--line-strong); }
-.reel iframe { display: block; width: 100%; height: 620px; border: 0; }
+.reels { display: grid; gap: 16px; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 900px) { .reels { grid-template-columns: repeat(4, 1fr); } }
+.reel-tile { position: relative; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; aspect-ratio: 4 / 5; padding: 22px; border-radius: 22px; text-decoration: none; overflow: hidden; isolation: isolate; border: 1px solid var(--line-strong); background: radial-gradient(120% 90% at 85% 10%, rgba(255,122,26,0.28), transparent 55%), linear-gradient(160deg, #1f252d, #11151a); transition: border-color .3s, transform .4s var(--ease); }
+.reel-tile:hover { border-color: var(--copper); transform: translateY(-4px); }
+.rt-play { position: absolute; top: 22px; left: 22px; width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; background: var(--copper); color: var(--bone); transition: transform .4s var(--ease), background-color .3s; }
+.rt-play svg { width: 22px; height: 22px; margin-left: 3px; }
+.reel-tile:hover .rt-play { transform: scale(1.08); background: var(--ember); }
+.rt-num { font-size: 0.85rem; font-weight: 600; color: var(--sand); }
+.rt-title { font-family: var(--display); font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-weight: 600; letter-spacing: -0.02em; }
+.rt-go { margin-top: 8px; font-size: 0.9rem; font-weight: 700; color: #c9c4b9; }
+.reel-tile:hover .rt-go { color: var(--ember); }
 .reels-more { margin-top: 22px; }
 .reels-more a { color: var(--sand); text-decoration: none; border-bottom: 1px solid var(--line-copper); font-weight: 600; }
 
@@ -571,13 +579,33 @@ button[disabled] { opacity: 0.6; cursor: wait; }
     <div class="wrap">
       <div class="sec-head rv">
         <h2>Z podcastov a rozhovorov</h2>
-        <p>Ukážky z rozhovorov, v ktorých som bola hosťom. Video sa prehrá priamo tu na stránke.</p>
+        <p>Ukážky z rozhovorov, v ktorých som bola hosťom. Video sa otvorí na Instagrame.</p>
       </div>
       <div class="reels rv">
-          <div class="reel"><iframe src="https://www.instagram.com/reel/DdHpXTVoxtO/embed/" title="Ukážka z podcastu 1" loading="lazy" allowfullscreen scrolling="no"></iframe></div>
-          <div class="reel"><iframe src="https://www.instagram.com/reel/DbgRCHXIv4a/embed/" title="Ukážka z podcastu 2" loading="lazy" allowfullscreen scrolling="no"></iframe></div>
-          <div class="reel"><iframe src="https://www.instagram.com/reel/DbJKJ2CoZWF/embed/" title="Ukážka z podcastu 3" loading="lazy" allowfullscreen scrolling="no"></iframe></div>
-          <div class="reel"><iframe src="https://www.instagram.com/reel/Da_BVxNOUVT/embed/" title="Ukážka z podcastu 4" loading="lazy" allowfullscreen scrolling="no"></iframe></div>
+        <a class="reel-tile" href="https://www.instagram.com/reel/DdHpXTVoxtO/" target="_blank" rel="noopener">
+          <span class="rt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          <span class="rt-num">Ukážka 1</span>
+          <span class="rt-title">Z podcastu</span>
+          <span class="rt-go">Pozrieť na Instagrame</span>
+        </a>
+        <a class="reel-tile" href="https://www.instagram.com/reel/DbgRCHXIv4a/" target="_blank" rel="noopener">
+          <span class="rt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          <span class="rt-num">Ukážka 2</span>
+          <span class="rt-title">Z podcastu</span>
+          <span class="rt-go">Pozrieť na Instagrame</span>
+        </a>
+        <a class="reel-tile" href="https://www.instagram.com/reel/DbJKJ2CoZWF/" target="_blank" rel="noopener">
+          <span class="rt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          <span class="rt-num">Ukážka 3</span>
+          <span class="rt-title">Z podcastu</span>
+          <span class="rt-go">Pozrieť na Instagrame</span>
+        </a>
+        <a class="reel-tile" href="https://www.instagram.com/reel/Da_BVxNOUVT/" target="_blank" rel="noopener">
+          <span class="rt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          <span class="rt-num">Ukážka 4</span>
+          <span class="rt-title">Z podcastu</span>
+          <span class="rt-go">Pozrieť na Instagrame</span>
+        </a>
       </div>
       <p class="reels-more"><a href="https://www.instagram.com/silviarakus/" target="_blank" rel="noopener">Ďalšie videá nájdeš na Instagrame @silviarakus</a></p>
     </div>
