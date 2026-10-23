@@ -1,5 +1,6 @@
 // Prihlásenie do zóny pre klientov. Porovná heslo s KLIENT_HESLO a nastaví cookie.
 const crypto = require('crypto');
+const { povolenyPovod, prilisVela } = require('./_ochrana');
 
 const token = (heslo) =>
   crypto.createHash('sha256').update(heslo + '|silviarakus-klient').digest('hex');
@@ -17,6 +18,11 @@ function parseBody(req) {
 module.exports = (req, res) => {
   if (req.method !== 'POST') return res.status(405).send('Method not allowed');
 
+  if (!povolenyPovod(req)) return res.status(403).send('Forbidden');
+  if (prilisVela(req, 'login', 8, 15 * 60 * 1000)) {
+    res.setHeader('Location', '/klient/prihlasenie.html?chyba=limit');
+    return res.status(303).end();
+  }
   const body = parseBody(req);
   const next = bezpecnyNext(body.next);
   const heslo = process.env.KLIENT_HESLO;

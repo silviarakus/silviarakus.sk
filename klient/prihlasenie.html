@@ -63,7 +63,7 @@ input:focus{outline:none;border-color:var(--ember-copper)}
 <footer><div class="wrap">© 2026 Silvia Rakus · silviarakus.sk</div></footer>
 <script>
 var p=new URLSearchParams(location.search);
-if(p.get('chyba'))document.getElementById('err').hidden=false;
+var er=document.getElementById('err');if(p.get('chyba')==='limit'){er.textContent='Príliš veľa pokusov. Skús to znova o 15 minút.';er.hidden=false;}else if(p.get('chyba'))er.hidden=false;
 var n=p.get('next');if(n&&/^\/klient(\/|$)/.test(n))document.getElementById('next').value=n;
 </script>
 </body>

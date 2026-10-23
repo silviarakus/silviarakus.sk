@@ -5,6 +5,7 @@
 //   ALLOWED_ORIGIN         – (voliteľné) napr. https://www.silviarakus.sk (default "*")
 // Integrácia musí mať v Notione prístup k databáze (Connections → pridať integráciu).
 
+const { povolenyPovod, prilisVela, nastavCors } = require('./_ochrana');
 const NOTION_VERSION = '2022-06-28';
 const DEFAULT_DB_ID = '404053f289bf4a998e2b6b20f5c7a6c9';
 
@@ -21,11 +22,11 @@ const txt = (v, max) => String(v == null ? '' : v).trim().slice(0, max);
 const rich = (v) => ({ rich_text: [{ text: { content: v } }] });
 
 module.exports = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN || '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  nastavCors(req, res);
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+  if (!povolenyPovod(req)) return res.status(403).json({ error: 'Nepovolený pôvod požiadavky' });
+  if (prilisVela(req, 'ziadost', 5, 10 * 60 * 1000)) return res.status(429).json({ error: 'Príliš veľa žiadostí, skús to neskôr' });
 
   const token = process.env.NOTION_TOKEN;
   const dbId = process.env.NOTION_ZIADOSTI_DB_ID || DEFAULT_DB_ID;

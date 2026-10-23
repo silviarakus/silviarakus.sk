@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /klient/
+Disallow: /api/
+Disallow: /portal/
