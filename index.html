@@ -230,6 +230,12 @@ a { color: inherit; }
 .topic h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -0.025em; transition: color .3s; }
 .topic:hover h3 { color: var(--ember); }
 .topic p { margin-top: 10px; color: #aaa59a; line-height: 1.7; max-width: 52ch; }
+.topic-main { position: relative; padding: 30px 26px; margin-bottom: 14px; border: 1px solid var(--line-copper); border-radius: 22px; background: linear-gradient(150deg, rgba(198,106,43,0.18), rgba(28,33,40,0.4) 60%); }
+.topic-main:hover { padding-left: 26px; }
+.topic-main + .topic { border-top: 1px solid var(--line-strong); }
+.topic-main h3 { font-size: clamp(1.8rem, 3.2vw, 2.5rem); }
+.topic-main p { color: #c9c4b9; }
+.topic-tag { display: inline-block; margin-bottom: 14px; padding: 6px 12px; border-radius: 999px; background: var(--copper); color: var(--bone); font-size: 0.8rem; font-weight: 700; }
 .heard { margin-top: 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; padding: 24px 28px; border-radius: 22px; border: 1px solid var(--line-strong); background: rgba(28,33,40,0.5); }
 .heard span { color: var(--ash); }
 .heard strong { font-family: var(--display); font-weight: 600; font-size: 1.15rem; }
@@ -486,8 +492,15 @@ button[disabled] { opacity: 0.6; cursor: wait; }
 
         <div class="topics rv">
           <p class="topics-label">O čom hovorím</p>
+          <article class="topic topic-main">
+            <span class="topic-tag">Téma, ktorej sa venujem najviac</span>
+            <h3>AI zrýchli všetko. Aj chybu.</h3>
+            <p>Žijeme v exponenciálnej dobe. Umelá inteligencia dokáže znásobiť dobrý zámer, ale rovnako rýchlo aj zlý. Preto skôr, než ju firma zavedie, potrebuje mať jasné hodnoty a stratégiu. Inak sa len rýchlejšie dostane tam, kam sa vôbec nechcela dostať. Hovorím z praxe: AI používam od roku 2022 a náš hlasový tréner obchodníkov sa predal do zahraničia.</p>
+          </article>
+          <article class="topic"><h3>Úzke hrdlo: čo ťa dnes najviac brzdí</h3><p>Kde ľuďom a firmám utekajú výsledky a prečo to takmer nikdy nie je tam, kde to hľadajú. Ako nájsť jedno miesto, ktoré drží všetko ostatné.</p></article>
+          <article class="topic"><h3>Najvzácnejšia komodita na svete</h3><p>Nedá sa kúpiť, požičať ani vrátiť, a predsa ju každý deň rozdávame. Čo je dnes skutočne najväčšia hodnota a ako sa podľa toho rozhodovať v biznise aj v živote.</p></article>
+          <article class="topic"><h3>Thinking out of the box</h3><p>Ako vystúpiť z naučených vzorcov a nájsť riešenia, ktoré ostatní nevidia. Prakticky, s príkladmi z podnikania, predaja a vlastného života.</p></article>
           <article class="topic"><h3>Systém, nie šťastie</h3><p>Ako postaviť firmu, ktorá nestojí len na jednom človeku, a ako dostať know-how z hlavy do procesov, ľudí a dát.</p></article>
-          <article class="topic"><h3>AI v praxi obchodu a realít</h3><p>Čo reálne funguje od roku 2022: od automatizácií po hlasového trénera obchodníkov, ktorý sa predal do zahraničia.</p></article>
           <article class="topic"><h3>Predaj a komunikácia</h3><p>Ako obchodník reaguje v náročných situáciách a prečo klient neplatí za to, čo vieš, ale za to, čo z toho vidí.</p></article>
           <article class="topic"><h3>Akú cenu platíme za úspech</h3><p>Výkon, rodina a život popri podnikaní. Otvorene o tom, čo úspech stojí a čo sa oplatí zmeniť.</p></article>
         </div>
