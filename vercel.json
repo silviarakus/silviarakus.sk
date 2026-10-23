@@ -1,6 +1,8 @@
 {
   "redirects": [
-    { "source": "/portal", "destination": "/portal/", "permanent": false }
+    { "source": "/portal", "destination": "/portal/", "permanent": false },
+    { "source": "/Diagnostika_Manazera.html", "destination": "/klient/manazer.html", "permanent": true },
+    { "source": "/Diagnostika_Metaprogramov.html", "destination": "/klient/metaprogramy.html", "permanent": true }
   ],
   "rewrites": [
     { "source": "/portal/", "destination": "https://second-brain-beta-sand.vercel.app/portal/" },

@@ -245,11 +245,13 @@ body{font-family:var(--font-body);background:var(--obsidian);color:var(--bone);m
 
 <header class="brand-bar">
   <div class="brand-bar-inner">
-    <a href="index.html" class="brand-bar-logo" aria-label="Domov">
-      <img src="assets/fenix-logo-horizontal.png" alt="FENIX — Silvia Rakus">
+    <a href="/klient/" class="brand-bar-logo" aria-label="Zóna pre klientov">
+      <img src="/assets/fenix-logo-horizontal.png" alt="FENIX — Silvia Rakus">
     </a>
     <nav class="breadcrumb" aria-label="Omrvinková navigácia">
-      <a href="index.html">Domov</a>
+      <a href="/">Domov</a>
+      <span class="breadcrumb-sep" aria-hidden="true">›</span>
+      <a href="/klient/">Zóna pre klientov</a>
       <span class="breadcrumb-sep" aria-hidden="true">›</span>
       <span class="breadcrumb-current" aria-current="page">Diagnostika metaprogramov</span>
     </nav>
@@ -260,8 +262,8 @@ body{font-family:var(--font-body);background:var(--obsidian);color:var(--bone);m
 
 <footer class="site-footer">
   <div class="site-footer-inner">
-    <img src="assets/fenix-logo-horizontal.png" alt="FENIX">
-    <span>Silvia Rakus · <a href="index.html">Späť na domov</a></span>
+    <img src="/assets/fenix-logo-horizontal.png" alt="FENIX">
+    <span>Silvia Rakus · <a href="/klient/">Späť do zóny pre klientov</a></span>
   </div>
 </footer>
 
@@ -269,8 +271,8 @@ body{font-family:var(--font-body);background:var(--obsidian);color:var(--bone);m
 /* ===== LOGO =====
    Uzamknutý symbol FENIX podľa brand manuálu §4 — používa sa výhradne
    dodaný obrazový súbor, symbol sa neprekresľuje ani nezjednodušuje. */
-const LOGO_STACKED = '<img class="intro-logo" src="assets/fenix-logo-stacked.png" alt="FENIX" draggable="false">';
-const LOGO_RESULTS = '<img class="results-logo" src="assets/fenix-logo-stacked.png" alt="FENIX" draggable="false">';
+const LOGO_STACKED = '<img class="intro-logo" src="/assets/fenix-logo-stacked.png" alt="FENIX" draggable="false">';
+const LOGO_RESULTS = '<img class="results-logo" src="/assets/fenix-logo-stacked.png" alt="FENIX" draggable="false">';
 
 /* ============ METAPROGRAMY ============ */
 const META_PROGRAMS = [

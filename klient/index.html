@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<title>Zóna pre klientov — Silvia Rakus</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--obsidian:#0B0D10;--graphite:#1C2128;--deep-charcoal:#11151A;--bone:#F5F1E8;--ash-grey:#8E8E8E;--soft-sand:#D8C7AA;--ember-copper:#C66A2B;--electric-ember:#FF7A1A;--hairline:rgba(245,241,232,.08);--hairline-strong:rgba(245,241,232,.16);--hairline-copper:rgba(198,106,43,.35);--font-sans:"Manrope",ui-sans-serif,system-ui,sans-serif;--font-display:"Sora",ui-sans-serif,system-ui,sans-serif;color-scheme:dark}
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;display:flex;flex-direction:column;background:var(--obsidian);color:var(--bone);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden}
+body::before{content:"";pointer-events:none;position:fixed;inset:0;background:radial-gradient(ellipse 70% 45% at 50% -5%,rgba(198,106,43,.22),transparent 70%)}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ember-copper);outline-offset:3px}
+.wrap{position:relative;width:100%;max-width:1000px;margin:0 auto;padding:0 24px}
+@media(max-width:480px){.wrap{padding:0 16px}}
+.topbar{padding:22px 0}.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{font-family:var(--font-display);font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.82rem;text-decoration:none}
+.topbar a.small{font-size:.82rem;color:var(--ash-grey);text-decoration:none;border-bottom:1px solid var(--hairline)}
+.topbar a.small:hover{color:var(--bone)}
+main{flex:1;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.3em;color:var(--ember-copper)}
+.eyebrow::before{content:"";height:1px;width:28px;background:var(--ember-copper)}
+.lead{margin-top:16px;color:var(--ash-grey);font-size:1.02rem;line-height:1.75;max-width:60ch}
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 22px;border-radius:3px;font:inherit;font-size:.95rem;font-weight:800;text-decoration:none;cursor:pointer;border:1px solid transparent;background:var(--ember-copper);color:var(--bone);transition:background-color .25s}
+.btn:hover{background:var(--electric-ember)}
+footer{border-top:1px solid var(--hairline);padding:26px 0;background:var(--deep-charcoal);font-size:.82rem;color:var(--ash-grey)}
+footer a{text-decoration:none;border-bottom:1px solid var(--hairline)}
+.intro{padding:40px 0 10px}
+.intro h1{margin-top:16px;font-size:clamp(2rem,5vw,2.8rem)}
+.cards{display:grid;gap:22px;grid-template-columns:1fr;margin:40px 0 90px}
+@media(min-width:760px){.cards{grid-template-columns:1fr 1fr}}
+.card{display:flex;flex-direction:column;padding:34px 30px 28px;background:var(--graphite);border:1px solid var(--hairline);border-radius:4px;text-decoration:none;transition:border-color .3s,transform .3s}
+.card:hover{border-color:var(--hairline-copper);transform:translateY(-3px)}
+.card small{font-size:.66rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--ember-copper)}
+.card h2{margin-top:14px;font-size:1.45rem}
+.card p{margin-top:14px;color:var(--ash-grey);line-height:1.75}
+.card .go{margin-top:auto;padding-top:24px;font-weight:800}
+.card:hover .go{color:var(--electric-ember)}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="/">Silvia Rakus</a><a class="small" href="/api/klient-logout">Odhlásiť sa</a></div></header>
+<main><div class="wrap">
+  <section class="intro">
+    <p class="eyebrow">Zóna pre klientov</p>
+    <h1>Tvoje diagnostiky</h1>
+    <p class="lead">Vyber si diagnostiku. Odpovedaj v pokoji a úprimne — výsledky prejdeme spolu na stretnutí.</p>
+  </section>
+  <div class="cards">
+    <a class="card" href="/klient/manazer.html">
+      <small>Leadership</small>
+      <h2>Diagnostika manažéra a lídra</h2>
+      <p>Zostaví tvoj leadership profil — kde dnes stojíš ako líder a ktoré oblasti ti oslabujú výkon skôr, než sa to prejaví na tíme.</p>
+      <span class="go">Spustiť diagnostiku →</span>
+    </a>
+    <a class="card" href="/klient/metaprogramy.html">
+      <small>Metaprogramy</small>
+      <h2>Diagnostika metaprogramov</h2>
+      <p>Odhalí tvoj komunikačný kód — 12 nevedomých filtrov, cez ktoré spracúvaš svet, čo ťa poháňa a kde ťa vlastné nastavenie brzdí.</p>
+      <span class="go">Spoznať svoj kód →</span>
+    </a>
+  </div>
+</div></main>
+<footer><div class="wrap">© 2026 Silvia Rakus · <a href="/">silviarakus.sk</a></div></footer>
+</body>
+</html>
