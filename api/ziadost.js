@@ -12,6 +12,7 @@ const CESTY = {
   klient: 'Klient',
   spolupracovnik: 'Spolupracovník',
   diagnostika: 'Diagnostika úzkeho hrdla',
+  prednaska: 'Prednáška / rozhovor',
 };
 const OBLASTI = ['Reality', 'Financie', 'FENIX', 'Neviem / viac oblastí'];
 const KONTAKTY = ['Telefón', 'E-mail', 'Osobne', 'Online'];
