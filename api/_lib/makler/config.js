@@ -11,7 +11,7 @@ module.exports = {
   get effort() { return env('MAKLER_EFFORT', 'medium'); },
   get modelTimeoutMs() { return Number(env('MAKLER_MODEL_TIMEOUT_MS', 170000)); },
   get fallbackTimeoutMs() { return Number(env('MAKLER_FALLBACK_TIMEOUT_MS', 110000)); },
-  get anthropicKey() { return env('ANTHROPIC_API_KEY'); },
+  get anthropicKey() { return env('ANTHROPIC_API_KEY', '').trim(); },
   get supabaseUrl() { return env('SUPABASE_URL', '').replace(/\/$/, ''); },
   get supabaseKey() { return env('SUPABASE_SERVICE_ROLE_KEY'); },
   get limitPerHour() { return Number(env('MAKLER_LIMIT_ZA_HODINU', 20)); },
