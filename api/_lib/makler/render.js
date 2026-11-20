@@ -104,8 +104,8 @@ function renderAvatar(row) {
   const sE = section('namietky', 'E', 'Námietky', 'Námietky s pripravenými odpoveďami', list(a.e_namietky).map((n) => `
 <div class="card objection">
   <p class="said">„${esc(n.namietka)}“</p>
-  <p class="label">Čo je pod tým</p><p>${esc(n.co_je_pod_tym)}</p>
-  <p class="label">Čo mu povieš</p><div class="copy-row"><p>${esc(n.odpoved)}</p>${copyBtn(n.odpoved)}</div>
+  <p class="lbl">Čo je pod tým</p><p>${esc(n.co_je_pod_tym)}</p>
+  <p class="lbl">Čo mu povieš</p><div class="copy-row"><p>${esc(n.odpoved)}</p>${copyBtn(n.odpoved)}</div>
 </div>`).join(''));
 
   const sF = section('cena', 'F', 'Cenová stratégia', row.typ === 'kupujuci' ? 'Ako s ním hovoriť o cene a vyjednávať' : 'Ako s ním nastaviť cenu a obhájiť províziu', `
@@ -134,11 +134,11 @@ function renderAvatar(row) {
     const full = `${r.nadpis}\n\n${r.text}\n\n${r.vyzva}`;
     return `
   <div class="card ad">
-    <p class="label">Reklama ${i + 1}</p>
+    <p class="lbl">Reklama ${i + 1}</p>
     <p class="ad-title">${esc(r.nadpis)}</p>
     <p>${esc(r.text)}</p>
     <p class="ad-cta">${esc(r.vyzva)}</p>
-    <p class="label">Vizuál</p><p class="muted">${esc(r.vizual)}</p>
+    <p class="lbl">Vizuál</p><p class="muted">${esc(r.vizual)}</p>
     ${copyBtn(full, 'Kopírovať reklamu')}
   </div>`;
   }).join('')}

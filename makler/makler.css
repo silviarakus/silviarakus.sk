@@ -139,10 +139,10 @@ blockquote.dialog{font-size:1.15rem;line-height:1.75}
 .pair{padding:16px 18px;background:var(--graphite);border:1px solid var(--hairline);border-radius:4px}
 .said{font-family:var(--font-display);font-weight:600;font-size:1.04rem}
 .truth{margin:8px 0 0!important;color:var(--bone)}
-.truth span,.label{display:block;margin-top:10px;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ash-grey)}
+.truth span,.lbl{display:block;margin-top:10px;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ash-grey)}
 .truth span{margin:0 0 2px}
 .card{padding:18px 20px;margin-bottom:14px;background:var(--graphite);border:1px solid var(--hairline);border-radius:4px}
-.card .label:first-child{margin-top:0}
+.card .lbl:first-child{margin-top:0}
 .copy-row{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--hairline)}
 .card .copy-row{border-bottom:0;padding-bottom:0}
 .copy-row p{margin:0!important}
@@ -169,7 +169,7 @@ blockquote.dialog{font-size:1.15rem;line-height:1.75}
   .block,.report-head{border-color:#ccc;padding:18px 0;break-inside:auto}
   .card,.pair{background:#fff;border-color:#ccc;break-inside:avoid}
   .chip{border-color:#999;background:#fff;color:#000}
-  .muted,.meta,.block h3,.label,.truth span,.facts dt{color:#555}
+  .muted,.meta,.block h3,.lbl,.truth span,.facts dt{color:#555}
   blockquote{border-color:#999}
   .note{background:#fff}
   a{text-decoration:none}
