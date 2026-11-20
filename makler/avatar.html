@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Nový avatar — Moderný maklér</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/makler/makler.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="/makler/">Moderný maklér<span>Avatar zákazníka</span></a>
+  <nav class="top-links"><a href="/makler/">Prehľad</a><a href="/api/makler-logout">Odhlásiť sa</a></nav>
+</div></header>
+<main><div class="wrap" id="app">
+  <a class="back" href="/makler/">← Späť na prehľad</a>
+  <section class="form-head">
+    <p class="eyebrow" id="purpose"></p>
+    <h1 id="title">Nový avatar</h1>
+    <nav class="switch" aria-label="Typ avatara">
+      <a href="?typ=predavajuci" data-typ="predavajuci">Predávajúci</a>
+      <a href="?typ=kupujuci" data-typ="kupujuci">Kupujúci</a>
+    </nav>
+    <p class="lead" id="intro">Stačí pár údajov. Psychológiu, námietky, cenovú stratégiu aj podklady pre sociálne siete dopracuje AI.</p>
+  </section>
+  <form class="avatar" id="form" novalidate>
+    <div id="fields"></div>
+    <div hidden><label>Web <input type="text" name="web" tabindex="-1" autocomplete="off"></label></div>
+    <div class="submit-row">
+      <button type="submit" class="btn" id="submit">Vytvoriť avatara</button>
+      <p>Generovanie trvá zvyčajne 1–2 minúty.</p>
+    </div>
+    <p class="form-error" id="form-error" role="alert" hidden></p>
+  </form>
+</div></main>
+<footer><div class="wrap">Interný nástroj pre maklérov Moderného makléra · Silvia Rakus</div></footer>
+<script src="/makler/form.js"></script>
+<script src="/makler/app.js"></script>
+</body>
+</html>
