@@ -248,6 +248,30 @@ test('middleware: zóna /makler má vlastné heslo, zóna /klient funguje ako pr
   }
 });
 
+test('heslo: medzery okolo a iný zápis diakritiky prejdú, chýbajúce heslo na serveri má vlastnú hlášku', async () => {
+  const { default: middleware } = await import(path.join(ROOT, 'middleware.js'));
+  const login = require('../api/makler-login');
+  process.env.MAKLER_MOCK = '0';
+  try {
+    delete process.env.MAKLER_HESLO;
+    const chyba = await call(login, mockReq({ method: 'POST', body: { heslo: 'cokolvek' }, headers: { ip: '198.51.100.50' } }));
+    assert.match(chyba.headers.location, /chyba=nastavenie/);
+
+    process.env.MAKLER_HESLO = ' Maklér2026 \n';
+    const ok = await call(login, mockReq({ method: 'POST', body: { heslo: 'Maklér2026'.normalize('NFD') + ' ' }, headers: { ip: '198.51.100.51' } }));
+    assert.equal(ok.headers.location, '/makler/');
+    const cookie = ok.headers['set-cookie'].split(';')[0];
+    assert.equal(auth.isAuthorized({ headers: { cookie } }), true);
+    assert.equal(await middleware(new Request('https://silviarakus.sk/makler/', { headers: { cookie } })), undefined);
+
+    const zle = await call(login, mockReq({ method: 'POST', body: { heslo: 'makler2026' }, headers: { ip: '198.51.100.52' } }));
+    assert.match(zle.headers.location, /chyba=1/);
+  } finally {
+    delete process.env.MAKLER_HESLO;
+    process.env.MAKLER_MOCK = '1';
+  }
+});
+
 test('end-to-end (mock): zadanie → generovanie → report → prehľad tímu → výmaz', async () => {
   const submit = require('../api/makler/submit');
   const report = require('../api/makler/report');

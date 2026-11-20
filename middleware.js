@@ -10,7 +10,7 @@ export const config = {
 
 const ZONY = {
   klient: { env: 'KLIENT_HESLO', verejne: ['/klient/prihlasenie', '/klient/prihlasenie.html'] },
-  makler: { env: 'MAKLER_HESLO', verejne: ['/makler/prihlasenie', '/makler/prihlasenie.html'] },
+  makler: { env: 'MAKLER_HESLO', verejne: ['/makler/prihlasenie', '/makler/prihlasenie.html'], normalizovat: true },
 };
 
 async function token(heslo, zona) {
@@ -31,7 +31,8 @@ export default async function middleware(request) {
   const zona = ZONY[nazov];
   if (!zona || zona.verejne.includes(url.pathname)) return;
 
-  const heslo = process.env[zona.env];
+  let heslo = process.env[zona.env];
+  if (heslo && zona.normalizovat) heslo = heslo.normalize('NFC').trim();
   if (heslo && cookie(request, nazov) === (await token(heslo, nazov))) return;
 
   const login = new URL('/' + nazov + '/prihlasenie.html', url);

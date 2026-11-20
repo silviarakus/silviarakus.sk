@@ -5,7 +5,12 @@ const config = require('./config');
 
 const COOKIE = 'makler';
 
-const token = (heslo) => crypto.createHash('sha256').update(heslo + '|silviarakus-makler').digest('hex');
+// Medzery okolo a rôzne zápisy diakritiky (macOS vs. Windows) nesmú zablokovať prihlásenie.
+const norm = (s) => String(s || '').normalize('NFC').trim();
+
+const token = (heslo) => crypto.createHash('sha256').update(norm(heslo) + '|silviarakus-makler').digest('hex');
+
+const nastavene = () => norm(config.heslo) !== '';
 
 function cookie(req, name) {
   const raw = String(req.headers.cookie || '');
@@ -15,18 +20,16 @@ function cookie(req, name) {
 
 function isAuthorized(req) {
   if (config.mock && !config.heslo) return true;
-  const heslo = config.heslo;
-  if (!heslo) return false;
-  const expected = Buffer.from(token(heslo));
+  if (!nastavene()) return false;
+  const expected = Buffer.from(token(config.heslo));
   const got = Buffer.from(cookie(req, COOKIE));
   return got.length === expected.length && crypto.timingSafeEqual(got, expected);
 }
 
 function checkPassword(zadane) {
-  const heslo = config.heslo;
-  if (!heslo) return false;
-  const a = Buffer.from(String(zadane || ''));
-  const b = Buffer.from(heslo);
+  if (!nastavene()) return false;
+  const a = Buffer.from(norm(zadane));
+  const b = Buffer.from(norm(config.heslo));
   return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
 
@@ -40,4 +43,4 @@ function clearCookie() {
   return `${COOKIE}=; Path=/; HttpOnly;${secure} SameSite=Lax; Max-Age=0`;
 }
 
-module.exports = { isAuthorized, checkPassword, sessionCookie, clearCookie, token };
+module.exports = { isAuthorized, checkPassword, sessionCookie, clearCookie, token, nastavene };

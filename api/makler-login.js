@@ -33,6 +33,9 @@ module.exports = (req, res) => {
   const body = parseBody(req);
   const next = bezpecnyNext(body.next);
 
+  if (!auth.nastavene()) {
+    return redirect(res, '/makler/prihlasenie.html?chyba=nastavenie&next=' + encodeURIComponent(next));
+  }
   if (!auth.checkPassword(body.heslo)) {
     return redirect(res, '/makler/prihlasenie.html?chyba=1&next=' + encodeURIComponent(next));
   }
