@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Avatar zákazníka — Moderný maklér</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/makler/makler.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="/makler/">Moderný maklér<span>Avatar zákazníka</span></a>
+  <nav class="top-links"><a href="/api/makler-logout">Odhlásiť sa</a></nav>
+</div></header>
+<main><div class="wrap">
+  <section class="intro">
+    <p class="eyebrow">Nástroj pre maklérov</p>
+    <h1>Komu idem predávať?</h1>
+    <p class="lead">Opíšeš situáciu zákazníka v jednej vete a AI ti za dve minúty pripraví celého avatara:
+      čo ho trápi, čoho sa bojí, ako hovorí, námietky s odpoveďami, cenovú stratégiu a hotové podklady
+      pre reklamu a obsah na sociálne siete.</p>
+    <p class="notice" id="deleted" hidden>Avatar bol vymazaný.</p>
+  </section>
+
+  <div class="choices">
+    <a class="choice" href="/makler/avatar.html?typ=predavajuci">
+      <span class="eyebrow">Náber</span>
+      <h2>Avatar predávajúceho</h2>
+      <p>Majiteľ, ktorý chce alebo musí predať nehnuteľnosť.</p>
+      <ul>
+        <li>kampane na získanie nehnuteľností do predaja</li>
+        <li>ako s ním nastaviť cenu a obhájiť províziu</li>
+        <li>odpovede na „predám to sám“</li>
+      </ul>
+      <span class="go">Vytvoriť avatara predávajúceho →</span>
+    </a>
+    <a class="choice" href="/makler/avatar.html?typ=kupujuci">
+      <span class="eyebrow">Predaj</span>
+      <h2>Avatar kupujúceho</h2>
+      <p>Človek, ktorý hľadá nehnuteľnosť na bývanie alebo investíciu.</p>
+      <ul>
+        <li>reklamy k ponukám a obsah pre záujemcov</li>
+        <li>ako mu prezentovať cenu a vyjednávať</li>
+        <li>odpovede na „je to predražené“</li>
+      </ul>
+      <span class="go">Vytvoriť avatara kupujúceho →</span>
+    </a>
+  </div>
+
+  <section class="team" aria-labelledby="team-title">
+    <div class="team-head">
+      <h2 id="team-title">Avatary tímu</h2>
+      <div class="filters" role="group" aria-label="Filter">
+        <button type="button" data-filter="" aria-pressed="true">Všetky</button>
+        <button type="button" data-filter="predavajuci" aria-pressed="false">Predávajúci</button>
+        <button type="button" data-filter="kupujuci" aria-pressed="false">Kupujúci</button>
+      </div>
+    </div>
+    <label class="search"><span class="help">Hľadať podľa lokality, mena alebo autora</span>
+      <input type="text" id="search" placeholder="Napr. Trenčín" autocomplete="off">
+    </label>
+    <ul class="rows" id="rows"></ul>
+    <p class="empty" id="empty">Načítavam…</p>
+  </section>
+</div></main>
+<footer><div class="wrap">Interný nástroj pre maklérov Moderného makléra · Silvia Rakus</div></footer>
+<script src="/makler/home.js"></script>
+</body>
+</html>

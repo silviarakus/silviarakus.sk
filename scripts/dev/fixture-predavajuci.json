@@ -1,0 +1,125 @@
+{
+  "archetyp": "Opatrná dedička Jana",
+  "esencia": "Zdedila byt po mame v Trenčíne, sama býva v Bratislave a chce ho predať rýchlo a bez starostí. Bojí sa, že ju niekto oberie alebo že predá pod cenu a bude to ľutovať.",
+  "a_profil": {
+    "meno": "Jana",
+    "vek": "51 rokov",
+    "rodina": "Vydatá, dve dospelé deti, brat žije v zahraničí a do predaja sa nechce miešať.",
+    "praca_a_prijem": "Účtovníčka v stredne veľkej firme, zarába slušne, peniaze z predaja nepotrebuje na prežitie, ale chce ich mať v bezpečí.",
+    "situacia": "Mama zomrela pred pol rokom, dedičské konanie je ukončené. Byt je 3-izbový v panelovom dome, zachovalý, ale s pôvodnou kuchyňou a kúpeľňou. Každý mesiac platí za byt zálohy a cestuje doň na víkendy, aby ho vyvetrala a skontrolovala.",
+    "spustac": "Prišlo vyúčtovanie a správca domu ohlásil rekonštrukciu výťahu. Uvedomila si, že každý mesiac, kým byt stojí prázdny, ju stojí peniaze aj víkendy."
+  },
+  "b_psychologia": {
+    "hlavna_bolest": "Má pocit, že na všetko je sama. Byt je posledné, čo jej po mame ostalo, a zároveň bremeno, ktoré ju ťahá do Trenčína každý druhý víkend. Bojí sa urobiť chybu, ktorú už nepôjde vrátiť.",
+    "skryte_obavy": [
+      "Čo ak ho predám lacno a o mesiac zistím, že susedia dostali o dvadsaťtisíc viac?",
+      "Neviem, čo všetko treba podpísať, a nechcem, aby ma niekto natiahol na zmluvách.",
+      "Bojím sa, že sa do bytu budú chodiť pozerať cudzí ľudia a mamine veci tam ešte sú.",
+      "Brat mi potom povie, že som to celé pokazila.",
+      "Maklér si zoberie províziu a v podstate len vyvesí inzerát."
+    ],
+    "falosne_presvedcenia": [
+      { "presvedcenie": "Keď to dám na inzerát sama, ušetrím na provízii.", "realita": "Bez preverenia kupujúceho, financovania a zmlúv riskuje oveľa viac, než je provízia. Predaj navyše trvá dlhšie a každý mesiac ju stojí zálohy a cestovanie." },
+      { "presvedcenie": "Byt po mame má hodnotu aspoň takú, ako tie inzeráty, čo som videla.", "realita": "Inzerované ceny nie sú predajné ceny. Rozhoduje, za koľko sa podobné byty naozaj predali, a pôvodný stav kuchyne a kúpeľne cenu znižuje." },
+      { "presvedcenie": "Najprv to musím celé zrekonštruovať, inak to nikto nekúpi.", "realita": "Veľa kupujúcich hľadá byt na vlastnú rekonštrukciu. Stačí vypratať, upratať a dobre nafotiť." },
+      { "presvedcenie": "Na predaj mám času dosť, nič ma netlačí.", "realita": "Prázdny byt každý mesiac stojí peniaze a jej víkendy. Čím dlhšie inzerát visí, tým viac kupujúcich si myslí, že s bytom niečo nie je v poriadku." }
+    ],
+    "tuzby": [
+      "Uzavrieť túto kapitolu s pocitom, že to urobila dobre a mama by bola spokojná.",
+      "Mať niekoho, kto jej povie, čo presne treba urobiť, a postará sa o to.",
+      "Nemusieť každý druhý víkend cestovať do Trenčína.",
+      "Mať peniaze bezpečne na účte bez sporov s bratom."
+    ],
+    "na_com_mu_zalezi": ["bezpečnosť", "férovosť", "pokoj v rodine", "dôvera", "mať veci pod kontrolou"]
+  },
+  "c_vnutorny_dialog": "Zase piatok a zase idem do Trenčína vetrať. Už by som to mala predať, ale stále to odkladám. Keď to dám lacno, budem si to vyčítať, a keď to dám draho, bude to visieť rok. Makléri mi volajú, ale každý sľubuje niečo iné a ja neviem, komu veriť. Najradšej by som, keby mi niekto normálne vysvetlil, koľko to reálne stojí a čo mám robiť, a nemusela som sa o nič starať.",
+  "d_jazyk": {
+    "ako_hovori": [
+      "Je to byt po mame, tak nechcem, aby to išlo za babku.",
+      "Ja sa v tom vôbec nevyznám, vysvetlite mi to, prosím, ako laikovi.",
+      "Koľko si za to reálne pýtať? Na internete vidím všetko možné.",
+      "Bývam v Bratislave, nemôžem sem chodiť každý týždeň.",
+      "A čo presne robíte za tú províziu?",
+      "Brat chce, aby sme to predali čo najdrahšie, ale do ničoho sa nemieša."
+    ],
+    "slova_ktore_zaberu": ["postarám sa", "bez starostí", "reálna cena", "krok za krokom", "bezpečne", "preverený kupujúci", "nemusíte cestovať", "férová cena", "máte to pod kontrolou", "všetko vám vysvetlím"],
+    "slova_ktore_odpudia": ["rýchly predaj za každú cenu", "exkluzívna zmluva bez vysvetlenia", "garantujeme najvyššiu cenu", "investičná príležitosť", "market value"]
+  },
+  "e_namietky": [
+    { "namietka": "Skúsim to najprv predať sama, províziu platiť nechcem.", "co_je_pod_tym": "Bojí sa, že zaplatí za niečo, čo nevidí, a že maklér len vyvesí inzerát.", "odpoved": "Rozumiem, provízia nie je malá suma. Ukážem vám presne, čo za ňu urobím, od ocenenia cez preverenie kupujúceho až po prepis v katastri. Potom sa rozhodnete sama, či vám to za to stojí." },
+    { "namietka": "Iný maklér mi povedal, že to predá o pätnásťtisíc drahšie.", "co_je_pod_tym": "Chce veriť vyššej cene, ale bojí sa, že ju niekto kŕmi sľubmi.", "odpoved": "Vyššie číslo sa dá napísať do inzerátu vždy. Ukážem vám, za koľko sa podobné byty v okolí naozaj predali za posledný polrok, a dohodneme sa, kedy a podľa čoho cenu prehodnotíme." },
+    { "namietka": "Nemám teraz čas to riešiť, počkám do jari.", "co_je_pod_tym": "Je zahltená a odkladá rozhodnutie, ktoré jej je emocionálne ťažké.", "odpoved": "Chápem, že je toho veľa. Väčšinu vecí vybavím za vás, vy prídete len na podpisy. Každý mesiac čakania vás pritom stojí zálohy a víkendy na cestách." },
+    { "namietka": "Nechcem, aby mi tam chodili cudzí ľudia, sú tam ešte mamine veci.", "co_je_pod_tym": "Byt je pre ňu stále spomienka a cíti sa zraniteľná.", "odpoved": "Obhliadky robím len s preverenými záujemcami a vždy som pri nich osobne. Ak chcete, pomôžem vám nájsť firmu, ktorá byt citlivo vyprace, a veci, na ktorých vám záleží, odložíme bokom." },
+    { "namietka": "Nechcem sa viazať exkluzívnou zmluvou.", "co_je_pod_tym": "Bojí sa, že stratí kontrolu a nebude mať ako vycúvať.", "odpoved": "Zmluvu prejdeme bod po bode a dohodneme sa, čo presne robím a do kedy. Exkluzivita znamená, že sa o byt naozaj starám a nebojujem o neho s piatimi inzerátmi." },
+    { "namietka": "Musím sa ešte poradiť s bratom.", "co_je_pod_tym": "Nechce niesť zodpovednosť sama a bojí sa výčitiek.", "odpoved": "Samozrejme. Pripravím vám prehľad ceny a postupu na jednu stranu, aby ste ho mohli poslať bratovi. Ak chcete, rád mu všetko vysvetlím aj telefonicky." }
+  ],
+  "f_cenova_strategia": {
+    "ako_vnima_cenu": "Cenu odvodzuje z inzerátov, ktoré videla na internete, a z citovej hodnoty bytu. Za férovú považuje cenu, za ktorú by sa nemusela hanbiť pred bratom ani susedmi. Pod cenou si predstavuje jedno číslo, nie rozpätie.",
+    "cenova_citlivost": "vysoká",
+    "odporucana_strategia": "Začni ocenením postaveným na predaných, nie inzerovaných bytoch v okolí a ukáž jej ho na papieri. Navrhni vstupnú cenu na hornej hranici reálneho rozpätia, nie nad ňou, aby byt v prvých týždňoch zaujal čo najviac kupujúcich. Vopred sa dohodnite, že po troch týždňoch vyhodnotíte počet obhliadok a ponúk a podľa toho cenu potvrdíte alebo upravíte. Provízie sa nebojte, ale prezentuj ju ako cenu za istotu a jej čas, nie za inzerát.",
+    "kroky": [
+      "Na prvom stretnutí sa pýtaj, akú cenu má v hlave a odkiaľ ju má, a nekomentuj ju hneď.",
+      "Prines ocenenie s 3–5 predanými bytmi v okolí a vysvetli rozdiel medzi inzerovanou a predajnou cenou.",
+      "Navrhni vstupnú cenu a písomne dohodnite, kedy a podľa čoho ju prehodnotíte.",
+      "Priprav byt na predaj: vypratanie, upratanie, profesionálne fotky a pôdorys.",
+      "Každý týždeň jej pošli krátky prehľad: koľko ľudí volalo, koľko bolo obhliadok a čo hovorili o cene.",
+      "Po troch týždňoch spolu vyhodnoťte záujem a rozhodnite o cene na základe faktov."
+    ],
+    "vety_o_cene": [
+      "Inzerát s vyššou cenou napíše hocikto. Ja vám ukážem, za koľko sa podobné byty naozaj predali.",
+      "Prvé tri týždne rozhodujú. Vtedy byt uvidí najviac ľudí, a ak je cena reálna, prídu ponuky.",
+      "Nechcem, aby váš byt visel na internete pol roka a kupujúci sa pýtali, čo je s ním zlé.",
+      "Dohodnime sa vopred, podľa čoho cenu po troch týždňoch prehodnotíme, aby ste mali všetko pod kontrolou.",
+      "Cieľom je, aby ste predali za najlepšiu reálnu cenu a nemuseli si nič vyčítať."
+    ],
+    "vyjednavanie": [
+      "Pred obhliadkami si s ňou dohodni spodnú hranicu, pod ktorú nepôjdete.",
+      "Ponuky jej nosiť písomne a s vysvetlením, kto je kupujúci a ako bude financovať.",
+      "Pri prvej nízkej ponuke ju upokoj, že je to bežný začiatok vyjednávania, nie urážka.",
+      "Zdôrazňuj istotu obchodu: preverené financovanie je niekedy cennejšie než o tisíc eur vyššia ponuka."
+    ],
+    "hodnota_sluzby": "Pre ňu nie je hodnotou inzerát, ale to, že nemusí cestovať, nič nepokazí a má pokoj v rodine. Ukáž jej zoznam všetkého, čo za províziu urobíš, od ocenenia a prípravy bytu cez preverenie kupujúceho a financovania až po zmluvy, kataster a odovzdanie bytu. Provízia je cena za to, že predaj prebehne bezpečne a ona sa môže venovať svojmu životu.",
+    "chyby": [
+      "Nadsadiť cenu len preto, aby podpísala zmluvu, a potom ju mesiace presviedčať o zľave.",
+      "Hovoriť o cene bez dát, len z pocitu alebo skúseností.",
+      "Prehliadať citovú stránku a tlačiť na rýchly predaj.",
+      "Prestať jej dávať spätnú väzbu po podpise zmluvy."
+    ]
+  },
+  "g_socialne_siete": {
+    "kde_ho_najdes": "Na Facebooku večer po práci, v skupinách o svojom meste a v skupinách pre ženy nad 45. Instagram pozerá skôr pasívne, sleduje recepty, záhradu a cestovanie. Reklamu si všimne, ak hovorí o jej situácii a nie o realitách všeobecne.",
+    "cielenie": {
+      "vek": "45–65",
+      "lokalita": "Trenčín a okolie do 30 km, plus Bratislava (dedičia, ktorí bývajú inde)",
+      "zaujmy": ["nehnuteľnosti", "dedičstvo a dedičské konanie", "rekonštrukcia bytu", "osobné financie", "sporenie a investovanie", "rodina", "záhradkárčenie", "cestovanie"],
+      "zivotne_udalosti": ["nedávno presťahovaní", "rodičia vo vyššom veku", "ukončenie dedičského konania"]
+    },
+    "hacky": [
+      "Zdedili ste byt a neviete, koľko zaňho pýtať?",
+      "Každý mesiac platíte zálohy za prázdny byt?",
+      "Inzerovaná cena nie je predajná cena. Tu je rozdiel.",
+      "Tri chyby, ktoré robia dedičia pri predaji bytu.",
+      "Bývate v inom meste a byt po rodičoch stojí prázdny?",
+      "Toto by som chcel vedieť, keby som predával byt po mame."
+    ],
+    "reklamy": [
+      { "nadpis": "Zdedili ste byt v Trenčíne?", "text": "Predaj bytu po rodičoch je ťažký aj bez papierovačiek. Postarám sa o ocenenie, prípravu bytu, obhliadky aj zmluvy. Vy prídete len na podpis. Najprv vám zadarmo poviem, za koľko sa podobné byty naozaj predali.", "vyzva": "Napíšte mi správu", "vizual": "Svetlá obývačka v staršom byte, ruka s kľúčmi, bez ľudí v záberoch." },
+      { "nadpis": "Koľko je váš byt naozaj hodný?", "text": "Inzeráty ukazujú ceny, za ktoré sa byty ponúkajú, nie za ktoré sa predajú. Pripravím vám porovnanie s predanými bytmi vo vašom okolí. Bez záväzkov a bez tlaku.", "vyzva": "Chcem ocenenie", "vizual": "Grafika: dve čísla vedľa seba, inzerovaná a predajná cena, vo farbách značky." },
+      { "nadpis": "Nemusíte sem chodiť každý víkend", "text": "Ak bývate inde a byt po rodičoch stojí prázdny, vyriešim predaj za vás. Obhliadky robím osobne len s preverenými záujemcami a každý týždeň vám pošlem prehľad.", "vyzva": "Zavolajte mi", "vizual": "Krátke video: maklér odomyká dvere bytu a hovorí do kamery jednu vetu." }
+    ],
+    "obsah": [
+      { "format": "reels", "tema": "Inzerovaná vs. predajná cena: prečo inzeráty klamú a ako zistiť skutočnú hodnotu bytu." },
+      { "format": "karusel", "tema": "Predaj zdedeného bytu krok za krokom: od dedičského konania po prepis v katastri." },
+      { "format": "príspevok", "tema": "Príbeh klientky, ktorá predávala byt po mame z Bratislavy a nemusela prísť ani raz na obhliadku." },
+      { "format": "reels", "tema": "Čo s vecami po rodičoch pred predajom: ako byt citlivo vypratať." },
+      { "format": "story", "tema": "Anketa: Predali by ste byt sami, alebo cez makléra? A prečo?" },
+      { "format": "karusel", "tema": "Päť vecí, ktoré stoja peniaze, keď prázdny byt čaká na predaj." }
+    ]
+  },
+  "h_overit": [
+    "Koľko dedičov v tvojom okolí býva v inom meste ako zdedený byt?",
+    "Je pre nich väčší problém čas a cestovanie, alebo strach z nízkej ceny?",
+    "Kto v rodine o predaji naozaj rozhoduje, dedič sám alebo aj súrodenci?",
+    "Odkiaľ berú predstavu o cene, z inzerátov alebo od známych?"
+  ]
+}

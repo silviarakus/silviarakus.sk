@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /klient/
+Disallow: /makler/
 Disallow: /api/
 Disallow: /portal/

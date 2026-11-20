@@ -1,0 +1,117 @@
+{
+  "archetyp": "Nájomníci Martin a Lucia",
+  "esencia": "Mladý pár, ktorý platí vysoký nájom a chce konečne vlastné bývanie. Boja sa hypotéky na 30 rokov a toho, že kúpia byt so skrytou vadou alebo preplatia.",
+  "a_profil": {
+    "meno": "Martin",
+    "vek": "31 rokov, partnerka Lucia 29",
+    "rodina": "Bezdetný pár, plánujú dieťa do dvoch rokov.",
+    "praca_a_prijem": "Martin je IT technik vo výrobnej firme, Lucia zdravotná sestra. Spolu majú stabilný príjem a odložené peniaze na vlastné zdroje.",
+    "situacia": "Štyri roky bývajú v podnájme v dvojizbovom byte. Nájom sa im za posledný rok zvýšil a majiteľ naznačil, že byt možno predá. Pozerajú inzeráty každý večer, ale ešte neboli na žiadnej obhliadke.",
+    "spustac": "Majiteľ podnájmu oznámil ďalšie zvýšenie nájmu a kamaráti sa práve nasťahovali do vlastného."
+  },
+  "b_psychologia": {
+    "hlavna_bolest": "Majú pocit, že platia cudziemu človeku hypotéku a sami nemajú nič. Zároveň sa boja, že jedno zlé rozhodnutie ich zviaže na tridsať rokov.",
+    "skryte_obavy": [
+      "Čo ak nám banka nedá toľko, koľko potrebujeme?",
+      "Bojím sa, že kúpime byt a potom zistíme, že tam tečie strecha alebo sú zlí susedia.",
+      "Neviem, či sa ceny o rok nezrútia a my sme kupovali na vrchole.",
+      "Nechcem, aby nás maklér tlačil do niečoho, len aby mal províziu."
+    ],
+    "falosne_presvedcenia": [
+      { "presvedcenie": "Najprv si nájdeme byt, hypotéku vybavíme potom.", "realita": "Bez predschválenej hypotéky nevedia, na aký byt reálne majú, a o dobré byty prídu, kým to banka spracuje." },
+      { "presvedcenie": "Keď si počkáme, ceny klesnú.", "realita": "Nikto nevie, kam pôjdu ceny. Isté je, že každý mesiac čakania platia nájom, ktorý im nič nevracia." },
+      { "presvedcenie": "Cena v inzeráte je konečná, nemá zmysel vyjednávať.", "realita": "Pri mnohých nehnuteľnostiach je priestor na dohodu, ak je ponuka podložená a kupujúci má vybavené financovanie." },
+      { "presvedcenie": "Maklér je na strane predávajúceho, mne nepomôže.", "realita": "Maklér chce, aby obchod prebehol bez problémov. Preverenie právneho stavu a pomoc s financovaním chráni aj kupujúceho." }
+    ],
+    "tuzby": [
+      "Mať vlastný domov, kde si môžu zatĺcť klinec bez pýtania.",
+      "Platiť mesačne podobnú sumu, ale do vlastného.",
+      "Mať istotu, že rozhodnutie je bezpečné a dobre premyslené.",
+      "Pripraviť miesto pre budúce dieťa."
+    ],
+    "na_com_mu_zalezi": ["istota", "férová cena", "pokoj", "budúcnosť rodiny", "nezávislosť"]
+  },
+  "c_vnutorny_dialog": "Zase sme pozerali inzeráty do polnoci. Všetko, čo sa nám páči, je drahé, a to, na čo máme, je stará diera. Kamaráti už bývajú vo svojom a my stále platíme nájom. Ale čo keď si zoberieme hypotéku a niečo sa stane? Potrebujeme niekoho, kto nám normálne povie, na čo máme a čo z toho je dobrý kúp.",
+  "d_jazyk": {
+    "ako_hovori": [
+      "Ešte len pozeráme, nechceme nič unáhliť.",
+      "Koľko by sme mesačne splácali pri tejto cene?",
+      "Je v tej cene nejaký priestor na dohodu?",
+      "Ako zistíme, že s tým bytom nie je nejaký problém?",
+      "Hypotéku ešte vybavenú nemáme, je to problém?"
+    ],
+    "slova_ktore_zaberu": ["mesačná splátka", "vlastné namiesto nájmu", "preverený byt", "bez skrytých vád", "pomôžeme s hypotékou", "férová cena", "bez tlaku", "krok za krokom"],
+    "slova_ktore_odpudia": ["posledná šanca", "rozhodnite sa dnes", "luxusné bývanie", "investičný potenciál"]
+  },
+  "e_namietky": [
+    { "namietka": "Je to predražené, za toľko to nekúpime.", "co_je_pod_tym": "Nevedia posúdiť, či je cena férová, a boja sa, že preplatia.", "odpoved": "Rozumiem. Pozrime sa spolu, za koľko sa podobné byty v okolí naozaj predali a čo konkrétne je v tejto cene. Ak bude priestor na dohodu, pomôžem vám pripraviť podloženú ponuku." },
+    { "namietka": "Ešte si to musíme rozmyslieť.", "co_je_pod_tym": "Boja sa záväzku a nemajú jasno vo financovaní.", "odpoved": "Je to veľké rozhodnutie, máte pravdu. Čo vám ešte chýba k rozhodnutiu? Ak je to financovanie, môžeme ho preveriť ešte tento týždeň, bez záväzku." },
+    { "namietka": "Počkáme, kým ceny klesnú.", "co_je_pod_tym": "Chcú mať istotu, že neurobia chybu v zlom čase.", "odpoved": "Kam pôjdu ceny, vám nikto poctivo nepovie. Môžeme si však spočítať, koľko zaplatíte na nájme, kým budete čakať, a porovnať to so splátkou." },
+    { "namietka": "Najprv chceme vidieť viac bytov.", "co_je_pod_tym": "Nechcú mať pocit, že sa nechali uniesť prvou ponukou.", "odpoved": "Určite. Povedzte mi, čo je pre vás nevyhnutné a čo by bolo fajn, a pošlem vám aj ďalšie ponuky, ktoré tomu zodpovedajú." }
+  ],
+  "f_cenova_strategia": {
+    "ako_vnima_cenu": "Cenu nevnímajú ako celkovú sumu, ale ako mesačnú splátku a porovnávajú ju s nájmom. Za férovú považujú cenu, ktorá zodpovedá podobným inzerátom a stavu bytu. Zľavu berú ako dôkaz, že nepreplatili.",
+    "cenova_citlivost": "vysoká",
+    "odporucana_strategia": "Prezentuj cenu cez mesačnú splátku pri ich vlastných zdrojoch a porovnaj ju s nájmom, ktorý dnes platia. Pred obhliadkou im ponúkni preverenie financovania, aby vedeli, na čo reálne majú. Pri vyjednávaní stav na faktoch o stave bytu a predaných nehnuteľnostiach v okolí a ponuku spoj s jasným financovaním, lebo to je pre predávajúceho silný argument.",
+    "kroky": [
+      "Zisti ich vlastné zdroje a mesačnú sumu, ktorú vedia pohodlne platiť.",
+      "Dohodni im preverenie hypotéky ešte pred obhliadkami.",
+      "Pri ponuke ukáž mesačnú splátku vedľa ich súčasného nájmu.",
+      "Pri obhliadke otvorene ukáž aj slabé stránky bytu a čo stoja.",
+      "Pomôž pripraviť podloženú ponuku s jasným financovaním a termínom."
+    ],
+    "vety_o_cene": [
+      "Pri vašich vlastných zdrojoch by ste mesačne splácali približne toľko ako dnes za nájom, len do vlastného.",
+      "Pozrime sa, za koľko sa podobné byty naozaj predali, nie len za koľko sú inzerované.",
+      "Ak budete mať preverenú hypotéku, vaša ponuka bude pre predávajúceho silnejšia.",
+      "Ukážem vám aj to, čo by bolo treba v byte opraviť, aby ste vedeli, koľko vás bude stáť celkovo."
+    ],
+    "vyjednavanie": [
+      "Ponuku podlož faktami o stave bytu a predaných nehnuteľnostiach, nie len pocitom.",
+      "Silnou kartou je hotové financovanie a rýchly termín podpisu.",
+      "Nedovoľ, aby prvá ponuka bola urážlivo nízka, predávajúci by vyjednávanie ukončil.",
+      "Vopred si s nimi dohodni hornú hranicu, cez ktorú nepôjdu."
+    ],
+    "hodnota_sluzby": "Pre nich je hodnota služby v istote: preverený právny stav, pomoc s hypotékou a niekto, kto ich prevedie celým procesom. Ukáž im, že s maklérom nekupujú mačku vo vreci a vyhnú sa chybám, ktoré by ich stáli viac než celé vyjednávanie.",
+    "chyby": [
+      "Tlačiť na rýchle rozhodnutie a vytvárať falošnú naliehavosť.",
+      "Hovoriť len o celkovej cene, nie o mesačnej splátke.",
+      "Ukazovať im byty, na ktoré im banka nepožičia."
+    ]
+  },
+  "g_socialne_siete": {
+    "kde_ho_najdes": "Na Instagrame a Facebooku večer, pozerajú reels o bývaní, zariaďovaní a osobných financiách. Sledujú realitné portály a skupiny s ponukami bytov vo svojom meste.",
+    "cielenie": {
+      "vek": "25–38",
+      "lokalita": "Trenčín a okolie do 25 km",
+      "zaujmy": ["nehnuteľnosti", "hypotéky", "bývanie a zariaďovanie", "IKEA a dizajn interiéru", "osobné financie", "rodičovstvo", "svadba", "DIY a rekonštrukcie"],
+      "zivotne_udalosti": ["nedávno zasnúbení alebo zosobášení", "noví rodičia", "nová práca"]
+    },
+    "hacky": [
+      "Platíte nájom vyšší než by bola splátka hypotéky?",
+      "Koľko by ste reálne splácali za byt v Trenčíne?",
+      "Najväčšia chyba pri kúpe prvého bytu.",
+      "Ako zistiť, či je cena bytu férová.",
+      "Toto si skontrolujte na obhliadke, inak to oľutujete.",
+      "Prvý byt bez stresu: čo urobiť ako prvé."
+    ],
+    "reklamy": [
+      { "nadpis": "Vlastné namiesto nájmu", "text": "Mnohé páry platia za nájom podobne ako za splátku hypotéky. Spočítame vám, na aký byt reálne máte a koľko by ste mesačne splácali. Bez záväzku.", "vyzva": "Chcem si to spočítať", "vizual": "Mladý pár v prázdnom byte s krabicami, prirodzené svetlo." },
+      { "nadpis": "Je cena tohto bytu férová?", "text": "Ukážeme vám, za koľko sa podobné byty naozaj predali. Preveríme právny stav aj financovanie, aby ste kupovali s istotou.", "vyzva": "Napíšte nám", "vizual": "Detail rúk nad pôdorysom bytu a kalkulačkou." },
+      { "nadpis": "Prvý byt krok za krokom", "text": "Od predschválenia hypotéky po odovzdanie kľúčov. Prevedieme vás celým procesom a poviete si, čo je pre vás dôležité.", "vyzva": "Dohodnúť stretnutie", "vizual": "Krátke video: kľúče odovzdávané pri dverách nového bytu." }
+    ],
+    "obsah": [
+      { "format": "reels", "tema": "Nájom vs. hypotéka: porovnanie mesačných nákladov na konkrétnom príklade." },
+      { "format": "karusel", "tema": "Čo skontrolovať na obhliadke staršieho bytu." },
+      { "format": "príspevok", "tema": "Príbeh páru, ktorý prešiel z podnájmu do vlastného za tri mesiace." },
+      { "format": "story", "tema": "Otázka týždňa: Čoho sa pri kúpe prvého bytu bojíte najviac?" },
+      { "format": "reels", "tema": "Ako pripraviť ponuku, ktorú predávajúci neodmietne." },
+      { "format": "karusel", "tema": "Päť krokov k predschválenej hypotéke." }
+    ]
+  },
+  "h_overit": [
+    "Porovnávajú cenu bytu skôr s nájmom alebo s inými inzerátmi?",
+    "Majú vybavené financovanie skôr, než začnú chodiť na obhliadky?",
+    "Kto v páre rozhoduje o kúpe a čo je pre každého z nich dôležité?"
+  ]
+}

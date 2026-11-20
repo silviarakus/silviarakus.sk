@@ -24,6 +24,14 @@
     {
       "source": "/portal/:path+",
       "destination": "https://second-brain-beta-sand.vercel.app/portal/:path+"
+    },
+    {
+      "source": "/makler/avatar/:token",
+      "destination": "/api/makler/report?token=:token"
+    },
+    {
+      "source": "/api/makler/status/:token",
+      "destination": "/api/makler/status?token=:token"
     }
   ],
   "headers": [
@@ -74,6 +82,19 @@
       ]
     },
     {
+      "source": "/makler/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "private, no-store"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
       "source": "/api/(.*)",
       "headers": [
         {
@@ -86,5 +107,16 @@
         }
       ]
     }
-  ]
+  ],
+  "functions": {
+    "api/makler/submit.js": {
+      "maxDuration": 300
+    },
+    "api/makler/status.js": {
+      "maxDuration": 300
+    },
+    "api/makler/report.js": {
+      "maxDuration": 300
+    }
+  }
 }
